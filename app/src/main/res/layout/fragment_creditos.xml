@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="konox.actividad3.CreditosFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/eyuu"
+        android:id="@+id/imgPrimeraCargando"
+        android:visibility="visible"
+         />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/androidicon"
+        android:id="@+id/imgSegundaAndroid"
+        android:visibility="gone"
+         />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/utad"
+        android:id="@+id/imgTerceraUtad"
+        android:visibility="gone"/>
+</RelativeLayout>
