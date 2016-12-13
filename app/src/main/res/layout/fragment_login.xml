@@ -40,24 +40,11 @@
         android:layout_marginEnd="15dp" />
 
     <TextView
-        android:text="Email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="69dp"
-        android:id="@+id/textView"
-        android:textSize="18sp"
-        android:layout_above="@+id/editText_pwd"
-        android:layout_toLeftOf="@+id/button_iniciarsesion"
-        android:layout_toStartOf="@+id/button_iniciarsesion"
-        android:layout_marginRight="49dp"
-        android:layout_marginEnd="49dp" />
-
-    <TextView
         android:text="Contraseña"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:id="@+id/textView2"
+        android:id="@+id/textView_PWD"
         android:textSize="18sp"
         android:layout_below="@+id/editText_email"
         android:layout_toLeftOf="@+id/button_iniciarsesion"
@@ -72,6 +59,19 @@
         android:id="@+id/button_registrarse"
         android:layout_marginBottom="21dp"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/textView2"
-        android:layout_toStartOf="@+id/textView2" />
+        android:layout_toLeftOf="@+id/textView_PWD"
+        android:layout_toStartOf="@+id/textView_PWD" />
+
+    <TextView
+        android:text="Usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="65dp"
+        android:id="@+id/textView_USR"
+        android:textSize="18sp"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_above="@+id/editText_pwd"
+        android:layout_alignRight="@+id/textView_PWD"
+        android:layout_alignEnd="@+id/textView_PWD" />
 </RelativeLayout>

@@ -25,18 +25,7 @@
         android:id="@+id/button_cancelar" />
 
     <TextView
-        android:text="EMAIL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="86dp"
-        android:id="@+id/textView5"
-        android:textSize="18sp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
-
-    <TextView
-        android:text="NOMBRE"
+        android:text="USUARIO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="39dp"
@@ -47,7 +36,6 @@
         android:layout_alignEnd="@+id/button_cancelar" />
 
     <TextView
-        android:text="APELLIDOS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="74dp"
@@ -56,28 +44,6 @@
         android:layout_below="@+id/textView3"
         android:layout_alignLeft="@+id/textView3"
         android:layout_alignStart="@+id/textView3" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/textView3"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_marginTop="14dp"
-        android:id="@+id/editText_nombre" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/textView4"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_marginTop="16dp"
-        android:id="@+id/editText_apellidos" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -104,11 +70,33 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="12dp"
+        android:id="@+id/editText_usuario"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
+
+    <TextView
+        android:text="EMAIL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/editText_pwd"
+        android:layout_marginTop="27dp"
         android:layout_below="@+id/textView6"
         android:layout_alignLeft="@+id/textView6"
-        android:layout_alignStart="@+id/textView6"
-        android:layout_marginTop="23dp" />
+        android:layout_alignStart="@+id/textView6" />
 </RelativeLayout>
