@@ -5,6 +5,7 @@ import com.quickblox.users.model.QBUser;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by konox on 29/11/2016.
@@ -13,5 +14,5 @@ import java.util.ArrayList;
 public interface QBAdminListiner {
     public void logeado(boolean blLogeado, QBUser user);
     public void registrado (boolean blRegistrado, QBUser user);
-    public void datosdescarg(ArrayList<QBBaseCustomObject>datos);
+    public void datosdescarg(HashMap<Integer, String> datos);
 }

@@ -1,5 +1,6 @@
 package konox.actividad3;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
@@ -7,6 +8,7 @@ import com.quickblox.core.model.QBBaseCustomObject;
 import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import konox.libreria1.QBAdmin;
 import konox.libreria1.QBAdminListiner;
@@ -28,6 +30,8 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     public void onClick(View view) {
         if (view.getId() == vista.loginFragment.btnIniciar.getId()) {
             qbAdmin.login(vista.loginFragment.et_usr.getText().toString(), vista.loginFragment.et_pwd.getText().toString());
+            Intent inten = new Intent(vista, Main2Activity.class);
+            vista.startActivity(inten);
         } else if (view.getId() == vista.loginFragment.btnRegistrarse.getId()){
            vista.cambiarFragment(2);
         }
@@ -55,7 +59,9 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     }
 
     @Override
-    public void datosdescarg(ArrayList<QBBaseCustomObject> datos) {
+    public void datosdescarg(HashMap<Integer, String> datos) {
 
     }
+
+
 }

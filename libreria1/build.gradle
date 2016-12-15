@@ -30,4 +30,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile("com.quickblox:quickblox-android-sdk-core:2.6.1")
     compile("com.quickblox:quickblox-android-sdk-chat:2.6.1")
+    compile("com.quickblox:quickblox-android-sdk-customobjects:2.6.1")
 }
