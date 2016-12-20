@@ -30,6 +30,8 @@ public class mainActivityController implements View.OnClickListener, QBAdminList
     public void onClick(View view) {
         if (view.getId() == vista.FragLogin.btnLog.getId() ){
             qbAdmin.login(vista.FragLogin.et_USR.getText().toString(), vista.FragLogin.et_PWD.getText().toString());
+            Intent intent = new Intent(vista, Main2Activity.class);
+            vista.startActivity(intent);
         }
         if (view.getId() == vista.FragLogin.btnReg.getId()){
             vista.cambiarFragment(2);
