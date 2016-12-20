@@ -27,6 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="konox.actividad3.CreditosFragment"
-        android:id="@+id/Credfragment" />
+        android:id="@+id/Credfragment"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
