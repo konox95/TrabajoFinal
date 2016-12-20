@@ -16,31 +16,12 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="GEneral"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtCategorias"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:id="@+id/button2" />
-
-    <Button
         android:text="TECNOLOGIA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:id="@+id/button"
-        android:layout_below="@+id/button6"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="ECONOMIA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:id="@+id/button4"
-        android:layout_below="@+id/button3"
+        android:id="@+id/btnTecnologia"
+        android:layout_below="@+id/btnOcio"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -49,8 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
+        android:id="@+id/btnPolitica"
+        android:layout_below="@+id/btnGeneral"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -59,8 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
-        android:id="@+id/button6"
-        android:layout_below="@+id/button5"
+        android:id="@+id/btnOcio"
+        android:layout_below="@+id/btnDeportes"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -69,8 +50,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
-        android:id="@+id/button5"
-        android:layout_below="@+id/button4"
+        android:id="@+id/btnDeportes"
+        android:layout_below="@+id/btnEconomia"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="GEneral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:id="@+id/btnGeneral"
+        android:layout_below="@+id/txtCategorias"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="ECONOMIA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:id="@+id/btnEconomia"
+        android:layout_below="@+id/btnPolitica"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

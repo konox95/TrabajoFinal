@@ -44,6 +44,4 @@ public class LogFragment extends Fragment {
         Log.v("LogFragment", btnLog + "");
         return v;
     }
-
-    ;
 }
