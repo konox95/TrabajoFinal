@@ -1,1 +1,1 @@
-include ':app', ':libreria1', ':examen'
+include ':app', ':libreria1'

@@ -30,7 +30,7 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     public void onClick(View view) {
         if (view.getId() == vista.loginFragment.btnIniciar.getId()) {
             qbAdmin.login(vista.loginFragment.et_usr.getText().toString(), vista.loginFragment.et_pwd.getText().toString());
-            Intent inten = new Intent(vista, Main2Activity.class);
+            Intent inten = new Intent(vista, Main3ActivityDrawer.class);
             vista.startActivity(inten);
         } else if (view.getId() == vista.loginFragment.btnRegistrarse.getId()){
            vista.cambiarFragment(2);
@@ -39,9 +39,11 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
         if (view.getId() == vista.registroFragment.btnAceptar.getId()) {
             qbAdmin.registrarse(vista.registroFragment.ed_usr.getText().toString(), vista.registroFragment.ed_pwd.getText().toString(), vista.registroFragment.ed_email.getText().toString());
             vista.cambiarFragment(1);
-        } else if (view.getId() == vista.registroFragment.btnCancelar.getId()){
+        }
+        if (view.getId() == vista.registroFragment.btnCancelar.getId()){
             vista.cambiarFragment(1);
         }
+
     }
 
     @Override
