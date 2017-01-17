@@ -13,13 +13,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Main3ActivityDrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class Main3ActivityDrawer extends AppCompatActivity {
+
+    main3ActivityDrawerController main3ActivityDrawerController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3_drawer);
+        main3ActivityDrawerController = new main3ActivityDrawerController(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -30,7 +32,7 @@ public class Main3ActivityDrawer extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener(main3ActivityDrawerController);
     }
 
     @Override
@@ -63,24 +65,5 @@ public class Main3ActivityDrawer extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.mapaSpots) {
-            // Handle the camera action
-        } else if (id == R.id.nuevoSpot) {
-
-        } else if (id == R.id.perfil) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }
