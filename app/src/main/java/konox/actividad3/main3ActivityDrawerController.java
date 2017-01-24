@@ -24,14 +24,17 @@ public class main3ActivityDrawerController implements NavigationView.OnNavigatio
         if(item.getItemId()==main3ActivityDrawer.perfilNav.getItemId()){
             main3ActivityDrawer.cambiarFragmentDrawer(3);
             Log.v("AAA", "PEFIL");
+            main3ActivityDrawer.onBackPressed();
         }
         else if(item.getItemId()==main3ActivityDrawer.spotNav.getItemId()){
             main3ActivityDrawer.cambiarFragmentDrawer(2);
             Log.v("BBB", "NUEVOOOO");
+            main3ActivityDrawer.onBackPressed();
         }
         else if(item.getItemId()==main3ActivityDrawer.mapaNav.getItemId()){
             main3ActivityDrawer.cambiarFragmentDrawer(1);
             Log.v("CCCC", "MAPAAAA!!!!!!!!!");
+            main3ActivityDrawer.onBackPressed();
         }
 
         return true;
