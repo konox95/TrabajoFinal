@@ -31,10 +31,10 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_login, container, false);
-        btnIniciar=(Button)v.findViewById(R.id.button_iniciarsesion);
-        btnRegistrarse = (Button) v.findViewById(R.id.button_registrarse);
-        et_usr= (EditText) v.findViewById(R.id.editText_email);
-        et_pwd= (EditText) v.findViewById(R.id.editText_pwd);
+        btnIniciar=(Button)v.findViewById(R.id.btnOkLogin);
+        btnRegistrarse = (Button) v.findViewById(R.id.botonRegistro);
+        et_usr= (EditText) v.findViewById(R.id.usuario);
+        et_pwd= (EditText) v.findViewById(R.id.contraseña);
         return v;
     }
 

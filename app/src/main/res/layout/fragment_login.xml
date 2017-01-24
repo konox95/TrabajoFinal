@@ -1,77 +1,98 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/fondo"
     android:layout_height="match_parent"
     tools:context="konox.actividad3.LoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/GRISPURO"
+        android:text="LOGIN"
+        android:id="@+id/textoLogin"
+        android:textSize="26dp"
+        android:gravity="center_horizontal"
+        tools:ignore="HardcodedText,PrivateResource,SpUsage" />
+
+    <TextView
+        android:text="Usuario"
+        android:textColor="@color/GRISPURO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="24sp"
+        android:layout_marginBottom="29dp"
+        android:layout_alignBottom="@+id/usuario"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ir a Registro"
+        android:id="@+id/botonRegistro"
+        tools:ignore="HardcodedText"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
+        android:background="@color/GRISLIGHT"
         android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="149dp"
-        android:id="@+id/editText_email" />
+        android:id="@+id/usuario"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="11dp"
+        android:layout_above="@+id/textView5"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Contraseña"
+        android:textColor="@color/GRISPURO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="24sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
+        android:background="@color/GRISLIGHT"
         android:ems="10"
-        android:layout_marginTop="69dp"
-        android:id="@+id/editText_pwd"
-        android:layout_below="@+id/editText_email"
-        android:layout_alignLeft="@+id/editText_email"
-        android:layout_alignStart="@+id/editText_email" />
+        android:layout_marginTop="22dp"
+        android:id="@+id/contraseña"
+        android:layout_below="@+id/textView5"
+        android:layout_alignStart="@+id/usuario" />
+
+    <ImageView
+        android:layout_width="150sp"
+        android:layout_height="120sp"
+        android:src="@drawable/user"
+        android:id="@+id/imageView"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/textoLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
 
     <Button
-        android:text="INICIAR SESION"
+        android:text="Ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_iniciarsesion"
-        android:layout_alignBaseline="@+id/button_registrarse"
-        android:layout_alignBottom="@+id/button_registrarse"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp" />
+        android:id="@+id/btnOkLogin"
+        android:layout_marginBottom="12dp"
+        android:layout_above="@+id/botonRegistro"
+        android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:text="Contraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:id="@+id/textView_PWD"
-        android:textSize="18sp"
-        android:layout_below="@+id/editText_email"
-        android:layout_toLeftOf="@+id/button_iniciarsesion"
-        android:layout_toStartOf="@+id/button_iniciarsesion"
-        android:layout_marginRight="19dp"
-        android:layout_marginEnd="19dp" />
 
-    <Button
-        android:text="REGISTRARSE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_registrarse"
-        android:layout_marginBottom="21dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/textView_PWD"
-        android:layout_toStartOf="@+id/textView_PWD" />
 
-    <TextView
-        android:text="Usuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="65dp"
-        android:id="@+id/textView_USR"
-        android:textSize="18sp"
-        android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp"
-        android:layout_above="@+id/editText_pwd"
-        android:layout_alignRight="@+id/textView_PWD"
-        android:layout_alignEnd="@+id/textView_PWD" />
+
+
+
 </RelativeLayout>

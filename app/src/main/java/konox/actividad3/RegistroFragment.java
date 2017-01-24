@@ -19,6 +19,7 @@ public class RegistroFragment extends Fragment {
     public EditText ed_usr;
     public EditText ed_email;
     public EditText ed_pwd;
+    public EditText ed_repetirPwd;
 
     public RegistroFragment() {
         // Required empty public constructor
@@ -30,11 +31,12 @@ public class RegistroFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_registro, container, false);
-        btnAceptar = (Button) v.findViewById(R.id.button_aceptar);
-        btnCancelar = (Button) v.findViewById(R.id.button_cancelar);
-        ed_usr = (EditText) v.findViewById(R.id.editText_usuario);
-        ed_email= (EditText) v.findViewById(R.id.editText_email);
-        ed_pwd = (EditText) v.findViewById(R.id.editText_pwd);
+        btnAceptar = (Button) v.findViewById(R.id.btnOkRegistro);
+        btnCancelar = (Button) v.findViewById(R.id.buttonLogin);
+        ed_usr = (EditText) v.findViewById(R.id.editTextNombreUsuario);
+        ed_email= (EditText) v.findViewById(R.id.editTextEmail);
+        ed_pwd = (EditText) v.findViewById(R.id.editTextContraseña);
+        ed_repetirPwd=(EditText)v.findViewById(R.id.editTextRepetirContraseña);
         return v;
 
     }
