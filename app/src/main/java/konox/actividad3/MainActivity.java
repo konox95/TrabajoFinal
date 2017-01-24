@@ -4,22 +4,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import com.quickblox.core.model.QBBaseCustomObject;
-import com.quickblox.users.model.QBUser;
-
-import java.util.ArrayList;
-
-import konox.libreria1.QBAdmin;
-import konox.libreria1.QBAdminListiner;
 
 public class MainActivity extends AppCompatActivity {
     RegistroFragment registroFragment;
     LoginFragment loginFragment;
     CreditosFragment creditosFragment;
-    FragmentTransaction transaction;
     mainActivityContolador controlador;
 
     @Override
