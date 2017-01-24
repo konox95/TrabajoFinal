@@ -41,7 +41,6 @@ public class QBAdmin {
 
         QBSettings.getInstance().init(activity, APP_ID, AUTH_KEY, AUTH_SECRET);
         QBSettings.getInstance().setAccountKey(ACCOUNT_KEY);
-
         QBAuth.createSession(new QBEntityCallback<QBSession>() {
 
             @Override
@@ -59,8 +58,7 @@ public class QBAdmin {
     }
 
     public void login(String usr, String pwd) {
-        QBUser user = new QBUser(usr, pwd);
-
+        final QBUser user = new QBUser(usr, pwd);
         QBUsers.signIn(user, new QBEntityCallback<QBUser>() {
             public void onSuccess(QBUser user, Bundle args) {
                 // success
@@ -74,12 +72,8 @@ public class QBAdmin {
         });
     }
 
-    public void registrarse(String usr, String email, String pwd,  String repetirContraseña) {
-        final QBUser user = new QBUser(usr,pwd,repetirContraseña);
-
-        user.setEmail(email);
-
-        if(pwd.equals(repetirContraseña)) {
+    public void registrarse(String usr, String email, String pwd) {
+        final QBUser user = new QBUser(usr, email, pwd);
         QBUsers.signUp(user, new QBEntityCallback<QBUser>() {
             @Override
             public void onSuccess(QBUser qbUser, Bundle bundle) {
@@ -91,10 +85,6 @@ public class QBAdmin {
                 adminlistener.registrado(false, null);
             }
         });
-        }else{
-
-            Log.v("Controller", "Las contraseñas no son iguales");
-        }
     }
 
     public void descargDatos(String idIdioma) {

@@ -19,7 +19,7 @@ public class RegistroFragment extends Fragment {
     public EditText ed_usr;
     public EditText ed_email;
     public EditText ed_pwd;
-    public EditText ed_repetirPwd;
+
 
     public RegistroFragment() {
         // Required empty public constructor
@@ -36,7 +36,6 @@ public class RegistroFragment extends Fragment {
         ed_usr = (EditText) v.findViewById(R.id.editTextNombreUsuario);
         ed_email= (EditText) v.findViewById(R.id.editTextEmail);
         ed_pwd = (EditText) v.findViewById(R.id.editTextContraseña);
-        ed_repetirPwd=(EditText)v.findViewById(R.id.editTextRepetirContraseña);
         return v;
 
     }

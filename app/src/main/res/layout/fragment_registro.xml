@@ -26,39 +26,6 @@
         android:layout_alignStart="@+id/editTextEmail"
         android:layout_alignEnd="@+id/editTextEmail" />
 
-    <TextView
-        android:layout_width="150sp"
-        android:layout_height="40sp"
-        android:text="Contraseña"
-        android:textColor="@color/GRISPURO"
-        android:layout_marginTop="10sp"
-        android:textAlignment="center"
-        android:id="@+id/textViewContraseña"
-        android:layout_below="@+id/editTextEmail"
-        android:layout_centerHorizontal="true"
-        android:textSize="24sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Repetir contraseña"
-        android:layout_marginTop="20sp"
-        android:textColor="@color/GRISPURO"
-        android:id="@+id/textViewRepetirContraseña"
-        android:textSize="24sp"
-        android:layout_below="@+id/editTextContraseña"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:inputType="textPassword"
-        android:background="@color/GRISLIGHT"
-        android:id="@+id/editTextRepetirContraseña"
-        android:layout_below="@+id/textViewRepetirContraseña"
-        android:layout_alignEnd="@+id/textViewRepetirContraseña"
-        android:layout_alignStart="@+id/editTextContraseña" />
 
     <Button
         android:text="Ok"
@@ -68,17 +35,6 @@
         android:layout_above="@+id/buttonLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="12dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/GRISLIGHT"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/editTextContraseña"
-        android:layout_below="@+id/textViewContraseña"
-        android:layout_alignEnd="@+id/editTextEmail"
-        android:layout_alignStart="@+id/textViewRepetirContraseña" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -90,18 +46,6 @@
         android:textSize="24sp"
         android:layout_below="@+id/editTextNombreUsuario"
         android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10sp"
-        android:background="@color/GRISLIGHT"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/editTextEmail"
-        android:layout_below="@+id/textView4"
-        android:layout_alignEnd="@+id/textViewRepetirContraseña"
-        android:layout_alignStart="@+id/textViewRepetirContraseña" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -122,6 +66,40 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView3"
         android:layout_alignEnd="@+id/textView3" />
+
+    <TextView
+        android:layout_width="150sp"
+        android:layout_height="40sp"
+        android:text="Contraseña"
+        android:textColor="@color/GRISPURO"
+        android:textAlignment="center"
+        android:id="@+id/textViewContraseña"
+        android:textSize="24sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/GRISLIGHT"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editTextEmail"
+        android:layout_above="@+id/textViewContraseña"
+        android:layout_alignLeft="@+id/editTextContraseña"
+        android:layout_alignStart="@+id/editTextContraseña"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/GRISLIGHT"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editTextContraseña"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/textViewContraseña"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
