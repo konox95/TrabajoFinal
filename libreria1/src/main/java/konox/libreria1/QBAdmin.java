@@ -1,17 +1,14 @@
 package konox.libreria1;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.quickblox.auth.QBAuth;
 import com.quickblox.auth.model.QBSession;
-import com.quickblox.core.Consts;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.QBSettings;
 import com.quickblox.core.exception.QBResponseException;
-import com.quickblox.core.model.QBBaseCustomObject;
 import com.quickblox.core.request.QBRequestGetBuilder;
 import com.quickblox.customobjects.QBCustomObjects;
 import com.quickblox.customobjects.model.QBCustomObject;
@@ -27,9 +24,8 @@ import java.util.HashMap;
 
 public class QBAdmin {
     QBAdminListiner adminlistener;
-    public  HashMap<Integer, String> palabra;
-    public String sValor;
-    public int iPal;
+
+
 
     public QBAdmin(QBAdminListiner qbadminlistener, Activity activity) {
         final String APP_ID = "40279";
@@ -87,24 +83,25 @@ public class QBAdmin {
         });
     }
 
-    public void descargDatos(String idIdioma) {
+    public void descargDatosPines() {
         QBRequestGetBuilder requestBuilder = new QBRequestGetBuilder();
-
-        requestBuilder.eq("IdIdioma", idIdioma);
-
-        QBCustomObjects.getObjects("Idiomas", requestBuilder, new QBEntityCallback<ArrayList<QBCustomObject>>() {
+        QBCustomObjects.getObjects("Pines", requestBuilder, new QBEntityCallback<ArrayList<QBCustomObject>>() {
 
             @Override
             public void onSuccess(ArrayList<QBCustomObject> qbCustomObjects, Bundle bundle) {
-                palabra = new HashMap<Integer, String>();
+                ArrayList<MiPin> pines=new ArrayList<MiPin>();
+                Log.v("QBADMIN","----->>>>>  "+qbCustomObjects);
+
                 for (int i = 0; i < qbCustomObjects.size(); i++) {
                     Log.v("QBAdmin", "Fila" + i + qbCustomObjects.get(i).getFields());
-                    sValor = qbCustomObjects.get(i).getFields().get("Valor").toString();
-                    iPal = (int) qbCustomObjects.get(i).getFields().get("IdPalabra");
-                    palabra.put(iPal, sValor);
-
+                    double Longitud = (double) qbCustomObjects.get(i).getFields().get("Longitud");
+                    double Latitud = (double) qbCustomObjects.get(i).getFields().get("Latitud");
+                    String nombreSpot = qbCustomObjects.get(i).getFields().get("Nombre").toString();
+                    pines.add(new MiPin(Latitud,Longitud,nombreSpot));
                 }
-                adminlistener.datosdescarg(palabra);
+
+                adminlistener.descargaPinesFinalizado(pines);
+
             }
 
             @Override

@@ -12,6 +12,7 @@ import com.quickblox.users.model.QBUser;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import konox.libreria1.MiPin;
 import konox.libreria1.QBAdmin;
 import konox.libreria1.QBAdminListiner;
 
@@ -80,9 +81,8 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     }
 
     @Override
-    public void datosdescarg(HashMap<Integer, String> datos) {
+    public void descargaPinesFinalizado(ArrayList<MiPin> pines) {
 
     }
-
 
 }

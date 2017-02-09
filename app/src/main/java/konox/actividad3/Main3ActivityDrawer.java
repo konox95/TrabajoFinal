@@ -33,10 +33,18 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.quickblox.users.model.QBUser;
+
+import java.util.ArrayList;
+
+import konox.libreria1.MiPin;
+import konox.libreria1.QBAdmin;
+import konox.libreria1.QBAdminListiner;
 
 
-public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReadyCallback,LocationListener {
+public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReadyCallback,LocationListener,QBAdminListiner {
 
+    QBAdmin qbAdmin;
     main3ActivityDrawerController main3ActivityDrawerController;
     MapaFragment mapa;
     NuevoSpotFragment nuevoSpotFragment;
@@ -58,7 +66,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         setContentView(R.layout.activity_main3_drawer);
         fm = getSupportFragmentManager();
         main3ActivityDrawerController = new main3ActivityDrawerController(this);
-
+        qbAdmin=new QBAdmin(this,this);
 
 
 
@@ -213,21 +221,6 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
     @Override
     public void onLocationChanged(Location location) {
         miUltimaPosicion=location;
-        if(mMap!=null){
-            if(markerMiPosicion==null) {
-                LatLng current = new LatLng(miUltimaPosicion.getLatitude(),
-                        miUltimaPosicion.getLongitude());
-                markerMiPosicion=mMap.addMarker(new MarkerOptions().position(current).
-                        title("Mi Posicion"));
-                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(current,10));
-            }
-            else{
-                LatLng current = new LatLng(miUltimaPosicion.getLatitude(),
-                        miUltimaPosicion.getLongitude());
-                markerMiPosicion.setPosition(current);
-                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(current,10));
-            }
-        }
     }
 
     public void showSettingsAlert(){
@@ -283,5 +276,34 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         } else {
             // Show rationale and request permission.
         }
+
+        mMap.setOnMarkerClickListener(main3ActivityDrawerController);
+
+        qbAdmin.descargDatosPines();
+    }
+
+    @Override
+    public void logeado(boolean blLogeado, QBUser user) {
+
+    }
+
+    @Override
+    public void registrado(boolean blRegistrado, QBUser user) {
+
+    }
+
+    @Override
+    public void descargaPinesFinalizado(ArrayList<MiPin> pines) {
+        for(int i=0;i<pines.size();i++){
+            LatLng current = new LatLng(pines.get(i).dbLatitud,
+                    pines.get(i).dbLongitud);
+            Marker tempmar=mMap.addMarker(new MarkerOptions().position(current).
+                    title(pines.get(i).sNombre));
+            tempmar.setTag(pines.get(i));
+        }
+
+
+
+
     }
 }

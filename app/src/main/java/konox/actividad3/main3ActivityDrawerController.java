@@ -5,11 +5,16 @@ import android.support.design.widget.NavigationView;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.Marker;
+
+import konox.libreria1.MiPin;
+
 /**
  * Created by konox on 17/01/2017.
  */
 
-public class main3ActivityDrawerController implements NavigationView.OnNavigationItemSelectedListener {
+public class main3ActivityDrawerController implements NavigationView.OnNavigationItemSelectedListener,GoogleMap.OnMarkerClickListener {
     Main3ActivityDrawer main3ActivityDrawer;
 
     public main3ActivityDrawerController(Main3ActivityDrawer main3ActivityDrawer) {
@@ -38,5 +43,15 @@ public class main3ActivityDrawerController implements NavigationView.OnNavigatio
         }
 
         return true;
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+
+        MiPin pin=(MiPin)marker.getTag();
+        Log.v("MAP","NOMBRE DEL MARKER PINCHADO "+pin.sNombre);
+
+        return false;
     }
 }

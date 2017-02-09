@@ -12,7 +12,7 @@ import java.util.HashMap;
  */
 
 public interface QBAdminListiner {
-    public void logeado(boolean blLogeado, QBUser user);
-    public void registrado (boolean blRegistrado, QBUser user);
-    public void datosdescarg(HashMap<Integer, String> datos);
+    void logeado(boolean blLogeado, QBUser user);
+    void registrado (boolean blRegistrado, QBUser user);
+    public void descargaPinesFinalizado(ArrayList<MiPin> pines);
 }
