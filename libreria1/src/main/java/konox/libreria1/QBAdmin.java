@@ -27,13 +27,15 @@ public class QBAdmin {
 
 
 
-    public QBAdmin(QBAdminListiner qbadminlistener, Activity activity) {
+
+
+    public QBAdmin( Activity activity) {
         final String APP_ID = "40279";
         final String AUTH_KEY = "CfDF25-RfZt5XaE";
         final String AUTH_SECRET = "vHwmPW7vbCY79WV";
         final String ACCOUNT_KEY = "zbCFpz9PjsxxxtzV7Em5";
 
-        this.adminlistener = qbadminlistener;
+
 
         QBSettings.getInstance().init(activity, APP_ID, AUTH_KEY, AUTH_SECRET);
         QBSettings.getInstance().setAccountKey(ACCOUNT_KEY);
@@ -51,6 +53,10 @@ public class QBAdmin {
 
             }
         });
+    }
+
+    public void setListener(QBAdminListiner qbadminlistener){
+        this.adminlistener=qbadminlistener;
     }
 
     public void login(String usr, String pwd) {
@@ -110,4 +116,37 @@ public class QBAdmin {
             }
         });
     }
+
+    public void insertarPines(double longitud ,double latitud,String nombreSpot){
+        QBCustomObject object = new QBCustomObject();
+
+        float log=(float)longitud;
+
+        object.putString("Nombre", nombreSpot);
+        object.putFloat("Longitud", (float) longitud);
+        object.putFloat("Latitud", (float) latitud);
+
+
+
+        object.setClassName("Pines");
+
+        QBCustomObjects.createObject(object, new QBEntityCallback<QBCustomObject>() {
+            @Override
+            public void onSuccess(QBCustomObject createdObject, Bundle params) {
+                adminlistener.insertarSpot(true,createdObject);
+
+            }
+
+            @Override
+            public void onError(QBResponseException errors) {
+                adminlistener.insertarSpot(false,null);
+
+            }
+        });
+
+    }
+
+
+
+
 }

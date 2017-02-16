@@ -1,6 +1,7 @@
 package konox.libreria1;
 
 import com.quickblox.core.model.QBBaseCustomObject;
+import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
 
 import java.lang.reflect.Array;
@@ -15,4 +16,8 @@ public interface QBAdminListiner {
     void logeado(boolean blLogeado, QBUser user);
     void registrado (boolean blRegistrado, QBUser user);
     public void descargaPinesFinalizado(ArrayList<MiPin> pines);
+    void insertarSpot(boolean blInsertado, QBCustomObject object);
+
+
+
 }

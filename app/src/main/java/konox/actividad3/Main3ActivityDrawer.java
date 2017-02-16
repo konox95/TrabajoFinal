@@ -33,6 +33,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
@@ -42,9 +43,9 @@ import konox.libreria1.QBAdmin;
 import konox.libreria1.QBAdminListiner;
 
 
-public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReadyCallback,LocationListener,QBAdminListiner {
+public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReadyCallback,LocationListener {
 
-    QBAdmin qbAdmin;
+    //QBAdmin qbAdmin;
     main3ActivityDrawerController main3ActivityDrawerController;
     MapaFragment mapa;
     NuevoSpotFragment nuevoSpotFragment;
@@ -59,6 +60,9 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
     LocationManager mLocationManager;
     Location miUltimaPosicion=null;
     Marker markerMiPosicion;
+    double latitud=0;
+    double longitud=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +70,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         setContentView(R.layout.activity_main3_drawer);
         fm = getSupportFragmentManager();
         main3ActivityDrawerController = new main3ActivityDrawerController(this);
-        qbAdmin=new QBAdmin(this,this);
+        //qbAdmin=new QBAdmin(this,this);
 
 
 
@@ -81,6 +85,9 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         mapa = (MapaFragment) fm.findFragmentById(R.id.frMapa);
         nuevoSpotFragment = (NuevoSpotFragment) fm.findFragmentById(R.id.frSpotNuevo);
         perfil = (PerfilFragment) fm.findFragmentById(R.id.frPerfil);
+
+        nuevoSpotFragment.btnNewSpot.setOnClickListener(main3ActivityDrawerController);
+
 
         SupportMapFragment supportMapFragment=(SupportMapFragment)
                 getSupportFragmentManager().findFragmentById(R.id.frMapa);
@@ -101,7 +108,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         navigationView.setNavigationItemSelectedListener(main3ActivityDrawerController);
 
         cambiarFragmentDrawer(1);
-        initLocationManager();
+        //initLocationManager();
     }
 
     @Override
@@ -157,13 +164,15 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         transaction.commit();
 
     }
-    public void initLocationManager(){
+    public Location getMiUltimaPosicion(){
         if ( Build.VERSION.SDK_INT >= 23 && (
                 ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ||
                         ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
             showSettingsAlert();
-            return  ;
+            return  null;
         }
+
+        Log.v("LOC2222"," !!!!222222222222222222222222222222 ");
 
         try {
             int MIN_TIME_BW_UPDATES=1000;//MILISEGUNDOS DE REFRESCO
@@ -183,7 +192,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
             } else {
                 // First get location from Network Provider
                 if (isNetworkEnabled) {
-                    mLocationManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER,  MIN_TIME_BW_UPDATES,  MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+                    //mLocationManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER,  MIN_TIME_BW_UPDATES,  MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
                     Log.d("Network", "Network");
                     if (mLocationManager != null) {
                         miUltimaPosicion = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
@@ -196,7 +205,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
                 //get the location by gps
                 if (isGPSEnabled) {
                     if (miUltimaPosicion == null) {
-                        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,MIN_TIME_BW_UPDATES,MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+                        //mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,MIN_TIME_BW_UPDATES,MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
                         Log.d("GPS Enabled", "GPS Enabled");
                         if (mLocationManager != null) {
                             miUltimaPosicion = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -214,7 +223,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        return miUltimaPosicion;
     }
 
 
@@ -279,31 +288,29 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
 
         mMap.setOnMarkerClickListener(main3ActivityDrawerController);
 
-        qbAdmin.descargDatosPines();
-    }
+        DataHolder.instance.qbAdmin.descargDatosPines();
 
-    @Override
-    public void logeado(boolean blLogeado, QBUser user) {
+
 
     }
 
-    @Override
-    public void registrado(boolean blRegistrado, QBUser user) {
 
-    }
 
-    @Override
-    public void descargaPinesFinalizado(ArrayList<MiPin> pines) {
-        for(int i=0;i<pines.size();i++){
-            LatLng current = new LatLng(pines.get(i).dbLatitud,
-                    pines.get(i).dbLongitud);
-            Marker tempmar=mMap.addMarker(new MarkerOptions().position(current).
-                    title(pines.get(i).sNombre));
-            tempmar.setTag(pines.get(i));
+    public void sendLatLong(){
+        Location loc=getMiUltimaPosicion();
+        Log.v("LOC",loc+" !!!! ");
+        if(loc!=null) {
+            this.latitud = loc.getLatitude();
+            this.longitud = loc.getLongitude();
         }
-
-
-
-
     }
+
+
+
+
+
+
+
+
+
 }

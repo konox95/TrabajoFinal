@@ -6,9 +6,21 @@
     android:layout_height="match_parent"
     tools:context="konox.actividad3.NuevoSpotFragment">
 
-    <TextView
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center"
+       android:id="@+id/editTextSpot"
+       android:hint="Spot"/>
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NUEVO SPOT"/>
+        android:layout_below="@+id/editTextSpot"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:id="@+id/btnOkSpot"
+        android:text="Agregar Spot"/>
+
 
 </RelativeLayout>

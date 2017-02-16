@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.quickblox.core.model.QBBaseCustomObject;
+import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
@@ -38,18 +39,19 @@ import konox.libreria1.QBAdminListiner;
  */
 
 public class mainActivityContolador implements View.OnClickListener, QBAdminListiner {
-    QBAdmin qbAdmin;
+    //QBAdmin qbAdmin;
     MainActivity vista;
 
     public mainActivityContolador(MainActivity vista) {
         this.vista = vista;
-        qbAdmin = new QBAdmin(this, vista);
+        //qbAdmin = new QBAdmin(this, vista);
+        DataHolder.instance.qbAdmin.setListener(this);
     }
 
     @Override
     public void onClick(View view) {
         if (view.getId() == vista.loginFragment.btnIniciar.getId()) {
-            qbAdmin.login(vista.loginFragment.et_usr.getText().toString(), vista.loginFragment.et_pwd.getText().toString());
+            DataHolder.instance.qbAdmin.login(vista.loginFragment.et_usr.getText().toString(), vista.loginFragment.et_pwd.getText().toString());
             Intent inten = new Intent(vista, Main3ActivityDrawer.class);
             vista.startActivity(inten);
         } else if (view.getId() == vista.loginFragment.btnRegistrarse.getId()){
@@ -57,7 +59,7 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
         }
 
         if (view.getId() == vista.registroFragment.btnAceptar.getId()) {
-            qbAdmin.registrarse(vista.registroFragment.ed_usr.getText().toString(), vista.registroFragment.ed_pwd.getText().toString(), vista.registroFragment.ed_email.getText().toString());
+            DataHolder.instance.qbAdmin.registrarse(vista.registroFragment.ed_usr.getText().toString(), vista.registroFragment.ed_pwd.getText().toString(), vista.registroFragment.ed_email.getText().toString());
             vista.cambiarFragment(1);
         }
         if (view.getId() == vista.registroFragment.btnCancelar.getId()){
@@ -82,6 +84,11 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
 
     @Override
     public void descargaPinesFinalizado(ArrayList<MiPin> pines) {
+
+    }
+
+    @Override
+    public void insertarSpot(boolean blRegistrado, QBCustomObject object) {
 
     }
 
