@@ -10,23 +10,26 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/eyuu"
+        android:src="@drawable/salto"
         android:id="@+id/imgPrimeraCargando"
         android:visibility="visible"
+        android:scaleType="fitXY"
          />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/androidicon"
+        android:src="@drawable/apoyar"
         android:id="@+id/imgSegundaAndroid"
         android:visibility="gone"
+        android:scaleType="fitXY"
          />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/utad"
+        android:src="@drawable/correr"
         android:id="@+id/imgTerceraUtad"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:scaleType="fitXY"/>
 </RelativeLayout>
