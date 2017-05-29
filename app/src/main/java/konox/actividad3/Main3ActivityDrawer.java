@@ -282,6 +282,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
                 == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
 
+
         } else {
             // Show rationale and request permission.
         }

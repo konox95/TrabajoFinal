@@ -1,5 +1,7 @@
 package konox.actividad3;
 
+import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import java.util.Map;
+import java.util.Set;
+
+import konox.libreria1.QBAdmin;
 
 public class MainActivity extends AppCompatActivity {
     RegistroFragment registroFragment;
@@ -32,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         loginFragment.btnIniciar.setOnClickListener(controlador);
         loginFragment.btnRegistrarse.setOnClickListener(controlador);
         registroFragment.btnAceptar.setOnClickListener(controlador);
+
+
 
         cambiarFragment(3);
     }

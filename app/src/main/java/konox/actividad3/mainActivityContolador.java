@@ -2,6 +2,7 @@ package konox.actividad3;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -41,6 +42,7 @@ import konox.libreria1.QBAdminListiner;
 public class mainActivityContolador implements View.OnClickListener, QBAdminListiner {
     //QBAdmin qbAdmin;
     MainActivity vista;
+    public String sUser,sPass;
 
     public mainActivityContolador(MainActivity vista) {
         this.vista = vista;
