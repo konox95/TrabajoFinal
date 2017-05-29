@@ -54,8 +54,7 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     public void onClick(View view) {
         if (view.getId() == vista.loginFragment.btnIniciar.getId()) {
             DataHolder.instance.qbAdmin.login(vista.loginFragment.et_usr.getText().toString(), vista.loginFragment.et_pwd.getText().toString());
-            Intent inten = new Intent(vista, Main3ActivityDrawer.class);
-            vista.startActivity(inten);
+
         } else if (view.getId() == vista.loginFragment.btnRegistrarse.getId()){
             vista.cambiarFragment(2);
         }
@@ -74,6 +73,10 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     public void logeado(boolean blLogeado, QBUser user) {
         if (blLogeado) {
             Log.v("Controlador", "ME HE LOGEADO");
+            Intent inten = new Intent(vista, Main3ActivityDrawer.class);
+            vista.startActivity(inten);
+        } else if (!blLogeado){
+            Toast.makeText(vista, "Auth fail", Toast.LENGTH_SHORT).show();
         }
     }
 
