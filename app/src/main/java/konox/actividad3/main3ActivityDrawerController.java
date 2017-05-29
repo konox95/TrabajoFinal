@@ -96,7 +96,19 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
     @Override
     public void insertarSpot(boolean blInsertado, QBCustomObject object) {
         if (blInsertado) {
-            Log.v("Controlador", "NuevoSpot");
+            Log.v("Controlador", main3ActivityDrawer.latitud+" NuevoSpot "+main3ActivityDrawer.longitud);
+            LatLng current = new LatLng(main3ActivityDrawer.latitud,
+                    main3ActivityDrawer.longitud);
+
+
+
+            Marker tempmar = main3ActivityDrawer.mMap.addMarker(new MarkerOptions().position(current).
+                    title(main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString()));
+
+            MiPin pinTemp=new MiPin(main3ActivityDrawer.latitud,main3ActivityDrawer.longitud,main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString());
+            tempmar.setTag(pinTemp);
+
+
         }
     }
 
