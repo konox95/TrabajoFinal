@@ -30,7 +30,7 @@
         <EditText
             android:id="@+id/usuario"
             android:hint="@string/email"
-            android:text="admin"
+            android:text="admin@admin.com"
             android:inputType="textPersonName"
             android:gravity="center"
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
         <EditText
             android:id="@+id/contraseña"
             android:hint="@string/password"
-            android:text="12345678"
+            android:text="adminadmin"
             android:inputType="textPassword"
             android:gravity="center"
             android:layout_marginTop="24dp"

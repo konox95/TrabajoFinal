@@ -1,38 +1,18 @@
 package konox.actividad3;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.quickblox.core.model.QBBaseCustomObject;
 import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import konox.libreria1.MiPin;
-import konox.libreria1.QBAdmin;
-import konox.libreria1.QBAdminListiner;
-
-/**
- * Created by konox on 01/12/2016.
- */
-
-import android.content.Intent;
-import android.util.Log;
-import android.view.View;
-
-import com.quickblox.core.model.QBBaseCustomObject;
-import com.quickblox.users.model.QBUser;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import konox.libreria1.QBAdmin;
 import konox.libreria1.QBAdminListiner;
 
 /**
@@ -42,12 +22,13 @@ import konox.libreria1.QBAdminListiner;
 public class mainActivityContolador implements View.OnClickListener, QBAdminListiner {
     //QBAdmin qbAdmin;
     MainActivity vista;
-    public String sUser,sPass;
+    LoginFragment loginFragment;
+    public boolean blAutoLoginCorrect=false;
 
     public mainActivityContolador(MainActivity vista) {
         this.vista = vista;
-        //qbAdmin = new QBAdmin(this, vista);
         DataHolder.instance.qbAdmin.setListener(this);
+
     }
 
     @Override
@@ -69,12 +50,47 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
 
     }
 
+
+    public void autoLogin(){
+        String email,pwd;
+        SharedPreferences prefs = vista.getSharedPreferences("MIPROPS",0);
+        email= prefs.getString("email", null);
+        pwd= prefs.getString("pwd", null);
+
+        if(email != null && pwd != null){
+            Log.v("Entra", "xxxxxxxxxxxxxxxxxxxxxxxxx- "+email+"       "+pwd);
+            DataHolder.instance.qbAdmin.login(email, pwd);
+        }
+    }
+
+
+    @Override
+    public void sesionCreada(boolean creada) {
+        if(creada){
+            autoLogin();
+        }
+    }
+
     @Override
     public void logeado(boolean blLogeado, QBUser user) {
         if (blLogeado) {
             Log.v("Controlador", "ME HE LOGEADO");
-            Intent inten = new Intent(vista, Main3ActivityDrawer.class);
-            vista.startActivity(inten);
+
+            SharedPreferences prefs = vista.getSharedPreferences("MIPROPS",0);
+            SharedPreferences.Editor edit = prefs.edit();
+
+
+            edit.putString("email",vista.loginFragment.et_usr.getText().toString());
+            edit.putString("pwd", vista.loginFragment.et_pwd.getText().toString());
+
+            edit.commit();
+
+            blAutoLoginCorrect=true;
+
+            //Intent inten = new Intent(vista, Main3ActivityDrawer.class);
+            //vista.startActivity(inten);
+
+
         } else if (!blLogeado){
             Toast.makeText(vista, "Auth fail", Toast.LENGTH_SHORT).show();
         }

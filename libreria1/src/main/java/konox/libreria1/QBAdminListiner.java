@@ -13,6 +13,7 @@ import java.util.HashMap;
  */
 
 public interface QBAdminListiner {
+    void sesionCreada(boolean creada);
     void logeado(boolean blLogeado, QBUser user);
     void registrado (boolean blRegistrado, QBUser user);
     public void descargaPinesFinalizado(ArrayList<MiPin> pines);

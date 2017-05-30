@@ -11,6 +11,7 @@ import konox.libreria1.QBAdmin;
 public class DataHolder {
     public static DataHolder instance=new DataHolder();
     public QBAdmin qbAdmin;
+    public boolean blIntentarLogearse =false;
 
     public DataHolder(){
 

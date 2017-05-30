@@ -1,5 +1,6 @@
 package konox.actividad3;
 
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.util.Log;
@@ -70,6 +71,11 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
         Log.v("MAP","NOMBRE DEL MARKER PINCHADO "+pin.sNombre);
 
         return false;
+    }
+
+    @Override
+    public void sesionCreada(boolean creada) {
+
     }
 
     @Override

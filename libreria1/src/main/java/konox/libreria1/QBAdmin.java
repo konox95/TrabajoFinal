@@ -46,11 +46,12 @@ public class QBAdmin {
                 // You have successfully created the session
                 //
                 // Now you can use QuickBlox API!
+                adminlistener.sesionCreada(true);
             }
 
             @Override
             public void onError(QBResponseException errors) {
-
+                adminlistener.sesionCreada(false);
             }
         });
     }
