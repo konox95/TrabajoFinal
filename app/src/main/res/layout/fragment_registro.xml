@@ -1,105 +1,74 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/fondo"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="konox.actividad3.RegistroFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/GRISPURO"
-        android:text="REGISTRO"
-        android:id="@+id/textoRegistro"
-        android:textSize="26dp"
-        android:gravity="center_horizontal" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:inputType="text"
-        android:id="@+id/editTextNombreUsuario"
-        android:background="@color/GRISLIGHT"
-        android:layout_below="@+id/textView3"
-        android:layout_alignStart="@+id/editTextEmail"
-        android:layout_alignEnd="@+id/editTextEmail" />
-
-
-    <Button
-        android:text="Ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnOkRegistro"
-        android:layout_above="@+id/buttonLogin"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/GRISPURO"
-        android:layout_marginTop="10sp"
-        android:text="Email"
-        android:id="@+id/textView4"
-        android:textSize="24sp"
-        android:layout_below="@+id/editTextNombreUsuario"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/GRISPURO"
-        android:text="NombreUsuario"
-        android:id="@+id/textView3"
-        android:layout_marginTop="24dp"
-        android:textSize="24sp"
-        android:layout_below="@+id/textoRegistro"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ir a Login"
-        android:id="@+id/buttonLogin"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_alignEnd="@+id/textView3" />
-
-    <TextView
-        android:layout_width="150sp"
-        android:layout_height="40sp"
-        android:text="Contraseña"
-        android:textColor="@color/GRISPURO"
-        android:textAlignment="center"
-        android:id="@+id/textViewContraseña"
-        android:textSize="24sp"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/GRISLIGHT"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/editTextEmail"
-        android:layout_above="@+id/textViewContraseña"
-        android:layout_alignLeft="@+id/editTextContraseña"
-        android:layout_alignStart="@+id/editTextContraseña"
-        android:layout_marginBottom="16dp" />
+        <TextView
+            android:id="@+id/tv_Registro"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:padding="8dp"
+            android:layout_marginBottom="140dp"
+            android:textSize="26dp"
+            android:text="Registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/GRISLIGHT"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/editTextContraseña"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/textViewContraseña"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:text="test"
+            android:layout_margin="15dp"
+            android:inputType="textPersonName"
+            android:hint="@string/email"
+            android:gravity="center"
+            android:id="@+id/editTextNombreUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
 
-</RelativeLayout>
+        <EditText
+            android:text="User@text.com"
+            android:layout_margin="15dp"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email"
+            android:gravity="center"
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:text="12345678"
+            android:layout_margin="15dp"
+            android:inputType="textPassword"
+            android:hint="@string/password"
+            android:gravity="center"
+            android:id="@+id/editTextContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_margin="15dp"
+            android:id="@+id/btnOkRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/registrarse"/>
+
+        <TextView
+            android:textAlignment="center"
+            android:text="¿Ya estás registrado? Logeate aquí"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonLogin"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

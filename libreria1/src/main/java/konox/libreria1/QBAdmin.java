@@ -60,8 +60,11 @@ public class QBAdmin {
     }
 
     public void login(String usr, String pwd) {
-        final QBUser user = new QBUser(usr, pwd);
+        final QBUser user = new QBUser();
+        user.setEmail(usr);
+        user.setPassword(pwd);
         QBUsers.signIn(user, new QBEntityCallback<QBUser>() {
+
             public void onSuccess(QBUser user, Bundle args) {
                 // success
                 adminlistener.logeado(true, user);

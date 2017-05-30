@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -16,7 +17,7 @@ import android.widget.EditText;
 public class LoginFragment extends Fragment {
 
     public Button btnIniciar;
-    public Button btnRegistrarse;
+    public TextView btnRegistrarse;
     public EditText et_usr;
     public EditText et_pwd;
 
@@ -32,7 +33,7 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_login, container, false);
         btnIniciar=(Button)v.findViewById(R.id.btnOkLogin);
-        btnRegistrarse = (Button) v.findViewById(R.id.botonRegistro);
+        btnRegistrarse = (TextView) v.findViewById(R.id.botonRegistro);
         et_usr= (EditText) v.findViewById(R.id.usuario);
         et_pwd= (EditText) v.findViewById(R.id.contraseña);
         return v;

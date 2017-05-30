@@ -10,4 +10,12 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">Map</string>
+
+
+    <string name="registrate">¿Aún no estás registrado? Pincha aquí</string>
+    <string name="Log">Log In</string>
+    <string name="password">Contraseña</string>
+    <string name="email">E-mail</string>
+    <string name="app">SKATE FORCE</string>
+    <string name="registrarse">Regístrate</string>
 </resources>
