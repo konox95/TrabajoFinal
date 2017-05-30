@@ -55,6 +55,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
     MenuItem perfilNav;
     MenuItem spotNav;
     MenuItem mapaNav;
+    MenuItem cerrarSesion;
     GoogleMap mMap;
     Button btn;
     LocationManager mLocationManager;
@@ -80,6 +81,8 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         perfilNav = navigationView.getMenu().getItem(2);
         spotNav = navigationView.getMenu().getItem(1);
         mapaNav = navigationView.getMenu().getItem(0);
+        cerrarSesion = navigationView.getMenu().getItem(3);
+
 
         //FRAGMENTS
         mapa = (MapaFragment) fm.findFragmentById(R.id.frMapa);
@@ -281,7 +284,6 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
-
 
         } else {
             // Show rationale and request permission.

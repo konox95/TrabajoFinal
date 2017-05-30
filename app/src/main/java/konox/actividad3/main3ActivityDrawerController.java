@@ -1,6 +1,8 @@
 package konox.actividad3;
 
 import android.content.SharedPreferences;
+import android.content.Intent;
+
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.util.Log;
@@ -27,6 +29,7 @@ import konox.libreria1.QBAdminListiner;
 public class main3ActivityDrawerController implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener,GoogleMap.OnMarkerClickListener, QBAdminListiner {
     //QBAdmin qbAdmin;
     Main3ActivityDrawer main3ActivityDrawer;
+    MainActivity vista;
 
     public main3ActivityDrawerController(Main3ActivityDrawer main3ActivityDrawer) {
         this.main3ActivityDrawer = main3ActivityDrawer;
@@ -54,6 +57,11 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             main3ActivityDrawer.cambiarFragmentDrawer(1);
             Log.v("CCCC", "MAPAAAA!!!!!!!!!");
             main3ActivityDrawer.onBackPressed();
+        }else if(item.getItemId()==main3ActivityDrawer.cerrarSesion.getItemId()){
+            Intent inten = new Intent(vista, Main3ActivityDrawer.class);
+            vista.startActivity(inten);
+            main3ActivityDrawer.onBackPressed();
+
         }
 
         return true;

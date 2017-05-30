@@ -15,6 +15,10 @@
             android:id="@+id/perfil"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="PERFIL" />
+        <item
+            android:id="@+id/cerrarSesion"
+            android:icon="@drawable/common_full_open_on_phone"
+            android:title="Cerrar Sesión" />
     </group>
 
 
