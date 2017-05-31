@@ -3,6 +3,7 @@ package konox.actividad3;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     //QBAdmin qbAdmin;
     MainActivity vista;
     LoginFragment loginFragment;
+
     public boolean blAutoLoginCorrect=false;
     public boolean blLoginClickPressed=false;
 
@@ -85,11 +87,14 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
             edit.putString("email",vista.loginFragment.et_usr.getText().toString());
             edit.putString("pwd", vista.loginFragment.et_pwd.getText().toString());
 
-
+            user.getEmail();
 
             edit.commit();
 
             blAutoLoginCorrect=true;
+
+            DataHolder.instance.email= user.getEmail().toString();
+            DataHolder.instance.name= user.getLogin().toString();
 
             if(blLoginClickPressed){
                 Intent inten = new Intent(vista, Main3ActivityDrawer.class);

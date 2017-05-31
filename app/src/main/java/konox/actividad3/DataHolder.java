@@ -14,10 +14,10 @@ public class DataHolder {
     public static DataHolder instance=new DataHolder();
     public QBAdmin qbAdmin;
     public boolean blIntentarLogearse =false;
-    public QBUser qbUser;
+    public String email="";
+    public String name="";
 
     public DataHolder(){
-
     }
 
     public void initQBAdmin(Activity a){
