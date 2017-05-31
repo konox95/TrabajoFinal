@@ -93,6 +93,7 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
 
             blAutoLoginCorrect=true;
 
+            //Cogemos el email y el nombre del qbuser y lo guardamos en el dataHolder
             DataHolder.instance.email= user.getEmail().toString();
             DataHolder.instance.name= user.getLogin().toString();
 

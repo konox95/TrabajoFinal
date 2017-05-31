@@ -181,7 +181,6 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
             return  null;
         }
 
-        Log.v("LOC2222"," !!!!22222222222222+222222222222222 ");
 
         try {
             int MIN_TIME_BW_UPDATES=1000;//MILISEGUNDOS DE REFRESCO
@@ -298,6 +297,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         mMap.setOnMarkerClickListener(main3ActivityDrawerController);
 
         DataHolder.instance.qbAdmin.descargDatosPines();
+
     }
 
     public void sendLatLong(){
