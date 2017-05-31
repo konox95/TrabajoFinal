@@ -19,4 +19,11 @@
     <string name="name">Nombre</string>
     <string name="app">SKATE FORCE</string>
     <string name="registrarse">Regístrate</string>
+
+
+    <string-array name="nivel">
+        <item>Amateur</item>
+        <item>Skater</item>
+        <item>Tony Hawk</item>
+    </string-array>
 </resources>
