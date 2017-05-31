@@ -21,9 +21,29 @@
     <string name="registrarse">Regístrate</string>
 
 
+
     <string-array name="nivel">
         <item>Amateur</item>
         <item>Skater</item>
         <item>Tony Hawk</item>
     </string-array>
+    <string name="agregar_spot">Agregar Spot</string>
+    <string name="descripcion">DESCRIPCION</string>
+    <string name="nombre_del_spot">NOMBRE DEL SPOT</string>
+    <string name="content">CONTENIDO DEL SKATE PARK</string>
+    <string name="dificultad">DIFICULTAD</string>
+    <string name="alta">Alta</string>
+    <string name="media">Media</string>
+    <string name="baja">Baja</string>
+    <string name="galeria">Galeria</string>
+    <string name="camara">camara</string>
+    <string name="skatepark">Skatepark</string>
+    <string name="street">Street</string>
+    <string name="escalera">Escalera</string>
+    <string name="barandilla">Barandilla</string>
+    <string name="banco">Banco</string>
+    <string name="cajon">Cajon</string>
+    <string name="rampa">Rampa</string>
+    <string name="bowl">Bowl</string>
+    <string name="tipo_de_spot">TIPO DE SPOT</string>
 </resources>

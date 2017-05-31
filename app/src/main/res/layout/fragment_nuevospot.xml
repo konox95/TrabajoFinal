@@ -1,26 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="konox.actividad3.NuevoSpotFragment">
 
-   <EditText
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:gravity="center"
-       android:id="@+id/editTextSpot"
-       android:hint="Spot"/>
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextSpot"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp"
-        android:id="@+id/btnOkSpot"
-        android:text="Agregar Spot"/>
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre_del_spot"
+            />
+       <EditText
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:id="@+id/editTextSpot"
+           />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tipo_de_spot" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/rbgTipo"
+                android:weightSum="1">
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdSkatepark"
+                    android:layout_weight="0.5"
+                    android:text="@string/skatepark"/>
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdStreet"
+                    android:layout_weight="0.5"
+                    android:text="@string/street"/>
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <CheckBox
+                android:text="@string/escalera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbEscalera"
+                android:layout_weight="0.33"/>
+
+            <CheckBox
+                android:text="@string/barandilla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbBarandilla"
+                android:layout_weight="0.33"/>
+
+            <CheckBox
+                android:text="@string/banco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbBanco"
+                android:layout_weight="0.33"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <CheckBox
+                android:text="@string/rampa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbRampa"
+                android:layout_weight="0.33"/>
+
+            <CheckBox
+                android:text="@string/cajon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbCajon"
+                android:layout_weight="0.33"/>
+
+            <CheckBox
+                android:text="@string/bowl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbBowl"
+                android:layout_weight="0.33"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/descripcion"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/editTextDesc" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dificultad"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/rbgDificultad"
+                android:weightSum="1">
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdDificultalBaja"
+                    android:layout_weight="0.33"
+                    android:text="@string/baja"/>
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdDificultalMedia"
+                    android:layout_weight="0.33"
+                    android:text="@string/media"/>
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdDificultalAlta"
+                    android:layout_weight="0.33"
+                    android:text="@string/alta"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/set_picture"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/camera"
+                android:layout_weight="0.33" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btngaleria"
+                android:text="@string/galeria"
+                android:layout_weight="0.33"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btncamara"
+                android:text="@string/camara"
+                android:layout_weight="0.33"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnOkSpot"
+            android:text="@string/agregar_spot"/>
+    </LinearLayout>
+
+
+</LinearLayout>

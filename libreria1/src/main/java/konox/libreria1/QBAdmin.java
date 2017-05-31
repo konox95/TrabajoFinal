@@ -26,15 +26,11 @@ public class QBAdmin {
     QBAdminListiner adminlistener;
 
 
-
-
-
-    public QBAdmin( Activity activity) {
+    public QBAdmin(Activity activity) {
         final String APP_ID = "40279";
         final String AUTH_KEY = "CfDF25-RfZt5XaE";
         final String AUTH_SECRET = "vHwmPW7vbCY79WV";
         final String ACCOUNT_KEY = "zbCFpz9PjsxxxtzV7Em5";
-
 
 
         QBSettings.getInstance().init(activity, APP_ID, AUTH_KEY, AUTH_SECRET);
@@ -56,8 +52,8 @@ public class QBAdmin {
         });
     }
 
-    public void setListener(QBAdminListiner qbadminlistener){
-        this.adminlistener=qbadminlistener;
+    public void setListener(QBAdminListiner qbadminlistener) {
+        this.adminlistener = qbadminlistener;
     }
 
     public void login(String usr, String pwd) {
@@ -99,15 +95,15 @@ public class QBAdmin {
 
             @Override
             public void onSuccess(ArrayList<QBCustomObject> qbCustomObjects, Bundle bundle) {
-                ArrayList<MiPin> pines=new ArrayList<MiPin>();
-                Log.v("QBADMIN","----->>>>>  "+qbCustomObjects);
+                ArrayList<MiPin> pines = new ArrayList<MiPin>();
+                Log.v("QBADMIN", "----->>>>>  " + qbCustomObjects);
 
                 for (int i = 0; i < qbCustomObjects.size(); i++) {
                     Log.v("QBAdmin", "Fila" + i + qbCustomObjects.get(i).getFields());
                     double Longitud = (double) qbCustomObjects.get(i).getFields().get("Longitud");
                     double Latitud = (double) qbCustomObjects.get(i).getFields().get("Latitud");
                     String nombreSpot = qbCustomObjects.get(i).getFields().get("Nombre").toString();
-                    pines.add(new MiPin(Latitud,Longitud,nombreSpot));
+                    pines.add(new MiPin(Latitud, Longitud, nombreSpot));
                 }
 
                 adminlistener.descargaPinesFinalizado(pines);
@@ -121,15 +117,18 @@ public class QBAdmin {
         });
     }
 
-    public void insertarPines(double longitud ,double latitud,String nombreSpot){
+    public void insertarPines(double longitud, double latitud, String nombreSpot, String descripcionSpot, String tipoSpot, String dificultad) {
         QBCustomObject object = new QBCustomObject();
 
-        float log=(float)longitud;
 
         object.putString("Nombre", nombreSpot);
         object.putFloat("Longitud", (float) longitud);
         object.putFloat("Latitud", (float) latitud);
-
+        object.putString("Descripcion", descripcionSpot);
+        object.putString("Tipo", tipoSpot);
+        object.putString("Dificultad", dificultad);
+        //object.putArray("Contenido", contenido);
+        //object.putArray("Foto", fotos);
 
 
         object.setClassName("Pines");
@@ -137,20 +136,18 @@ public class QBAdmin {
         QBCustomObjects.createObject(object, new QBEntityCallback<QBCustomObject>() {
             @Override
             public void onSuccess(QBCustomObject createdObject, Bundle params) {
-                adminlistener.insertarSpot(true,createdObject);
+                adminlistener.insertarSpot(true, createdObject);
 
             }
 
             @Override
             public void onError(QBResponseException errors) {
-                adminlistener.insertarSpot(false,null);
+                adminlistener.insertarSpot(false, null);
 
             }
         });
 
     }
-
-
 
 
 }
