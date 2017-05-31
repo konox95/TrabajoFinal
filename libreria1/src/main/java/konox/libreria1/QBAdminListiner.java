@@ -20,5 +20,4 @@ public interface QBAdminListiner {
     void insertarSpot(boolean blInsertado, QBCustomObject object);
 
 
-
 }

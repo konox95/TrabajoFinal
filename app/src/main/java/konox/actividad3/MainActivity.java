@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         loginFragment.btnIniciar.setOnClickListener(controlador);
         loginFragment.btnRegistrarse.setOnClickListener(controlador);
         registroFragment.btnAceptar.setOnClickListener(controlador);
+        registroFragment.btnCancelar.setOnClickListener(controlador);
 
         cambiarFragment(3);
 

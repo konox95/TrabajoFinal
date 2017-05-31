@@ -29,7 +29,7 @@ import konox.libreria1.QBAdminListiner;
 public class main3ActivityDrawerController implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener,GoogleMap.OnMarkerClickListener, QBAdminListiner {
     //QBAdmin qbAdmin;
     Main3ActivityDrawer main3ActivityDrawer;
-    MainActivity vista;
+
 
     public main3ActivityDrawerController(Main3ActivityDrawer main3ActivityDrawer) {
         this.main3ActivityDrawer = main3ActivityDrawer;
@@ -58,10 +58,18 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             Log.v("CCCC", "MAPAAAA!!!!!!!!!");
             main3ActivityDrawer.onBackPressed();
         }else if(item.getItemId()==main3ActivityDrawer.cerrarSesion.getItemId()){
-            Intent inten = new Intent(vista, Main3ActivityDrawer.class);
-            vista.startActivity(inten);
-            main3ActivityDrawer.onBackPressed();
+            Log.v("CCCC", "CERRRAR SESION!!!!!!!!!");
 
+            SharedPreferences prefs = main3ActivityDrawer.getSharedPreferences("MIPROPS",0);
+            SharedPreferences.Editor edit = prefs.edit();
+
+            edit.putString("email",null);
+            edit.putString("pwd", null);
+
+            edit.commit();
+
+            Intent inten = new Intent(main3ActivityDrawer,MainActivity.class);
+            main3ActivityDrawer.startActivity(inten);
         }
 
         return true;

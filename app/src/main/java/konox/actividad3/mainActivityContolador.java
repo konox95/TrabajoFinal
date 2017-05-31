@@ -24,6 +24,7 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     MainActivity vista;
     LoginFragment loginFragment;
     public boolean blAutoLoginCorrect=false;
+    public boolean blLoginClickPressed=false;
 
     public mainActivityContolador(MainActivity vista) {
         this.vista = vista;
@@ -34,6 +35,7 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     @Override
     public void onClick(View view) {
         if (view.getId() == vista.loginFragment.btnIniciar.getId()) {
+            blLoginClickPressed=true;
             DataHolder.instance.qbAdmin.login(vista.loginFragment.et_usr.getText().toString(), vista.loginFragment.et_pwd.getText().toString());
 
         } else if (view.getId() == vista.loginFragment.btnRegistrarse.getId()){
@@ -87,8 +89,11 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
 
             blAutoLoginCorrect=true;
 
-            //Intent inten = new Intent(vista, Main3ActivityDrawer.class);
-            //vista.startActivity(inten);
+            if(blLoginClickPressed){
+                Intent inten = new Intent(vista, Main3ActivityDrawer.class);
+                vista.startActivity(inten);
+            }
+
 
 
         } else if (!blLogeado){

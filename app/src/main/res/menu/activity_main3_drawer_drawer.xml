@@ -18,7 +18,15 @@
         <item
             android:id="@+id/cerrarSesion"
             android:icon="@drawable/common_full_open_on_phone"
-            android:title="Cerrar Sesión" />
+            android:title="CERRAR SESIÓN" />
+        <item
+            android:id="@+id/foto"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="FOTO" />
+        <item
+            android:id="@+id/imagenes"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="GALERIA SPOTS" />
     </group>
 
 
