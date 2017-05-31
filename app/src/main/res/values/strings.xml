@@ -16,6 +16,7 @@
     <string name="Log">Log In</string>
     <string name="password">Contraseña</string>
     <string name="email">E-mail</string>
+    <string name="name">Nombre</string>
     <string name="app">SKATE FORCE</string>
     <string name="registrarse">Regístrate</string>
 </resources>

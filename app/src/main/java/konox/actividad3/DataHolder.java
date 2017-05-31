@@ -2,6 +2,8 @@ package konox.actividad3;
 
 import android.app.Activity;
 
+import com.quickblox.users.model.QBUser;
+
 import konox.libreria1.QBAdmin;
 
 /**
@@ -12,6 +14,7 @@ public class DataHolder {
     public static DataHolder instance=new DataHolder();
     public QBAdmin qbAdmin;
     public boolean blIntentarLogearse =false;
+    public QBUser qbUser;
 
     public DataHolder(){
 

@@ -5,27 +5,27 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/mapaSpots"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_navigation_black_24dp"
             android:title="MAPA" />
         <item
             android:id="@+id/nuevoSpot"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_add_circle_black_24dp"
             android:title="AÑADIR NUEVO SPOT" />
         <item
             android:id="@+id/perfil"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_person_black_24dp"
             android:title="PERFIL" />
         <item
             android:id="@+id/cerrarSesion"
-            android:icon="@drawable/common_full_open_on_phone"
+            android:icon="@drawable/ic_remove_circle_black_24dp"
             android:title="CERRAR SESIÓN" />
         <item
-            android:id="@+id/foto"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="FOTO" />
+            android:id="@+id/reloj"
+            android:icon="@drawable/ic_watch_black_24dp"
+            android:title="SMART WATCH" />
         <item
             android:id="@+id/imagenes"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_photo_album_black_24dp"
             android:title="GALERIA SPOTS" />
     </group>
 

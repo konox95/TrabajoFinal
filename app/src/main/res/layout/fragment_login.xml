@@ -2,85 +2,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/skate1"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingTop="61dp"
     tools:context="konox.actividad3.LoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/app"
-        android:id="@+id/textoLogin"
-        android:textSize="26dp"
-        android:gravity="center_horizontal"
-        tools:ignore="HardcodedText,PrivateResource,SpUsage" />
 
     <LinearLayout
-        android:padding="16dp"
-        android:gravity="center"
-        android:layout_weight="0.5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:gravity="center"
         android:orientation="vertical">
 
         <EditText
             android:id="@+id/usuario"
-            android:hint="@string/email"
-            android:text="admin@admin.com"
-            android:inputType="textPersonName"
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:hint="@string/email"
+            android:inputType="textPersonName"
+            android:text="admin@admin.com" />
 
         <EditText
             android:id="@+id/contraseña"
-            android:hint="@string/password"
-            android:text="adminadmin"
-            android:inputType="textPassword"
-            android:gravity="center"
-            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="15dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:text="adminadmin" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:gravity="center"
-        android:layout_margin="16dp"
-        android:layout_weight="0.3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_weight="0.3"
+        android:gravity="center"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/btnOkLogin"
-            android:layout_marginStart="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginLeft="30dp"
-            android:text="@string/Log"
-            android:layout_width="261dp"
-            android:layout_height="wrap_content" />
-
-        <com.google.android.gms.common.SignInButton
             android:layout_width="261dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/Log" />
+
+        <com.google.android.gms.common.SignInButton
             android:id="@+id/btnGoogle"
+            android:layout_width="261dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp">
 
         </com.google.android.gms.common.SignInButton>
 
         <TextView
             android:id="@+id/botonRegistro"
-            android:layout_marginTop="10dp"
-            android:text="@string/registrate"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
-
+            android:layout_height="match_parent"
+            android:text="@string/registrate"
+            android:textColor="@color/NEGRO" />
     </LinearLayout>
 
 </LinearLayout>

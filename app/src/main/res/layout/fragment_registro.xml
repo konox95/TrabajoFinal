@@ -1,72 +1,73 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@drawable/skate1"
+    android:orientation="vertical"
     tools:context="konox.actividad3.RegistroFragment">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:layout_marginTop="168dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tv_Registro"
-            android:layout_weight="0.2"
-            android:gravity="center"
-            android:padding="8dp"
-            android:layout_marginBottom="140dp"
-            android:textSize="26dp"
-            android:text="Registro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        android:orientation="vertical">
 
         <EditText
-            android:text="test"
-            android:layout_margin="15dp"
-            android:inputType="textPersonName"
-            android:hint="@string/email"
-            android:gravity="center"
             android:id="@+id/editTextNombreUsuario"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
+            android:hint="@string/name"
+            android:inputType="textPersonName" />
 
 
         <EditText
-            android:text="User@text.com"
-            android:layout_margin="15dp"
-            android:inputType="textEmailAddress"
-            android:hint="@string/email"
-            android:gravity="center"
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:text="User@text.com" />
 
         <EditText
-            android:text="12345678"
-            android:layout_margin="15dp"
-            android:inputType="textPassword"
-            android:hint="@string/password"
-            android:gravity="center"
             android:id="@+id/editTextContraseña"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:text="12345678" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_weight="0.3"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <Button
-            android:layout_margin="15dp"
             android:id="@+id/btnOkRegistro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/registrarse"/>
+            android:layout_margin="15dp"
+            android:text="@string/registrarse" />
 
         <TextView
-            android:textAlignment="center"
-            android:text="¿Ya estás registrado? Logeate aquí"
+            android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonLogin"/>
+            android:text="¿Ya estás registrado? Logeate aquí"
+            android:textAlignment="center"
+            android:textColor="@color/NEGRO" />
 
     </LinearLayout>
 

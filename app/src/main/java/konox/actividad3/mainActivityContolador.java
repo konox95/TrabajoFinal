@@ -85,6 +85,8 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
             edit.putString("email",vista.loginFragment.et_usr.getText().toString());
             edit.putString("pwd", vista.loginFragment.et_pwd.getText().toString());
 
+
+
             edit.commit();
 
             blAutoLoginCorrect=true;
