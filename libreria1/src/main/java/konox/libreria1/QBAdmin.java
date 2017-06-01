@@ -117,7 +117,8 @@ public class QBAdmin {
         });
     }
 
-    public void insertarPines(double longitud, double latitud, String nombreSpot, String descripcionSpot, String tipoSpot, String dificultad) {
+    public void insertarPines(double longitud, double latitud, String nombreSpot, String descripcionSpot, String tipoSpot, String dificultad ,
+                              Boolean chBanco, Boolean chBarandilla, Boolean chBowl, Boolean chCajon, Boolean chEscalera, Boolean chRampa) {
         QBCustomObject object = new QBCustomObject();
 
 
@@ -127,9 +128,12 @@ public class QBAdmin {
         object.putString("Descripcion", descripcionSpot);
         object.putString("Tipo", tipoSpot);
         object.putString("Dificultad", dificultad);
-        //object.putArray("Contenido", contenido);
-        //object.putArray("Foto", fotos);
-
+        object.putBoolean("CBanco", chBanco);
+        object.putBoolean("CBarandilla", chBarandilla);
+        object.putBoolean("CBowl", chBowl);
+        object.putBoolean("CCajon", chCajon);
+        object.putBoolean("CEscalera", chEscalera);
+        object.putBoolean("CRampa", chRampa);
 
         object.setClassName("Pines");
 

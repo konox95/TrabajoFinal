@@ -134,18 +134,48 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             main3ActivityDrawer.sendLatLong();
 
             int id = main3ActivityDrawer.nuevoSpotFragment.rdbtipo.getCheckedRadioButtonId();
-
             RadioButton radioButton = (RadioButton) main3ActivityDrawer.nuevoSpotFragment.rdbtipo.findViewById(id);
-
             int id2 = main3ActivityDrawer.nuevoSpotFragment.rdgDificultad.getCheckedRadioButtonId();
-
             RadioButton radioButton2 = (RadioButton) main3ActivityDrawer.nuevoSpotFragment.rdgDificultad.findViewById(id2);
 
+            Boolean chBanco, chBarandilla, chBowl, chCajon, chEscalera, chRampa;
 
+            chBanco = false;
+            chBarandilla = false;
+            chBowl = false;
+            chCajon = false;
+            chEscalera = false;
+            chRampa = false;
+
+            if (main3ActivityDrawer.nuevoSpotFragment.cbBanco.isChecked()){
+                chBanco = true;
+            }
+
+            if (main3ActivityDrawer.nuevoSpotFragment.cbBarandilla.isChecked()){
+                chBarandilla = true;
+            }
+
+            if (main3ActivityDrawer.nuevoSpotFragment.cbBowl.isChecked()){
+                chBowl = true;
+            }
+
+            if (main3ActivityDrawer.nuevoSpotFragment.cbCajon.isChecked()){
+                chCajon = true;
+            }
+
+            if (main3ActivityDrawer.nuevoSpotFragment.cbEscalera.isChecked()){
+                chEscalera = true;
+            }
+
+            if (main3ActivityDrawer.nuevoSpotFragment.cbRampa.isChecked()){
+                chRampa = true;
+            }
 
             DataHolder.instance.qbAdmin.insertarPines(main3ActivityDrawer.longitud, main3ActivityDrawer.latitud,
                     main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString(),
-                    main3ActivityDrawer.nuevoSpotFragment.editTextDesc.getText().toString(), radioButton.getText().toString(), radioButton2.getText().toString());
+                    main3ActivityDrawer.nuevoSpotFragment.editTextDesc.getText().toString(),
+                    radioButton.getText().toString(), radioButton2.getText().toString(),
+                    chBanco, chBarandilla, chBowl, chCajon, chEscalera, chRampa);
 
         }
     }
