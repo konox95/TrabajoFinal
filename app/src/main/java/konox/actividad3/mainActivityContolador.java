@@ -6,8 +6,11 @@ import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.quickblox.content.QBContent;
+import com.quickblox.content.model.QBFile;
 import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
 
@@ -126,4 +129,8 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
 
     }
 
+    @Override
+    public void fotosubida(boolean blUpload, QBFile qbFile) {
+
+    }
 }

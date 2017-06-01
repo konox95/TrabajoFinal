@@ -39,14 +39,12 @@ public class NuevoSpotFragment extends Fragment {
     public Button btnNewSpot;
     public Button btngaleria, btn;
     public EditText editTextSpot, editTextDesc;
-    public RadioButton rdSkatepark, rdStreet;
-    public RadioButton rdDificultalBaja, rdDificultalMedia,rdDificultalAlta;
     public CheckBox cbEscalera, cbBarandilla, cbBanco, cbRampa, cbCajon, cbBowl;
     public ImageView img;
     public RadioGroup rdbtipo;
     public RadioGroup rdgDificultad;
 
-    private String mPath;
+    public String mPath;
     private RelativeLayout mRlView;
 
     private static String APP_DIRECTORY = "MyPictureApp/";
@@ -72,16 +70,9 @@ public class NuevoSpotFragment extends Fragment {
         cbBowl = (CheckBox) v.findViewById(R.id.cbBowl);
 
         //Grupo de radio buttons para seleccionar el tipo de spot
-        /*rdSkatepark = (RadioButton) v.findViewById(R.id.rdSkatepark);
-        rdStreet = (RadioButton) v.findViewById(R.id.rdStreet);*/
-
         rdbtipo =(RadioGroup) v.findViewById(R.id.rbgTipo);
 
         //Grupo de radio buttons para seleccionar la dificultad del spot
-       /* rdDificultalBaja = (RadioButton) v.findViewById(R.id.rdDificultalBaja);
-        rdDificultalMedia = (RadioButton) v.findViewById(R.id.rdDificultalMedia);
-        rdDificultalAlta = (RadioButton) v.findViewById(R.id.rdDificultalAlta);*/
-
         rdgDificultad = (RadioGroup) v.findViewById(R.id.rbgDificultad);
 
         //Edit text del nombre del spot
@@ -102,7 +93,6 @@ public class NuevoSpotFragment extends Fragment {
         else
             btn.setEnabled(false);
 
-
         //Listener para aladir imagen a través de la galeria
         btngaleria.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,9 +102,6 @@ public class NuevoSpotFragment extends Fragment {
                 startActivityForResult(intent.createChooser(intent, "Selecciona app de imagen"), SELECT_PICTURE);
             }
         });
-
-
-
 
         // Listener de añadir imagen a traves de hacer una foto
         btn.setOnClickListener(new View.OnClickListener() {
@@ -144,6 +131,8 @@ public class NuevoSpotFragment extends Fragment {
                                     public void onScanCompleted(String path, Uri uri) {
                                         Log.i("ExternalStorage", "Scanned " + path + ":");
                                         Log.i("ExternalStorage", "-> Uri = " + uri);
+
+                                        //pathImgSelec = uri;
                                     }
                                 });
 
@@ -155,6 +144,7 @@ public class NuevoSpotFragment extends Fragment {
                     case SELECT_PICTURE:
                         Uri path = data.getData();
                         img.setImageURI(path);
+                        mPath = path.getPath();
                         break;
 
                 }

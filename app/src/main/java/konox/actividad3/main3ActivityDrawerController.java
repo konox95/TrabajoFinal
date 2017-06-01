@@ -8,6 +8,7 @@ import android.support.design.widget.NavigationView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -15,6 +16,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.quickblox.content.QBContent;
+import com.quickblox.content.model.QBFile;
+import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
 
@@ -31,6 +35,9 @@ import konox.libreria1.QBAdminListiner;
 public class main3ActivityDrawerController implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, GoogleMap.OnMarkerClickListener, QBAdminListiner {
     //QBAdmin qbAdmin;
     Main3ActivityDrawer main3ActivityDrawer;
+    ArrayList<String> arrFotos= new ArrayList<String>();
+
+    String urlImg;
 
 
     public main3ActivityDrawerController(Main3ActivityDrawer main3ActivityDrawer) {
@@ -115,7 +122,6 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
     @Override
     public void insertarSpot(boolean blInsertado, QBCustomObject object) {
         if (blInsertado) {
-            Log.v("Controlador", main3ActivityDrawer.latitud + " NuevoSpot " + main3ActivityDrawer.longitud);
             LatLng current = new LatLng(main3ActivityDrawer.latitud,
                     main3ActivityDrawer.longitud);
 
@@ -123,7 +129,8 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             Marker tempmar = main3ActivityDrawer.mMap.addMarker(new MarkerOptions().position(current).
                     title(main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString()));
 
-            MiPin pinTemp = new MiPin(main3ActivityDrawer.latitud, main3ActivityDrawer.longitud, main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString());
+            MiPin pinTemp = new MiPin(main3ActivityDrawer.latitud,
+                    main3ActivityDrawer.longitud, main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString());
             tempmar.setTag(pinTemp);
 
 
@@ -131,55 +138,73 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
     }
 
     @Override
-    public void onClick(View view) {
-        if (view.getId() == main3ActivityDrawer.nuevoSpotFragment.btnNewSpot.getId()) {
-            main3ActivityDrawer.sendLatLong();
+    public void fotosubida(boolean blUpload, QBFile qbFile) {
+        if (blUpload){
 
+            //Conseguir el radioButton seleccionado
             int id = main3ActivityDrawer.nuevoSpotFragment.rdbtipo.getCheckedRadioButtonId();
             RadioButton radioButton = (RadioButton) main3ActivityDrawer.nuevoSpotFragment.rdbtipo.findViewById(id);
             int id2 = main3ActivityDrawer.nuevoSpotFragment.rdgDificultad.getCheckedRadioButtonId();
             RadioButton radioButton2 = (RadioButton) main3ActivityDrawer.nuevoSpotFragment.rdgDificultad.findViewById(id2);
 
-            Boolean chBanco, chBarandilla, chBowl, chCajon, chEscalera, chRampa;
 
-            chBanco = false;
-            chBarandilla = false;
-            chBowl = false;
-            chCajon = false;
-            chEscalera = false;
-            chRampa = false;
+            String chBanco = null, chBarandilla = null, chBowl = null, chCajon = null, chEscalera = null, chRampa = null;
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbBanco.isChecked()){
-                chBanco = true;
+                chBanco = main3ActivityDrawer.nuevoSpotFragment.cbBanco.getText().toString();
             }
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbBarandilla.isChecked()){
-                chBarandilla = true;
+                chBarandilla = main3ActivityDrawer.nuevoSpotFragment.cbBarandilla.getText().toString();
             }
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbBowl.isChecked()){
-                chBowl = true;
+                chBowl = main3ActivityDrawer.nuevoSpotFragment.cbBowl.getText().toString();
             }
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbCajon.isChecked()){
-                chCajon = true;
+                chCajon = main3ActivityDrawer.nuevoSpotFragment.cbCajon.getText().toString();
             }
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbEscalera.isChecked()){
-                chEscalera = true;
+                chEscalera = main3ActivityDrawer.nuevoSpotFragment.cbEscalera.getText().toString();
             }
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbRampa.isChecked()){
-                chRampa = true;
+                chRampa = main3ActivityDrawer.nuevoSpotFragment.cbRampa.getText().toString();
             }
+
+            urlImg = qbFile.getPublicUrl();
+
+            Log.v("URL_PUBLIC", "URL -----------" + urlImg);
+            arrFotos.add(urlImg);
+
+            Log.v("subirFoto", "La foto ha sido subida " + urlImg);
 
             DataHolder.instance.qbAdmin.insertarPines(main3ActivityDrawer.longitud, main3ActivityDrawer.latitud,
                     main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString(),
                     main3ActivityDrawer.nuevoSpotFragment.editTextDesc.getText().toString(),
                     radioButton.getText().toString(), radioButton2.getText().toString(),
-                    chBanco, chBarandilla, chBowl, chCajon, chEscalera, chRampa);
+                    chBanco, chBarandilla, chBowl, chCajon, chEscalera, chRampa, arrFotos);
+        }  else {
+            Log.v("noSubida", "La foto no se ha subido");
+        }
+    }
 
-        }else if (view.getId() == main3ActivityDrawer.perfil.btnEdit.getId()) {
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == main3ActivityDrawer.nuevoSpotFragment.btnNewSpot.getId()) {
+            main3ActivityDrawer.sendLatLong();
+
+            try {
+                DataHolder.instance.qbAdmin.subirFoto(main3ActivityDrawer.nuevoSpotFragment.mPath);
+            } catch (QBResponseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if  (view.getId() == main3ActivityDrawer.perfil.btnEdit.getId()) {
 
             if(main3ActivityDrawer.perfil.etContraseñaPerfil.getText().toString().equals("")){
 
@@ -187,6 +212,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
 
             Toast.makeText(view.getContext(), "Contraseña cambiada", Toast.LENGTH_SHORT).show();
+
         }
     }
 }

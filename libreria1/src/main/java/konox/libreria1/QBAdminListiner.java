@@ -1,5 +1,9 @@
 package konox.libreria1;
 
+import android.widget.ImageView;
+
+import com.quickblox.content.QBContent;
+import com.quickblox.content.model.QBFile;
 import com.quickblox.core.model.QBBaseCustomObject;
 import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
@@ -16,8 +20,9 @@ public interface QBAdminListiner {
     void sesionCreada(boolean creada);
     void logeado(boolean blLogeado, QBUser user);
     void registrado (boolean blRegistrado, QBUser user);
-    public void descargaPinesFinalizado(ArrayList<MiPin> pines);
+    void descargaPinesFinalizado(ArrayList<MiPin> pines);
     void insertarSpot(boolean blInsertado, QBCustomObject object);
+    void fotosubida(boolean blUpload, QBFile qbFile);
 
 
 }

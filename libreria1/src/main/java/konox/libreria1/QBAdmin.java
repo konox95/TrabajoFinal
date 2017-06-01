@@ -1,20 +1,29 @@
 package konox.libreria1;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.quickblox.auth.QBAuth;
 import com.quickblox.auth.model.QBSession;
+import com.quickblox.content.QBContent;
+import com.quickblox.content.model.QBFile;
 import com.quickblox.core.QBEntityCallback;
+import com.quickblox.core.QBProgressCallback;
 import com.quickblox.core.QBSettings;
 import com.quickblox.core.exception.QBResponseException;
+import com.quickblox.core.helper.FileHelper;
 import com.quickblox.core.request.QBRequestGetBuilder;
 import com.quickblox.customobjects.QBCustomObjects;
 import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 
+import java.io.File;
+import java.io.InputStream;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -24,9 +33,13 @@ import java.util.HashMap;
 
 public class QBAdmin {
     QBAdminListiner adminlistener;
+    Activity activity;
+    ProgressDialog progressDialog;
 
 
     public QBAdmin(Activity activity) {
+        this.activity=activity;
+        progressDialog = new ProgressDialog(activity);
         final String APP_ID = "40279";
         final String AUTH_KEY = "CfDF25-RfZt5XaE";
         final String AUTH_SECRET = "vHwmPW7vbCY79WV";
@@ -112,13 +125,13 @@ public class QBAdmin {
 
             @Override
             public void onError(QBResponseException e) {
-
+                Log.v("Error", e.toString());
             }
         });
     }
 
     public void insertarPines(double longitud, double latitud, String nombreSpot, String descripcionSpot, String tipoSpot, String dificultad ,
-                              Boolean chBanco, Boolean chBarandilla, Boolean chBowl, Boolean chCajon, Boolean chEscalera, Boolean chRampa) {
+                              String chBanco, String chBarandilla, String chBowl, String chCajon, String chEscalera, String chRampa, ArrayList<String> fotos) {
         QBCustomObject object = new QBCustomObject();
 
 
@@ -128,12 +141,13 @@ public class QBAdmin {
         object.putString("Descripcion", descripcionSpot);
         object.putString("Tipo", tipoSpot);
         object.putString("Dificultad", dificultad);
-        object.putBoolean("CBanco", chBanco);
-        object.putBoolean("CBarandilla", chBarandilla);
-        object.putBoolean("CBowl", chBowl);
-        object.putBoolean("CCajon", chCajon);
-        object.putBoolean("CEscalera", chEscalera);
-        object.putBoolean("CRampa", chRampa);
+        object.putString("CBanco", chBanco);
+        object.putString("CBarandilla", chBarandilla);
+        object.putString("CBowl", chBowl);
+        object.putString("CCajon", chCajon);
+        object.putString("CEscalera", chEscalera);
+        object.putString("CRampa", chRampa);
+        object.putArray("Fotos", fotos);
 
         object.setClassName("Pines");
 
@@ -153,5 +167,28 @@ public class QBAdmin {
 
     }
 
+    public void subirFoto(String path) throws QBResponseException {
+        File file = new File(path);
+        Log.v("QBADMIN", file+" +++++++++++++++++++++++++++++++++++++++++++++++++++ "+ path);
+
+        QBContent.uploadFileTask(file, true, null, new QBEntityCallback<QBFile>() {
+            @Override
+            public void onSuccess(QBFile qbFile, Bundle bundle) {
+                adminlistener.fotosubida(true, qbFile);
+            }
+
+            @Override
+            public void onError(QBResponseException e) {
+                Log.v("Error", e.toString());
+                adminlistener.fotosubida(false, null);
+            }
+        }, new QBProgressCallback() {
+            @Override
+            public void onProgressUpdate(int progress) {
+
+            }
+        });
+
+    }
 
 }
