@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -19,7 +20,7 @@ public class PerfilFragment extends Fragment {
     TextView tvNombrePerfil;
     TextView tvEmailPErfil;
     ImageButton btnEdit;
-    TextView tvContraseñaPerfil;
+    EditText etContraseñaPerfil;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class PerfilFragment extends Fragment {
 
         tvNombrePerfil= (TextView) v.findViewById(R.id.tvNombreUsuarioPerfil);
         tvEmailPErfil= (TextView) v.findViewById(R.id.tvEmaileUsuarioPerfil);
-        tvContraseñaPerfil= (TextView) v.findViewById(R.id.etContraseñaPerfil);
+        etContraseñaPerfil= (EditText) v.findViewById(R.id.etContraseñaPerfil);
 
         btnEdit = (ImageButton)v.findViewById(R.id.ibEditar);
 

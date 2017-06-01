@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
@@ -178,6 +179,14 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
                     radioButton.getText().toString(), radioButton2.getText().toString(),
                     chBanco, chBarandilla, chBowl, chCajon, chEscalera, chRampa);
 
+        }else if (view.getId() == main3ActivityDrawer.perfil.btnEdit.getId()) {
+
+            if(main3ActivityDrawer.perfil.etContraseñaPerfil.getText().toString().equals("")){
+
+            }
+
+
+            Toast.makeText(view.getContext(), "Contraseña cambiada", Toast.LENGTH_SHORT).show();
         }
     }
 }

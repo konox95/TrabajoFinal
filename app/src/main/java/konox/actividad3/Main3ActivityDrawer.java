@@ -67,7 +67,6 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
     double latitud=0;
     double longitud=0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +74,6 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         fm = getSupportFragmentManager();
         main3ActivityDrawerController = new main3ActivityDrawerController(this);
         //qbAdmin=new QBAdmin(this,this);
-
 
         //MENU ITEMS
         navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -85,7 +83,6 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         mapaNav = navigationView.getMenu().getItem(0);
         cerrarSesion = navigationView.getMenu().getItem(3);
 
-
         //FRAGMENTS
         mapa = (MapaFragment) fm.findFragmentById(R.id.frMapa);
         nuevoSpotFragment = (NuevoSpotFragment) fm.findFragmentById(R.id.frSpotNuevo);
@@ -93,11 +90,11 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
 
         nuevoSpotFragment.btnNewSpot.setOnClickListener(main3ActivityDrawerController);
 
+        perfil.btnEdit.setOnClickListener(main3ActivityDrawerController);
 
         SupportMapFragment supportMapFragment=(SupportMapFragment)
                 getSupportFragmentManager().findFragmentById(R.id.frMapa);
         supportMapFragment.getMapAsync(this);
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -180,7 +177,6 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
             showSettingsAlert();
             return  null;
         }
-
 
         try {
             int MIN_TIME_BW_UPDATES=1000;//MILISEGUNDOS DE REFRESCO
@@ -308,13 +304,5 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
             this.longitud = loc.getLongitude();
         }
     }
-
-
-
-
-
-
-
-
 
 }
