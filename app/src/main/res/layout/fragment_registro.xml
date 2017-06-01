@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/skate1"
     android:orientation="vertical"
-    tools:context="konox.actividad3.RegistroFragment">
+    tools:context="konox.actividad3.RegistroFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_marginTop="168dp"
@@ -14,36 +15,53 @@
         android:layout_centerVertical="true"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextNombreUsuario"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
             android:layout_marginTop="100dp"
-            android:gravity="center"
-            android:hint="@string/name"
-            android:inputType="textPersonName" />
+            android:layout_height="wrap_content">
 
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/editTextNombreUsuario"
+                android:hint="@string/name"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/editTextEmail"
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:gravity="center"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:text="User@text.com" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/editTextContraseña"
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/editTextEmail"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:hint="@string/email"
+                android:text="User@text.com"
+                android:inputType="textEmailAddress"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:gravity="center"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:text="12345678" />
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/editTextContraseña"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:hint="@string/password"
+                android:text="12345678"
+                android:inputType="textPassword"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
     <LinearLayout

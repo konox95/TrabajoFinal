@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Actividad3</string>
+    <string name="app_name">SKATE FORCE</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main3_drawer">Main3ActivityDrawer</string>
+    <string name="title_activity_main3_drawer">SKATE FORCE</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -27,6 +27,7 @@
         <item>Skater</item>
         <item>Tony Hawk</item>
     </string-array>
+
     <string name="agregar_spot">Agregar Spot</string>
     <string name="descripcion">DESCRIPCION</string>
     <string name="nombre_del_spot">NOMBRE DEL SPOT</string>

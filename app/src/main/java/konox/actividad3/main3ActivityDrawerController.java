@@ -81,6 +81,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
         MiPin pin = (MiPin) marker.getTag();
         Log.v("MAP", "NOMBRE DEL MARKER PINCHADO " + pin.sNombre);
 
+
         return false;
     }
 

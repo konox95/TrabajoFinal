@@ -8,7 +8,7 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:backgroundTint="@color/BLANCO"
+        android:backgroundTint="#00be50"
         android:layout_height="wrap_content">
 
         <RelativeLayout
@@ -33,6 +33,7 @@
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:id="@+id/ivFotoPerfil"
                     android:src="@drawable/cv"/>
 
                 <TextView
@@ -113,16 +114,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             app:layout_scrollFlags="scroll|enterAlways"
-            android:padding="16dp">
+            android:background="#EEEEEE"
+            android:padding="16dp"
+            android:weightSum="1">
 
-            <EditText
-                android:layout_width="match_parent"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="309dp"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/etContraseñaPerfil"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:layout_height="wrap_content" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <ImageButton
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="adminadmin"
-                android:inputType="textPassword"
-                android:enabled="false"/>
+                android:id="@+id/ibEditar"
+                android:src="@drawable/ic_create_black_24dp"/>
 
 
             </LinearLayout>

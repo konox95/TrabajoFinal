@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="61dp"
-    tools:context="konox.actividad3.LoginFragment">
+    tools:context="konox.actividad3.LoginFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -19,25 +20,39 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/usuario"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
-            android:gravity="center"
-            android:hint="@string/email"
-            android:inputType="textPersonName"
-            android:text="admin@admin.com" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/contraseña"
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/usuario"
+                android:hint="E-mail"
+                android:text="admin@admin.com"
+                android:gravity="center"
+                android:inputType="textEmailAddress"
+                app:passwordToggleEnabled="false"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_margin="15dp"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:text="adminadmin" />
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/contraseña"
+                android:hint="Contraseña"
+                android:gravity="center"
+                android:text="adminadmin"
+                android:inputType="textPassword"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
 
     </LinearLayout>
 
