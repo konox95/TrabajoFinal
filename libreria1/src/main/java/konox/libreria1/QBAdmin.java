@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.quickblox.auth.QBAuth;
 import com.quickblox.auth.model.QBSession;
@@ -38,7 +39,7 @@ public class QBAdmin {
 
 
     public QBAdmin(Activity activity) {
-        this.activity=activity;
+        this.activity = activity;
         progressDialog = new ProgressDialog(activity);
         final String APP_ID = "40279";
         final String AUTH_KEY = "CfDF25-RfZt5XaE";
@@ -87,6 +88,27 @@ public class QBAdmin {
         });
     }
 
+    public void cambiarContraseña(final String contraseñaPerfil) {
+
+        final QBUser user = new QBUser();
+
+        user.setId(28327039);
+        user.setOldPassword(user.getOldPassword());
+        user.setPassword(contraseñaPerfil);
+
+        QBUsers.updateUser(user, new QBEntityCallback<QBUser>() {
+            @Override
+            public void onSuccess(QBUser user, Bundle args) {
+                adminlistener.cambiarContraseñas(true, user);
+            }
+
+            @Override
+            public void onError(QBResponseException errors) {
+                adminlistener.cambiarContraseñas(false, null);
+            }
+        });
+    }
+
     public void registrarse(String usr, String email, String pwd) {
         final QBUser user = new QBUser(usr, email, pwd);
         QBUsers.signUp(user, new QBEntityCallback<QBUser>() {
@@ -130,7 +152,7 @@ public class QBAdmin {
         });
     }
 
-    public void insertarPines(double longitud, double latitud, String nombreSpot, String descripcionSpot, String tipoSpot, String dificultad ,
+    public void insertarPines(double longitud, double latitud, String nombreSpot, String descripcionSpot, String tipoSpot, String dificultad,
                               String chBanco, String chBarandilla, String chBowl, String chCajon, String chEscalera, String chRampa, ArrayList<String> fotos) {
         QBCustomObject object = new QBCustomObject();
 
@@ -169,7 +191,7 @@ public class QBAdmin {
 
     public void subirFoto(String path) throws QBResponseException {
         File file = new File(path);
-        Log.v("QBADMIN", file+" +++++++++++++++++++++++++++++++++++++++++++++++++++ "+ path);
+        Log.v("QBADMIN", file + " +++++++++++++++++++++++++++++++++++++++++++++++++++ " + path);
 
         QBContent.uploadFileTask(file, true, null, new QBEntityCallback<QBFile>() {
             @Override

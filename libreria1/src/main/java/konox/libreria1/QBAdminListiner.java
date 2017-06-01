@@ -6,6 +6,7 @@ import com.quickblox.content.QBContent;
 import com.quickblox.content.model.QBFile;
 import com.quickblox.core.model.QBBaseCustomObject;
 import com.quickblox.customobjects.model.QBCustomObject;
+import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 
 import java.lang.reflect.Array;
@@ -23,6 +24,7 @@ public interface QBAdminListiner {
     void descargaPinesFinalizado(ArrayList<MiPin> pines);
     void insertarSpot(boolean blInsertado, QBCustomObject object);
     void fotosubida(boolean blUpload, QBFile qbFile);
+    void cambiarContraseñas(boolean cambiada, QBUser user);
 
 
 }

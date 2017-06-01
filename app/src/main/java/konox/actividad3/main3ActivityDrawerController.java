@@ -3,6 +3,7 @@ package konox.actividad3;
 import android.content.SharedPreferences;
 import android.content.Intent;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.util.Log;
@@ -18,8 +19,10 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.quickblox.content.QBContent;
 import com.quickblox.content.model.QBFile;
+import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.customobjects.model.QBCustomObject;
+import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
@@ -191,9 +194,19 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
         }
     }
 
+    @Override
+    public void cambiarContraseñas(boolean cambiada, QBUser user) {
+        if(cambiada){
+            Toast.makeText(main3ActivityDrawer, "Contraseña cambiada", Toast.LENGTH_SHORT).show();
+            //Log.v("pwd", "Contraseña----------------" + user.getPassword());
+        }else{
+            Toast.makeText(main3ActivityDrawer, "Fallo al cambiar la contraseña", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     @Override
-    public void onClick(View view) {
+    public void onClick(final View view) {
         if (view.getId() == main3ActivityDrawer.nuevoSpotFragment.btnNewSpot.getId()) {
             main3ActivityDrawer.sendLatLong();
 
@@ -204,15 +217,13 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             }
         }
 
-        if  (view.getId() == main3ActivityDrawer.perfil.btnEdit.getId()) {
+        if (view.getId() == main3ActivityDrawer.perfil.btnEdit.getId()) {
 
-            if(main3ActivityDrawer.perfil.etContraseñaPerfil.getText().toString().equals("")){
-
+            if (main3ActivityDrawer.perfil.etContraseñaPerfil.getText().toString().equals("")) {
+                Toast.makeText(view.getContext(), "Contraseña vacía", Toast.LENGTH_SHORT).show();
+            } else {
+                DataHolder.instance.qbAdmin.cambiarContraseña(main3ActivityDrawer.perfil.etContraseñaPerfil.getText().toString());
             }
-
-
-            Toast.makeText(view.getContext(), "Contraseña cambiada", Toast.LENGTH_SHORT).show();
-
         }
     }
 }

@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:id="@+id/usuario"
                 android:hint="E-mail"
-                android:text="admin@admin.com"
+                android:text="user@text.com"
                 android:gravity="center"
                 android:inputType="textEmailAddress"
                 app:passwordToggleEnabled="false"
@@ -46,7 +46,7 @@
                 android:id="@+id/contraseña"
                 android:hint="Contraseña"
                 android:gravity="center"
-                android:text="adminadmin"
+                android:text="12345678"
                 android:inputType="textPassword"
                 android:layout_height="wrap_content" />
 

@@ -133,4 +133,10 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     public void fotosubida(boolean blUpload, QBFile qbFile) {
 
     }
+
+    @Override
+    public void cambiarContraseñas(boolean cambiada, QBUser user) {
+
+    }
+
 }
