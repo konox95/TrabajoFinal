@@ -16,6 +16,9 @@ public class DataHolder {
     public boolean blIntentarLogearse =false;
     public String email="";
     public String name="";
+    public String pwd = "";
+    public int id = 0;
+    QBUser user;
 
     public DataHolder(){
     }

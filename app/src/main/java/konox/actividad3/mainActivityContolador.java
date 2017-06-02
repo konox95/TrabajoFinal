@@ -27,6 +27,7 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     //QBAdmin qbAdmin;
     MainActivity vista;
     LoginFragment loginFragment;
+    String email=null,pwd=null;
 
     public boolean blAutoLoginCorrect=false;
     public boolean blLoginClickPressed=false;
@@ -59,10 +60,11 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
 
 
     public void autoLogin(){
-        String email,pwd;
+        //String email,pwd;
         SharedPreferences prefs = vista.getSharedPreferences("MIPROPS",0);
         email= prefs.getString("email", null);
         pwd= prefs.getString("pwd", null);
+        //DataHolder.instance.pwd=pwd;
 
         if(email != null && pwd != null){
             Log.v("Entra", "xxxxxxxxxxxxxxxxxxxxxxxxx- "+email+"       "+pwd);
@@ -90,15 +92,21 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
             edit.putString("email",vista.loginFragment.et_usr.getText().toString());
             edit.putString("pwd", vista.loginFragment.et_pwd.getText().toString());
 
-            user.getEmail();
 
             edit.commit();
 
             blAutoLoginCorrect=true;
 
             //Cogemos el email y el nombre del qbuser y lo guardamos en el dataHolder
-            DataHolder.instance.email= user.getEmail().toString();
-            DataHolder.instance.name= user.getLogin().toString();
+            DataHolder.instance.user = user;
+            if(pwd==null){
+                DataHolder.instance.pwd=vista.loginFragment.et_pwd.getText().toString();
+            }
+            else{
+                DataHolder.instance.pwd=pwd;
+            }
+
+
 
             if(blLoginClickPressed){
                 Intent inten = new Intent(vista, Main3ActivityDrawer.class);

@@ -88,12 +88,9 @@ public class QBAdmin {
         });
     }
 
-    public void cambiarContraseña(final String contraseñaPerfil) {
+    public void cambiarContraseña(String oldpsw,String contraseñaPerfil, QBUser user) {
 
-        final QBUser user = new QBUser();
-
-        user.setId(28327039);
-        user.setOldPassword(user.getOldPassword());
+        user.setOldPassword(oldpsw);
         user.setPassword(contraseñaPerfil);
 
         QBUsers.updateUser(user, new QBEntityCallback<QBUser>() {

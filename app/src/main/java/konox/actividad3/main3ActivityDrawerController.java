@@ -178,11 +178,8 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             }
 
             urlImg = qbFile.getPublicUrl();
-
-            Log.v("URL_PUBLIC", "URL -----------" + urlImg);
             arrFotos.add(urlImg);
 
-            Log.v("subirFoto", "La foto ha sido subida " + urlImg);
 
             DataHolder.instance.qbAdmin.insertarPines(main3ActivityDrawer.longitud, main3ActivityDrawer.latitud,
                     main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString(),
@@ -198,7 +195,6 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
     public void cambiarContraseñas(boolean cambiada, QBUser user) {
         if(cambiada){
             Toast.makeText(main3ActivityDrawer, "Contraseña cambiada", Toast.LENGTH_SHORT).show();
-            //Log.v("pwd", "Contraseña----------------" + user.getPassword());
         }else{
             Toast.makeText(main3ActivityDrawer, "Fallo al cambiar la contraseña", Toast.LENGTH_SHORT).show();
         }
@@ -222,7 +218,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             if (main3ActivityDrawer.perfil.etContraseñaPerfil.getText().toString().equals("")) {
                 Toast.makeText(view.getContext(), "Contraseña vacía", Toast.LENGTH_SHORT).show();
             } else {
-                DataHolder.instance.qbAdmin.cambiarContraseña(main3ActivityDrawer.perfil.etContraseñaPerfil.getText().toString());
+                DataHolder.instance.qbAdmin.cambiarContraseña(DataHolder.instance.pwd,main3ActivityDrawer.perfil.etContraseñaPerfil.getText().toString(), DataHolder.instance.user);
             }
         }
     }
