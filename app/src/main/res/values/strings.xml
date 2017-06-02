@@ -47,4 +47,5 @@
     <string name="rampa">Rampa</string>
     <string name="bowl">Bowl</string>
     <string name="tipo_de_spot">TIPO DE SPOT</string>
+    <string name="guardar_cambios">Guardar cambios</string>
 </resources>

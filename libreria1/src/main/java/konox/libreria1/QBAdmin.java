@@ -210,4 +210,59 @@ public class QBAdmin {
 
     }
 
+    public void subirFotoPerfil(String path) throws QBResponseException {
+        File file = new File(path);
+
+        Log.v("ENTRA_PERFIL", "----------------------- ENTRA POR SUBIR FOTO PERFIL -----------------------");
+
+
+        Log.v("QBADMIN", file + " +++++++++++++++++++++++++++++++++++++++++++++++++++ " + path);
+
+        QBContent.uploadFileTask(file, true, null, new QBEntityCallback<QBFile>() {
+            @Override
+            public void onSuccess(QBFile qbFile, Bundle bundle) {
+                adminlistener.fotosubidaPerfil(true, qbFile);
+            }
+
+            @Override
+            public void onError(QBResponseException e) {
+                Log.v("Error", e.toString());
+                adminlistener.fotosubidaPerfil(false, null);
+            }
+        }, new QBProgressCallback() {
+            @Override
+            public void onProgressUpdate(int progress) {
+
+            }
+        });
+
+    }
+
+    public void insertarDatosPerfil(String urlFotoPErfil) {
+        QBCustomObject object = new QBCustomObject();
+
+        Log.v("ENTRA_PERFIL", "----------------------- ENTRA POR PERFIL -----------------------");
+
+        object.putString("FotoPerfil", urlFotoPErfil);
+
+        object.setClassName("Perfil");
+
+        QBCustomObjects.createObject(object, new QBEntityCallback<QBCustomObject>() {
+            @Override
+            public void onSuccess(QBCustomObject createdObject, Bundle params) {
+                adminlistener.insertarDatosPerfil(true, createdObject);
+
+            }
+
+            @Override
+            public void onError(QBResponseException errors) {
+                adminlistener.insertarDatosPerfil(false, null);
+
+            }
+        });
+
+    }
+
+
+
 }

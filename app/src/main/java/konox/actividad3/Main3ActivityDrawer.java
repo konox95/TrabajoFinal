@@ -92,6 +92,8 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
 
         perfil.btnEdit.setOnClickListener(main3ActivityDrawerController);
 
+        perfil.btnGuardarPerfil.setOnClickListener(main3ActivityDrawerController);
+
         SupportMapFragment supportMapFragment=(SupportMapFragment)
                 getSupportFragmentManager().findFragmentById(R.id.frMapa);
         supportMapFragment.getMapAsync(this);

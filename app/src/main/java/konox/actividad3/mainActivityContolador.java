@@ -2,14 +2,10 @@ package konox.actividad3;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.quickblox.content.QBContent;
 import com.quickblox.content.model.QBFile;
 import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
@@ -143,7 +139,17 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     }
 
     @Override
+    public void fotosubidaPerfil(boolean blUpload, QBFile qbFile) {
+
+    }
+
+    @Override
     public void cambiarContraseñas(boolean cambiada, QBUser user) {
+
+    }
+
+    @Override
+    public void insertarDatosPerfil(boolean blInsertado, QBCustomObject object) {
 
     }
 

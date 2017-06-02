@@ -1,15 +1,11 @@
 package konox.actividad3;
 
-import android.content.SharedPreferences;
 import android.content.Intent;
-
-import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.content.SharedPreferences;
 import android.support.design.widget.NavigationView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -17,18 +13,14 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.quickblox.content.QBContent;
 import com.quickblox.content.model.QBFile;
-import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.customobjects.model.QBCustomObject;
-import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 
 import java.util.ArrayList;
 
 import konox.libreria1.MiPin;
-import konox.libreria1.QBAdmin;
 import konox.libreria1.QBAdminListiner;
 
 /**
@@ -192,11 +184,30 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
     }
 
     @Override
+    public void fotosubidaPerfil(boolean blUpload, QBFile qbFile) {
+        if (blUpload){
+            urlImg = qbFile.getPublicUrl();
+
+            Log.v("FotoPerfil" , "FOTTOOOOOOOOOOO" + urlImg);
+            DataHolder.instance.qbAdmin.insertarDatosPerfil(urlImg);
+        }
+    }
+
+    @Override
     public void cambiarContraseñas(boolean cambiada, QBUser user) {
         if(cambiada){
             Toast.makeText(main3ActivityDrawer, "Contraseña cambiada", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(main3ActivityDrawer, "Fallo al cambiar la contraseña", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void insertarDatosPerfil(boolean blInsertado, QBCustomObject object) {
+        if (blInsertado){
+            Toast.makeText(main3ActivityDrawer, "Foto de perfil actualizado", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(main3ActivityDrawer, "Error al actualizar foto de perfil", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -219,6 +230,15 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
                 Toast.makeText(view.getContext(), "Contraseña vacía", Toast.LENGTH_SHORT).show();
             } else {
                 DataHolder.instance.qbAdmin.cambiarContraseña(DataHolder.instance.pwd,main3ActivityDrawer.perfil.etContraseñaPerfil.getText().toString(), DataHolder.instance.user);
+            }
+        }
+
+        if (view.getId() == main3ActivityDrawer.perfil.btnGuardarPerfil.getId()){
+            try {
+                Log.v("ENTRA_PERFIL", "----------------------- AL PULSAR BOTON -----------------------");
+                DataHolder.instance.qbAdmin.subirFotoPerfil(main3ActivityDrawer.perfil.mPath);
+            } catch (QBResponseException e) {
+                e.printStackTrace();
             }
         }
     }

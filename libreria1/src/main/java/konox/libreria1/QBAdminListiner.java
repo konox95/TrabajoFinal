@@ -24,7 +24,9 @@ public interface QBAdminListiner {
     void descargaPinesFinalizado(ArrayList<MiPin> pines);
     void insertarSpot(boolean blInsertado, QBCustomObject object);
     void fotosubida(boolean blUpload, QBFile qbFile);
+    void fotosubidaPerfil(boolean blUpload, QBFile qbFile);
     void cambiarContraseñas(boolean cambiada, QBUser user);
+    void insertarDatosPerfil (boolean blInsertado, QBCustomObject object);
 
 
 }
