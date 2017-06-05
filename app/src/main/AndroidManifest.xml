@@ -12,6 +12,7 @@
 
     <protected-broadcast android:name="android.intent.action.MEDIA_MOUNTED" />
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -29,22 +30,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".Main3ActivityDrawer"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_main3_drawer"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
-
     </application>
 
 </manifest>
