@@ -20,6 +20,7 @@ public class DataHolder {
     public String email="";
     public String name="";
     public String pwd = "";
+    public String urlImage = "";
     public boolean cerraSesion =false;
     public ArrayList<MiPin> pi= new ArrayList<MiPin>();
     public int id = 0;

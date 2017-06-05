@@ -201,6 +201,17 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
         if (blUpload){
             urlImg = qbFile.getPublicUrl();
 
+            DataHolder.instance.urlImage = urlImg;
+
+            SharedPreferences prefs = main3ActivityDrawer.getSharedPreferences("MIPROPS",0);
+            SharedPreferences.Editor edit = prefs.edit();
+
+            edit.putString("urlPerfil", urlImg);
+
+            edit.commit();
+
+            Log.v("FotoPerfil" , "SHAREPREFERENCE ----------------- " + edit.putString("urlPerfil", urlImg));
+
             Log.v("FotoPerfil" , "FOTTOOOOOOOOOOO" + urlImg);
             DataHolder.instance.qbAdmin.insertarDatosPerfil(urlImg);
         }
