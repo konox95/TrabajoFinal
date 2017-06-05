@@ -1,4 +1,4 @@
-package com.wc.watch;
+package konox.watch;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

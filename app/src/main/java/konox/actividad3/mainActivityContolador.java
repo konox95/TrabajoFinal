@@ -24,6 +24,7 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
     MainActivity vista;
     LoginFragment loginFragment;
     String email=null,pwd=null;
+    Main3ActivityDrawer main3ActivityDrawer;
 
     public boolean blAutoLoginCorrect=false;
     public boolean blLoginClickPressed=false;
@@ -95,7 +96,7 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
 
             DataHolder.instance.urlImage = prefs.getString("urlPerfil", null);
 
-            Log.v("FotoPerfil", DataHolder.instance.urlImage);
+
 
             blAutoLoginCorrect=true;
 
@@ -120,7 +121,7 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
                 vista.startActivity(inten);
             }
 
-
+            //main3ActivityDrawer.main3ActivityDrawerController.descargarImagenPErfil();
 
         } else if (!blLogeado){
             Toast.makeText(vista, "Auth fail", Toast.LENGTH_SHORT).show();

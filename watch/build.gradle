@@ -6,7 +6,7 @@ android {
     buildToolsVersion "25.0.3"
 
     defaultConfig {
-        applicationId "com.wc.watch"
+        applicationId "konox.watch"
         minSdkVersion 20
         targetSdkVersion 25
         versionCode 1

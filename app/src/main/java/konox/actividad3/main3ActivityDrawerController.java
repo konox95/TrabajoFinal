@@ -2,6 +2,8 @@ package konox.actividad3;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.NavigationView;
 import android.util.Log;
 import android.view.MenuItem;
@@ -17,7 +19,10 @@ import com.quickblox.content.model.QBFile;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import konox.libreria1.MiPin;
@@ -41,7 +46,6 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
         DataHolder.instance.qbAdmin.setListener(this);
 
     }
-
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
