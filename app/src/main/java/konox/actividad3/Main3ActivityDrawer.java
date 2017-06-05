@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -25,6 +26,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -36,6 +38,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -62,6 +65,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
     TextView txtName;
     GoogleMap mMap;
     Button btn;
+    ImageView imgMenu;
     LocationManager mLocationManager;
     Location miUltimaPosicion=null;
     Marker markerMiPosicion;
@@ -83,6 +87,9 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         spotNav = navigationView.getMenu().getItem(1);
         mapaNav = navigationView.getMenu().getItem(0);
         cerrarSesion = navigationView.getMenu().getItem(3);
+
+
+
 
         //FRAGMENTS
         mapa = (MapaFragment) fm.findFragmentById(R.id.frMapa);
@@ -115,8 +122,12 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(main3ActivityDrawerController);
 
+
+
         cambiarFragmentDrawer(1);
-        //initLocationManager();
+
+
+
     }
 
     @Override
@@ -134,8 +145,13 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         // Inflate the menu; this adds items to the action bar if it is present.
         txtEmail=(TextView)this.findViewById(R.id.txtEmail);
         txtName=(TextView)this.findViewById(R.id.txtName);
+        imgMenu = (ImageView) this.findViewById(R.id.imgmenu);
         txtEmail.setText(DataHolder.instance.email);
         txtName.setText(DataHolder.instance.name);
+        String imageUrl = DataHolder.instance.urlImage;
+        Picasso.with(this).load(imageUrl).into(imgMenu);
+
+
         getMenuInflater().inflate(R.menu.main3_activity_drawer, menu);
         return true;
     }
@@ -169,8 +185,11 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
             transaction.show(nuevoSpotFragment);
         } else if (frgm == 3) {
             transaction.show(perfil);
+
+            this.main3ActivityDrawerController.descargarImg();
         } else if(frgm ==4 ){
             transaction.show(mapa);
+
             transaction.show(pin);
         }else if(frgm ==5 ){
             transaction.show(mapa);

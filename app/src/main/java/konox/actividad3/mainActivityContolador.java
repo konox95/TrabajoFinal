@@ -34,7 +34,6 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
         DataHolder.instance.qbAdmin.setListener(this);
 
     }
-
     @Override
     public void onClick(View view) {
         if (view.getId() == vista.loginFragment.btnIniciar.getId()) {
@@ -67,6 +66,8 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
             DataHolder.instance.qbAdmin.login(email, pwd);
 
             DataHolder.instance.email = email;
+
+            Log.v("AAA", "PEFIL ----------------------------------------------------------------------------------------------");
         }
     }
 
@@ -95,9 +96,6 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
             edit.commit();
 
             DataHolder.instance.urlImage = prefs.getString("urlPerfil", null);
-
-
-
             blAutoLoginCorrect=true;
 
             //Cogemos el email y el nombre del qbuser y lo guardamos en el dataHolder
@@ -107,6 +105,8 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
 
 
             DataHolder.instance.user = user;
+
+
             if(pwd==null){
                 DataHolder.instance.pwd=vista.loginFragment.et_pwd.getText().toString();
             }
@@ -115,13 +115,15 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
             }
 
 
-
             if(blLoginClickPressed){
+
                 Intent inten = new Intent(vista, Main3ActivityDrawer.class);
                 vista.startActivity(inten);
+
             }
 
-            //main3ActivityDrawer.main3ActivityDrawerController.descargarImagenPErfil();
+
+
 
         } else if (!blLogeado){
             Toast.makeText(vista, "Auth fail", Toast.LENGTH_SHORT).show();

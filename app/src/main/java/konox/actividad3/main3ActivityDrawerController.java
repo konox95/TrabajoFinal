@@ -47,13 +47,23 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
     }
 
+    public void descargarImg (){
+
+        Log.v("PASE" , "PASSSSSSSSSSSSSSSS");
+        String imageUri = DataHolder.instance.urlImage;
+        Picasso.with(main3ActivityDrawer).load(imageUri).into(main3ActivityDrawer.perfil.img);
+
+    }
+
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         Log.v("MenuItems", R.id.perfil + " " + R.id.nuevoSpot + " " + R.id.mapaSpots + " " + item.getItemId());
 
         if (item.getItemId() == main3ActivityDrawer.perfilNav.getItemId()) {
             main3ActivityDrawer.cambiarFragmentDrawer(3);
-            Log.v("AAA", "PEFIL");
+
+
             main3ActivityDrawer.onBackPressed();
         } else if (item.getItemId() == main3ActivityDrawer.spotNav.getItemId()) {
             main3ActivityDrawer.cambiarFragmentDrawer(2);
@@ -213,6 +223,8 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             edit.putString("urlPerfil", urlImg);
 
             edit.commit();
+
+            main3ActivityDrawer.main3ActivityDrawerController.descargarImg();
 
             Log.v("FotoPerfil" , "SHAREPREFERENCE ----------------- " + edit.putString("urlPerfil", urlImg));
 
