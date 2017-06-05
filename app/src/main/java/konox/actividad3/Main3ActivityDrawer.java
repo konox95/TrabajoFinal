@@ -55,12 +55,14 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
     NuevoSpotFragment nuevoSpotFragment;
     PerfilFragment perfil;
     pinFragment pin;
+    galeriaFragment galeriaFrag;
     FragmentManager fm;
     NavigationView navigationView;
     MenuItem perfilNav;
     MenuItem spotNav;
     MenuItem mapaNav;
     MenuItem cerrarSesion;
+    MenuItem galeriaMenu;
     TextView txtEmail;
     TextView txtName;
     GoogleMap mMap;
@@ -87,6 +89,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         spotNav = navigationView.getMenu().getItem(1);
         mapaNav = navigationView.getMenu().getItem(0);
         cerrarSesion = navigationView.getMenu().getItem(3);
+        galeriaMenu = navigationView.getMenu().getItem(5);
 
 
 
@@ -96,6 +99,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         nuevoSpotFragment = (NuevoSpotFragment) fm.findFragmentById(R.id.frSpotNuevo);
         perfil = (PerfilFragment) fm.findFragmentById(R.id.frPerfil);
         pin = (pinFragment) fm.findFragmentById(R.id.fragment_pin);
+        galeriaFrag = (galeriaFragment)fm.findFragmentById(R.id.fragment_galeria);
 
         nuevoSpotFragment.btnNewSpot.setOnClickListener(main3ActivityDrawerController);
 
@@ -177,10 +181,10 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         transaction.hide(perfil);
         transaction.hide(mapa);
         transaction.hide(pin);
+        transaction.hide(galeriaFrag);
 
         if (frgm == 1) {
             transaction.show(mapa);
-
         } else if (frgm == 2) {
             transaction.show(nuevoSpotFragment);
         } else if (frgm == 3) {
@@ -194,6 +198,8 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         }else if(frgm ==5 ){
             transaction.show(mapa);
             transaction.hide(pin);
+        }else if (frgm == 6) {
+            transaction.show(galeriaFrag);
         }
 
         transaction.commit();

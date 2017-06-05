@@ -96,6 +96,10 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
             edit.commit();
 
             DataHolder.instance.urlImage = prefs.getString("urlPerfil", null);
+
+
+            //Log.v("FotoPerfil", DataHolder.instance.urlImage);
+
             blAutoLoginCorrect=true;
 
             //Cogemos el email y el nombre del qbuser y lo guardamos en el dataHolder

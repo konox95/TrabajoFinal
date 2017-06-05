@@ -1,6 +1,5 @@
 package konox.actividad3;
 
-
 import android.media.Image;
 import android.opengl.Visibility;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.widget.ImageView;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
 
 /**
  * A simple {@link Fragment} subclass.

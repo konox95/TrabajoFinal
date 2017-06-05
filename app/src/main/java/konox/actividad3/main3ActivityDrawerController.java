@@ -89,6 +89,10 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
             Intent inten = new Intent(main3ActivityDrawer,MainActivity.class);
             main3ActivityDrawer.startActivity(inten);
+        } else if (item.getItemId()==main3ActivityDrawer.galeriaMenu.getItemId()){
+            main3ActivityDrawer.cambiarFragmentDrawer(6);
+            Log.v("BBB", "GALERIAAAA");
+            main3ActivityDrawer.onBackPressed();
         }
 
         return true;

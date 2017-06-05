@@ -1,0 +1,32 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:text="texto"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:id="@+id/textCard"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:id="@+id/imageCard"
+            android:layout_weight="0.5"
+            android:src="@mipmap/ic_skateforce"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+
+

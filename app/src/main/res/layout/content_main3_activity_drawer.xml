@@ -44,4 +44,12 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />
 
+    <fragment
+        android:id="@+id/fragment_galeria"
+        android:name="konox.actividad3.galeriaFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
 </RelativeLayout>
