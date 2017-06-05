@@ -70,6 +70,9 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
             edit.commit();
 
+            DataHolder.instance.cerraSesion=true;
+
+
             Intent inten = new Intent(main3ActivityDrawer,MainActivity.class);
             main3ActivityDrawer.startActivity(inten);
         }
@@ -79,13 +82,21 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-
-
+        for (int i = 0; i < DataHolder.instance.pi.size(); i++) {
+            String nombre = DataHolder.instance.pi.get(i).sNombre;
+            String descripcion= DataHolder.instance.pi.get(i).sDescripcion;
+            String tipo =  DataHolder.instance.pi.get(i).sTipo;
+            String dificultad= DataHolder.instance.pi.get(i).sDificultad;
+        }
         MiPin pin = (MiPin) marker.getTag();
-        Log.v("MAP", "NOMBRE DEL MARKER PINCHADO " + pin.sNombre);
-
-
+        Log.v("MAP", "NOMBRE DEL MARKER PINCHADO " + pin.sNombre+pin.sDificultad);
+        main3ActivityDrawer.pin.txt_tipo.setText(pin.sTipo);
+        main3ActivityDrawer.pin.txt_descripcion.setText(pin.sDescripcion);
+        main3ActivityDrawer.pin.txt_dificultad.setText(pin.sDificultad);
+        main3ActivityDrawer.pin.txt_tipo.setText(pin.sTipo);
+        main3ActivityDrawer.cambiarFragmentDrawer(4);
         return false;
+
     }
 
     @Override
@@ -105,6 +116,8 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
     @Override
     public void descargaPinesFinalizado(ArrayList<MiPin> pines) {
+        //Igualo el arrayList de pines al dataHolder
+        DataHolder.instance.pi=pines;
         for (int i = 0; i < pines.size(); i++) {
             LatLng current = new LatLng(pines.get(i).dbLatitud,
                     pines.get(i).dbLongitud);
@@ -214,6 +227,12 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
     @Override
     public void onClick(final View view) {
+        //Para cerrar el fragment pin cuando pulsas el imgButton
+        if(view.getId() == main3ActivityDrawer.pin.imgBtnClose.getId()){
+            Log.v("Entra", "CERRRRRARRR********** ");
+            main3ActivityDrawer.cambiarFragmentDrawer(5);
+        }
+
         if (view.getId() == main3ActivityDrawer.nuevoSpotFragment.btnNewSpot.getId()) {
             main3ActivityDrawer.sendLatLong();
 

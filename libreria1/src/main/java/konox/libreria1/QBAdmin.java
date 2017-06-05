@@ -135,7 +135,10 @@ public class QBAdmin {
                     double Longitud = (double) qbCustomObjects.get(i).getFields().get("Longitud");
                     double Latitud = (double) qbCustomObjects.get(i).getFields().get("Latitud");
                     String nombreSpot = qbCustomObjects.get(i).getFields().get("Nombre").toString();
-                    pines.add(new MiPin(Latitud, Longitud, nombreSpot));
+                    String descripSpot = qbCustomObjects.get(i).getFields().get("Descripcion").toString();
+                    String tipoSpot =  qbCustomObjects.get(i).getFields().get("Tipo").toString();
+                    String dificultadSpot =  qbCustomObjects.get(i).getFields().get("Dificultad").toString();
+                    pines.add(new MiPin(Latitud, Longitud, nombreSpot,descripSpot, tipoSpot, dificultadSpot));
                 }
 
                 adminlistener.descargaPinesFinalizado(pines);

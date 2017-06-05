@@ -51,6 +51,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
     MapaFragment mapa;
     NuevoSpotFragment nuevoSpotFragment;
     PerfilFragment perfil;
+    pinFragment pin;
     FragmentManager fm;
     NavigationView navigationView;
     MenuItem perfilNav;
@@ -87,8 +88,11 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         mapa = (MapaFragment) fm.findFragmentById(R.id.frMapa);
         nuevoSpotFragment = (NuevoSpotFragment) fm.findFragmentById(R.id.frSpotNuevo);
         perfil = (PerfilFragment) fm.findFragmentById(R.id.frPerfil);
+        pin = (pinFragment) fm.findFragmentById(R.id.fragment_pin);
 
         nuevoSpotFragment.btnNewSpot.setOnClickListener(main3ActivityDrawerController);
+
+        pin.imgBtnClose.setOnClickListener(main3ActivityDrawerController);
 
         perfil.btnEdit.setOnClickListener(main3ActivityDrawerController);
 
@@ -153,20 +157,24 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
 
     public void cambiarFragmentDrawer(int frgm) {
         FragmentTransaction transaction = fm.beginTransaction();
+        transaction.hide(nuevoSpotFragment);
+        transaction.hide(perfil);
+        transaction.hide(mapa);
+        transaction.hide(pin);
 
         if (frgm == 1) {
             transaction.show(mapa);
-            transaction.hide(nuevoSpotFragment);
-            transaction.hide(perfil);
 
         } else if (frgm == 2) {
             transaction.show(nuevoSpotFragment);
-            transaction.hide(mapa);
-            transaction.hide(perfil);
         } else if (frgm == 3) {
             transaction.show(perfil);
-            transaction.hide(mapa);
-            transaction.hide(nuevoSpotFragment);
+        } else if(frgm ==4 ){
+            transaction.show(mapa);
+            transaction.show(pin);
+        }else if(frgm ==5 ){
+            transaction.show(mapa);
+            transaction.hide(pin);
         }
 
         transaction.commit();

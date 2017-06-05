@@ -4,6 +4,9 @@ import android.app.Activity;
 
 import com.quickblox.users.model.QBUser;
 
+import java.util.ArrayList;
+
+import konox.libreria1.MiPin;
 import konox.libreria1.QBAdmin;
 
 /**
@@ -17,6 +20,8 @@ public class DataHolder {
     public String email="";
     public String name="";
     public String pwd = "";
+    public boolean cerraSesion =false;
+    public ArrayList<MiPin> pi= new ArrayList<MiPin>();
     public int id = 0;
     QBUser user;
 

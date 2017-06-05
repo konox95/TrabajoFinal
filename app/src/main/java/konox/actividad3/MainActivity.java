@@ -51,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
         cambiarFragment(3);
 
+        //para que cuando cerremos sesión no pase por los creditos de nuevo
+        if(DataHolder.instance.cerraSesion){
+            cambiarFragment(1);
+        }
+
 
         }
 
