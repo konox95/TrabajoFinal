@@ -27,6 +27,27 @@
         <item>Tony Hawk</item>
     </string-array>
 
+
+    <string-array name="textoSpot">
+        <item>SpotVillalba</item>
+        <item>SpotGalapagar</item>
+        <item>SpotElEscorial</item>
+        <item>SpotLasRozas</item>
+        <item>SpotCercedilla</item>
+        <item>SpotLasZorreras</item>
+    </string-array>
+
+    <integer-array name="fotos">
+        <item>@drawable/villalba</item>
+        <item>@drawable/galapagar</item>
+        <item>@drawable/escorial</item>
+        <item>@drawable/rozas</item>
+        <item>@drawable/cercedilla</item>
+        <item>@drawable/zorreras</item>
+    </integer-array>
+
+
+
     <string name="agregar_spot">Agregar Spot</string>
     <string name="descripcion">DESCRIPCION</string>
     <string name="nombre_del_spot">NOMBRE DEL SPOT</string>

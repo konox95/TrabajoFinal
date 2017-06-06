@@ -1,6 +1,9 @@
 package konox.actividad3;
 
 
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -19,7 +22,12 @@ import java.util.ArrayList;
 public class galeriaFragment extends Fragment {
 
 
+    private ArrayList<Integer> seriesOfNumbers;
+
+
+
     public galeriaFragment() {
+        seriesOfNumbers = new ArrayList<Integer>();
         // Required empty public constructor
     }
 
@@ -33,9 +41,24 @@ public class galeriaFragment extends Fragment {
 
        ArrayList<galeria>  galerias = new ArrayList<>();
 
-        for (int i = 20; i > 0; i--){
-            galeria gal = new galeria("nombre"+i, R.mipmap.ic_launcher);
-            galerias.add(gal);
+        //para recoger el array de textos de spots
+        Resources res = getResources();
+        String[] textoSpot = res.getStringArray(R.array.textoSpot);
+        //para recoger el array de imagenes spots
+        TypedArray imgs = getResources().obtainTypedArray(R.array.fotos);
+        int count = imgs.length();
+        int[] ids = new int[count];
+
+        //para recorrer el array de ids de imagenes y insertarlas en otro arrayList
+        for (int z = 0; z < ids.length; z++) {
+            ids[z] = imgs.getResourceId(z, 0);
+            int num = ids[z];
+            seriesOfNumbers.add(num);
+        }
+        //parar recorrer el array de textos e ir insertando texto con foto en el array de galeria
+        for (int i = 0; i < textoSpot.length; i++){
+                galeria gal = new galeria(textoSpot[i], seriesOfNumbers.get(i));
+                galerias.add(gal);
         }
         AdapterA adapter = new AdapterA(getContext(), galerias);
 
