@@ -13,7 +13,7 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#00be50">
+            android:backgroundTint="#FFFFFF">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -85,7 +85,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#EEEEEE"
+                android:background="@color/colorAccent"
                 android:orientation="vertical"
                 android:padding="16dp"
                 app:layout_scrollFlags="scroll|enterAlways">
@@ -94,6 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Detalles"
+                    android:textColor="@color/BLANCO"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -101,12 +102,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:textColor="@color/BLANCO"
                     android:entries="@array/nivel"></Spinner>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/BLANCO"
                     android:text="Skater en mis tiempos libres. Mejor que tú, seguro." />
 
             </LinearLayout>
@@ -114,7 +117,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#EEEEEE"
+                android:background="@color/colorAccent"
                 android:orientation="horizontal"
                 android:padding="16dp"
                 android:weightSum="1"
@@ -129,6 +132,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Contraseña"
+                        android:textColor="@color/BLANCO"
                         android:inputType="textPassword" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -137,6 +141,8 @@
                     android:id="@+id/ibEditar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:tint="@android:color/white"
+                    android:backgroundTint="@color/colorAccent"
                     android:src="@drawable/ic_create_black_24dp" />
 
 
@@ -145,27 +151,30 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#EEEEEE"
+                android:background="@color/colorAccent"
                 android:orientation="horizontal"
                 android:padding="16dp"
                 android:weightSum="1"
                 app:layout_scrollFlags="scroll|enterAlways">
 
-                <Button
+                <ImageButton
                     android:id="@+id/btnGaleria"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
+                    android:backgroundTint="@color/colorAccent"
+                    android:src="@drawable/ic_perm_media_white_24dp"
                     android:background="@drawable/redondo"
                     android:text="@string/galeria" />
 
 
-                <Button
+                <ImageButton
                     android:id="@+id/btnCamara"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:background="@drawable/redondo"
+                    android:backgroundTint="@color/colorAccent"
+                    android:src="@drawable/ic_camera_enhance_white_24dp"
                     android:text="@string/camara" />
 
 
@@ -174,7 +183,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#EEEEEE"
+                android:background="@color/colorAccent"
                 android:orientation="horizontal"
                 android:padding="16dp"
                 android:weightSum="1"

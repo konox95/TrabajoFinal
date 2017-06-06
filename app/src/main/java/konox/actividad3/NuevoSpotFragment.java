@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -36,7 +37,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class NuevoSpotFragment extends Fragment {
     public Button btnNewSpot;
-    public Button btngaleria, btn;
+    public ImageButton btngaleria, btn;
     public EditText editTextSpot, editTextDesc;
     public CheckBox cbEscalera, cbBarandilla, cbBanco, cbRampa, cbCajon, cbBowl;
     public ImageView img;
@@ -57,8 +58,8 @@ public class NuevoSpotFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_nuevospot, container, false);
         //Botones para hacer foto o seleccionar imagwen de la galeria
-        btngaleria = (Button) v.findViewById(R.id.btngaleria);
-        btn = (Button) v.findViewById(R.id.btncamara);
+        btngaleria = (ImageButton) v.findViewById(R.id.btngaleria);
+        btn = (ImageButton) v.findViewById(R.id.btncamara);
 
         //Grupo de checkbox para seleccionar el contenido del spot
         cbEscalera = (CheckBox) v.findViewById(R.id.cbEscalera);

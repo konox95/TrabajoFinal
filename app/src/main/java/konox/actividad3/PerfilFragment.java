@@ -42,7 +42,8 @@ public class PerfilFragment extends Fragment {
     public ImageButton btnEdit;
     public EditText etContraseñaPerfil;
     public ImageView img;
-    public Button btnGaleria, btnCamara, btnGuardarPerfil;
+    public Button btnGuardarPerfil;
+    public ImageButton btnGaleria, btnCamara;
 
     public String mPath;
     private RelativeLayout mRlView;
@@ -65,8 +66,8 @@ public class PerfilFragment extends Fragment {
         img = (ImageView) v.findViewById(R.id.ivFotoPerfil);
 
         btnEdit = (ImageButton)v.findViewById(R.id.ibEditar);
-        btnGaleria = (Button) v.findViewById(R.id.btnGaleria);
-        btnCamara = (Button) v.findViewById(R.id.btnCamara);
+        btnGaleria = (ImageButton) v.findViewById(R.id.btnGaleria);
+        btnCamara = (ImageButton) v.findViewById(R.id.btnCamara);
         btnGuardarPerfil = (Button) v.findViewById(R.id.btnGuardarPerfil);
 
         tvNombrePerfil.setText(DataHolder.instance.name);

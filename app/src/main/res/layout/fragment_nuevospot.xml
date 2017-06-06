@@ -1,247 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="konox.actividad3.NuevoSpotFragment">
+    tools:context="konox.actividad3.NuevoSpotFragment"
+    android:background="@color/colorAccent"
+    >
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/nombre_del_spot"
-            />
-       <EditText
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:gravity="center"
-           android:id="@+id/editTextSpot"
-           />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tipo_de_spot" />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            >
 
-            <RadioGroup
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_del_spot"
+                android:textColor="@color/BLANCO"/>
+
+            <EditText
+                android:id="@+id/editTextSpot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:textColor="@color/BLANCO"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tipo_de_spot"
+                android:textColor="@color/BLANCO"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup
+                    android:id="@+id/rbgTipo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <RadioButton
+                        android:id="@+id/rdSkatepark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="@string/skatepark"
+                        android:textColor="@color/BLANCO"/>
+
+                    <RadioButton
+                        android:id="@+id/rdStreet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="@string/street"
+                        android:textColor="@color/BLANCO"/>
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/content"
+                android:textColor="@color/BLANCO"/>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/rbgTipo"
                 android:weightSum="1">
 
-                <RadioButton
+                <CheckBox
+                    android:id="@+id/cbEscalera"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/rdSkatepark"
-                    android:layout_weight="0.5"
-                    android:text="@string/skatepark"/>
+                    android:layout_weight="0.33"
+                    android:text="@string/escalera"
+                    android:textColor="@color/BLANCO"/>
 
-                <RadioButton
+                <CheckBox
+                    android:id="@+id/cbBarandilla"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/rdStreet"
-                    android:layout_weight="0.5"
-                    android:text="@string/street"/>
-            </RadioGroup>
+                    android:layout_weight="0.33"
+                    android:text="@string/barandilla"
+                    android:textColor="@color/BLANCO"/>
+
+                <CheckBox
+                    android:id="@+id/cbBanco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:text="@string/banco"
+                    android:textColor="@color/BLANCO"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <CheckBox
+                    android:id="@+id/cbRampa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:text="@string/rampa"
+                    android:textColor="@color/BLANCO"/>
+
+                <CheckBox
+                    android:id="@+id/cbCajon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:text="@string/cajon"
+                    android:textColor="@color/BLANCO"/>
+
+                <CheckBox
+                    android:id="@+id/cbBowl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:text="@string/bowl"
+                    android:textColor="@color/BLANCO"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/content" />
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <CheckBox
-                android:text="@string/escalera"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cbEscalera"
-                android:layout_weight="0.33"/>
-
-            <CheckBox
-                android:text="@string/barandilla"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cbBarandilla"
-                android:layout_weight="0.33"/>
-
-            <CheckBox
-                android:text="@string/banco"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cbBanco"
-                android:layout_weight="0.33"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <CheckBox
-                android:text="@string/rampa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cbRampa"
-                android:layout_weight="0.33"/>
-
-            <CheckBox
-                android:text="@string/cajon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cbCajon"
-                android:layout_weight="0.33"/>
-
-            <CheckBox
-                android:text="@string/bowl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cbBowl"
-                android:layout_weight="0.33"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/descripcion"
-            />
-
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:id="@+id/editTextDesc" />
+            android:orientation="vertical"
+            android:padding="8dp">
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dificultad"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RadioGroup
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/rbgDificultad"
-                android:weightSum="1">
+                android:text="@string/descripcion"
+                android:textColor="@color/BLANCO"/>
 
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rdDificultalBaja"
-                    android:layout_weight="0.33"
-                    android:text="@string/baja"/>
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rdDificultalMedia"
-                    android:layout_weight="0.33"
-                    android:text="@string/media"/>
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rdDificultalAlta"
-                    android:layout_weight="0.33"
-                    android:text="@string/alta"/>
-            </RadioGroup>
+            <EditText
+                android:id="@+id/editTextDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/BLANCO"/>
 
         </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dificultad"
+                android:textColor="@color/BLANCO"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup
+                    android:id="@+id/rbgDificultad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <RadioButton
+                        android:id="@+id/rdDificultalBaja"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.33"
+                        android:text="@string/baja"
+                        android:textColor="@color/BLANCO"/>
+
+                    <RadioButton
+                        android:id="@+id/rdDificultalMedia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.33"
+                        android:text="@string/media"
+                        android:textColor="@color/BLANCO"/>
+
+                    <RadioButton
+                        android:id="@+id/rdDificultalAlta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.33"
+                        android:text="@string/alta"
+                        android:textColor="@color/BLANCO"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/set_picture"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@mipmap/camera"
+                android:layout_gravity="center"
                 android:layout_weight="0.33" />
 
-            <Button
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btngaleria"
-                android:text="@string/galeria"
-                android:layout_weight="0.33"/>
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_gravity="center"
+                android:padding="16dp">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btncamara"
-                android:text="@string/camara"
-                android:layout_weight="0.33"/>
+                <ImageButton
+                    android:id="@+id/btngaleria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:backgroundTint="@color/colorAccent"
+                    android:src="@drawable/ic_perm_media_white_24dp"
+                    android:text="@string/galeria" />
 
+
+                <ImageButton
+                    android:id="@+id/btncamara"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:src="@drawable/ic_camera_enhance_white_24dp"
+                    android:backgroundTint="@color/colorAccent"
+                    android:text="@string/camara" />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-        <Button
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnOkSpot"
-            android:text="@string/agregar_spot"/>
-    </LinearLayout>
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
 
+            <Button
+                android:id="@+id/btnOkSpot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/redondo"
+                android:text="@string/agregar_spot" />
+        </LinearLayout>
 
 </LinearLayout>
