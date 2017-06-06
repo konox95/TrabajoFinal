@@ -16,18 +16,24 @@
             android:icon="@drawable/ic_person_black_24dp"
             android:title="PERFIL" />
         <item
-            android:id="@+id/cerrarSesion"
-            android:icon="@drawable/ic_remove_circle_black_24dp"
-            android:title="CERRAR SESIÓN" />
+            android:id="@+id/imagenes"
+            android:icon="@drawable/ic_photo_album_black_24dp"
+            android:title="GALERIA SPOTS" />
         <item
             android:id="@+id/reloj"
             android:icon="@drawable/ic_watch_black_24dp"
             android:title="SMART WATCH" />
-        <item
-            android:id="@+id/imagenes"
-            android:icon="@drawable/ic_photo_album_black_24dp"
-            android:title="GALERIA SPOTS" />
+
     </group>
 
+    <item android:id="@+id/itCerrarSesion"
+          android:title="Desconectar">
+        <menu>
+            <item
+                android:id="@+id/cerrarSesion"
+                android:icon="@drawable/ic_remove_circle_black_24dp"
+                android:title="CERRAR SESIÓN" />
+        </menu>
+    </item>
 
 </menu>

@@ -73,7 +73,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             main3ActivityDrawer.cambiarFragmentDrawer(1);
             Log.v("CCCC", "MAPAAAA!!!!!!!!!");
             main3ActivityDrawer.onBackPressed();
-        }else if(item.getItemId()==main3ActivityDrawer.cerrarSesion.getItemId()){
+        }else if(item.getItemId()==R.id.cerrarSesion){
             Log.v("CCCC", "CERRRAR SESION!!!!!!!!!");
 
             SharedPreferences prefs = main3ActivityDrawer.getSharedPreferences("MIPROPS",0);

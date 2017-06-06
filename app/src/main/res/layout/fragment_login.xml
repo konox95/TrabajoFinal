@@ -72,6 +72,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginStart="30dp"
+            android:background="@drawable/redondo"
             android:text="@string/Log" />
 
         <com.google.android.gms.common.SignInButton

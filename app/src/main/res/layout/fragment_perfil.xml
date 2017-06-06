@@ -1,192 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="konox.actividad3.PerfilFragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context="konox.actividad3.PerfilFragment">
 
-    <android.support.design.widget.AppBarLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:backgroundTint="#00be50"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00be50">
 
-            <ImageView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher" />
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/ivFotoPerfil"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/cv" />
+
+                    <TextView
+                        android:id="@+id/tvNombreUsuarioPerfil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="CharlyBiersack"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvEmaileUsuarioPerfil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="carlos.marana@live.u-tad.com"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_place_black_24dp"
+                            android:tint="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="8dp"
+                            android:text="Madrid, España"
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#EEEEEE"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:gravity="center"
-                android:layout_alignParentBottom="true">
+                app:layout_scrollFlags="scroll|enterAlways">
 
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:id="@+id/ivFotoPerfil"
-                    android:src="@drawable/cv"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detalles"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:entries="@array/nivel"></Spinner>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:id="@+id/tvNombreUsuarioPerfil"
-                    android:text="CharlyBiersack"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:text="Skater en mis tiempos libres. Mejor que tú, seguro." />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvEmaileUsuarioPerfil"
-                    android:text="carlos.marana@live.u-tad.com"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold" />
+            </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#EEEEEE"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:weightSum="1"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="309dp"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_place_black_24dp"
-                        android:tint="@android:color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/etContraseñaPerfil"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="8dp"
-                        android:text="Madrid, España"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                        android:hint="Contraseña"
+                        android:inputType="textPassword" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/ibEditar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_create_black_24dp" />
+
+
             </LinearLayout>
-        </RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#EEEEEE"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:weightSum="1"
+                app:layout_scrollFlags="scroll|enterAlways">
 
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:background="#EEEEEE"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Detalles"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                />
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:entries="@array/nivel">
-            </Spinner>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Skater en mis tiempos libres. Mejor que tú, seguro."/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:background="#EEEEEE"
-            android:padding="16dp"
-            android:weightSum="1">
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="309dp"
-                android:layout_height="wrap_content">
-
-                <android.support.design.widget.TextInputEditText
+                <Button
+                    android:id="@+id/btnGaleria"
                     android:layout_width="match_parent"
-                    android:id="@+id/etContraseñaPerfil"
-                    android:hint="Contraseña"
-                    android:inputType="textPassword"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/redondo"
+                    android:text="@string/galeria" />
 
-            </android.support.design.widget.TextInputLayout>
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ibEditar"
-                android:src="@drawable/ic_create_black_24dp"/>
+                <Button
+                    android:id="@+id/btnCamara"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/redondo"
+                    android:text="@string/camara" />
 
 
             </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:background="#EEEEEE"
-            android:padding="16dp"
-            android:weightSum="1">
-
-            <Button
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:id="@+id/btnGaleria"
-                android:text="@string/galeria"/>
+                android:layout_height="match_parent"
+                android:background="#EEEEEE"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:weightSum="1"
+                app:layout_scrollFlags="scroll|enterAlways">
 
+                <Button
+                    android:id="@+id/btnGuardarPerfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/redondo"
+                    android:text="@string/guardar_cambios" />
+            </LinearLayout>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:id="@+id/btnCamara"
-                android:text="@string/camara"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:background="#EEEEEE"
-            android:padding="16dp"
-            android:weightSum="1">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:id="@+id/btnGuardarPerfil"
-                android:text="@string/guardar_cambios"/>
-        </LinearLayout>
-
-    </android.support.design.widget.AppBarLayout>
+        </android.support.design.widget.AppBarLayout>
+    </ScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
 
