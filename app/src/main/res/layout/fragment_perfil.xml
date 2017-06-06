@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="konox.actividad3.PerfilFragment">
+    tools:context="konox.actividad3.PerfilFragment"
+    android:background="@color/colorAccent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,7 +14,7 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF">
+            android:background="#FFFFFF">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -103,14 +104,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:textColor="@color/BLANCO"
-                    android:entries="@array/nivel"></Spinner>
+                    android:entries="@array/nivel" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/BLANCO"
-                    android:text="Skater en mis tiempos libres. Mejor que tú, seguro." />
+                    android:text="@string/skater_en_mis_tiempos_libres_mejor_que_t_seguro" />
 
             </LinearLayout>
 
@@ -142,7 +143,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tint="@android:color/white"
-                    android:backgroundTint="@color/colorAccent"
+                    android:background="@color/colorAccent"
                     android:src="@drawable/ic_create_black_24dp" />
 
 
@@ -162,9 +163,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:backgroundTint="@color/colorAccent"
+                    android:background="@color/colorAccent"
                     android:src="@drawable/ic_perm_media_white_24dp"
-                    android:background="@drawable/redondo"
                     android:text="@string/galeria" />
 
 
@@ -173,7 +173,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:backgroundTint="@color/colorAccent"
+                    android:background="@color/colorAccent"
                     android:src="@drawable/ic_camera_enhance_white_24dp"
                     android:text="@string/camara" />
 

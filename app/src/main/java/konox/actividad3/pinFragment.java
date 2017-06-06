@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -16,6 +17,7 @@ import android.widget.TextView;
 public class pinFragment extends Fragment {
     TextView txt_nombre,txt_descripcion,txt_tipo,txt_dificultad;
     ImageButton imgBtnClose;
+    ImageView imgSpotPinFragment;
 
 
     public pinFragment() {
@@ -32,6 +34,7 @@ public class pinFragment extends Fragment {
         txt_descripcion = (TextView) v.findViewById(R.id.txtDescript);
         txt_tipo = (TextView) v.findViewById(R.id.txtTipo);
         txt_dificultad = (TextView) v.findViewById(R.id.txtDificultad);
+        imgSpotPinFragment = (ImageView) v.findViewById(R.id.imgSpot);
         imgBtnClose = (ImageButton)v.findViewById(R.id.imgBtnClose);
 
         return v;

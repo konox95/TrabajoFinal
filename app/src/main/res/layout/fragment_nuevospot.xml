@@ -251,7 +251,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:backgroundTint="@color/colorAccent"
+                    android:background="@color/colorAccent"
                     android:src="@drawable/ic_perm_media_white_24dp"
                     android:text="@string/galeria" />
 
@@ -262,7 +262,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:src="@drawable/ic_camera_enhance_white_24dp"
-                    android:backgroundTint="@color/colorAccent"
+                    android:background="@color/colorAccent"
                     android:text="@string/camara" />
 
             </LinearLayout>

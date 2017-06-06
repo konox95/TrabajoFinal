@@ -19,8 +19,6 @@ import java.util.ArrayList;
 public class galeriaFragment extends Fragment {
 
 
-
-
     public galeriaFragment() {
         // Required empty public constructor
     }

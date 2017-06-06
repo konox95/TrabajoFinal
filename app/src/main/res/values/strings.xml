@@ -47,4 +47,19 @@
     <string name="bowl">Bowl</string>
     <string name="tipo_de_spot">TIPO DE SPOT</string>
     <string name="guardar_cambios">Guardar cambios</string>
+    <string name="tipo_de_spot_1">Tipo de Spot:</string>
+    <string name="dificultad_del_spot">Dificultad del spot</string>
+    <string name="dificultad_spot">Dificultad</string>
+    <string name="tipo">Tipo</string>
+    <string name="crampa">CRampa</string>
+    <string name="cescalera">CEscalera</string>
+    <string name="ccajon">CCajon</string>
+    <string name="cbarandilla">CBarandilla</string>
+    <string name="cbowl">CBowl</string>
+    <string name="cbanco">CBanco</string>
+    <string name="nombre">Nombre</string>
+    <string name="descripci_n">Descripción</string>
+    <string name="componentes">COMPONENTES</string>
+    <string name="dificultaddd">DIFICULTAD</string>
+    <string name="skater_en_mis_tiempos_libres_mejor_que_t_seguro">Skater en mis tiempos libres. Mejor que tú, seguro.</string>
 </resources>

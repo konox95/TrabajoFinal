@@ -45,21 +45,15 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
     galeriaFragment galeriaFrag;
     FragmentManager fm;
     NavigationView navigationView;
-    MenuItem perfilNav;
-    MenuItem spotNav;
-    MenuItem mapaNav;
-    MenuItem cerrarSesion;
-    MenuItem galeriaMenu;
-    TextView txtEmail;
-    TextView txtName;
+    MenuItem perfilNav, spotNav, mapaNav, cerrarSesion, galeriaMenu;
+    TextView txtEmail, txtName;
     GoogleMap mMap;
     Button btn;
     ImageView imgMenu;
     LocationManager mLocationManager;
     Location miUltimaPosicion=null;
     Marker markerMiPosicion;
-    double latitud=0;
-    double longitud=0;
+    double latitud=0, longitud=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +72,6 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         cerrarSesion = navigationView.getMenu().getItem(3);
         galeriaMenu = navigationView.getMenu().getItem(5);
 
-
-
-
         //FRAGMENTS
         mapa = (MapaFragment) fm.findFragmentById(R.id.frMapa);
         nuevoSpotFragment = (NuevoSpotFragment) fm.findFragmentById(R.id.frSpotNuevo);
@@ -88,12 +79,10 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         pin = (pinFragment) fm.findFragmentById(R.id.fragment_pin);
         galeriaFrag = (galeriaFragment)fm.findFragmentById(R.id.fragment_galeria);
 
+        //OnClick
         nuevoSpotFragment.btnNewSpot.setOnClickListener(main3ActivityDrawerController);
-
         pin.imgBtnClose.setOnClickListener(main3ActivityDrawerController);
-
         perfil.btnEdit.setOnClickListener(main3ActivityDrawerController);
-
         perfil.btnGuardarPerfil.setOnClickListener(main3ActivityDrawerController);
 
         SupportMapFragment supportMapFragment=(SupportMapFragment)
@@ -113,11 +102,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(main3ActivityDrawerController);
 
-
-
         cambiarFragmentDrawer(1);
-
-
 
     }
 
@@ -141,7 +126,6 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         txtName.setText(DataHolder.instance.name);
         String imageUrl = DataHolder.instance.urlImage;
         Picasso.with(this).load(imageUrl).into(imgMenu);
-
 
         //getMenuInflater().inflate(R.menu.main3_activity_drawer, menu);
         return true;

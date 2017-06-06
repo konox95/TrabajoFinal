@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.quickblox.auth.QBAuth;
 import com.quickblox.auth.model.QBSession;
 import com.quickblox.content.QBContent;
@@ -22,8 +23,13 @@ import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -138,7 +144,33 @@ public class QBAdmin {
                     String descripSpot = qbCustomObjects.get(i).getFields().get("Descripcion").toString();
                     String tipoSpot =  qbCustomObjects.get(i).getFields().get("Tipo").toString();
                     String dificultadSpot =  qbCustomObjects.get(i).getFields().get("Dificultad").toString();
-                    pines.add(new MiPin(Latitud, Longitud, nombreSpot,descripSpot, tipoSpot, dificultadSpot));
+
+                    ArrayList<String> imgSpot= new ArrayList<String>();
+                    if(qbCustomObjects.get(i).getFields().get("Fotos")!=null){
+
+                        Gson gson = new Gson();
+
+                        String json = gson.toJson(qbCustomObjects.get(i).getFields().get("Fotos"));
+
+                        try {
+
+                            JSONArray jsonArray =new JSONArray(json);
+                            for(int j=0;j<jsonArray.length();j++){
+                                imgSpot.add(jsonArray.getString(j));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+
+
+
+                    //ArrayList<String> imgSpot= (ArrayList<String>)qbCustomObjects.get(i).getFields().get("Fotos");
+
+                    //imgSpot.add(qbCustomObjects.get(i).getFields().get("Fotos").toString());
+                    pines.add(new MiPin(Latitud, Longitud, nombreSpot,descripSpot, tipoSpot, dificultadSpot, imgSpot));
                 }
 
                 adminlistener.descargaPinesFinalizado(pines);
