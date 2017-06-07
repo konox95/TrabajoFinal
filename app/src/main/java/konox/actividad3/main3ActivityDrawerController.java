@@ -9,7 +9,10 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -21,6 +24,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 import konox.libreria1.MiPin;
 import konox.libreria1.QBAdminListiner;
 
@@ -47,7 +51,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
         Log.v("PASE", "PASSSSSSSSSSSSSSSS");
         String imageUrl = DataHolder.instance.urlImage;
-        Picasso.with(main3ActivityDrawer).load(imageUrl).into(main3ActivityDrawer.perfil.img);
+        Picasso.with(main3ActivityDrawer).load(imageUrl).transform(new RoundedCornersTransformation(10, 10)).into(main3ActivityDrawer.perfil.img);
 
     }
 
@@ -149,8 +153,15 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             LatLng current = new LatLng(pines.get(i).dbLatitud,
                     pines.get(i).dbLongitud);
             Marker tempmar = main3ActivityDrawer.mMap.addMarker(new MarkerOptions().position(current).
-                    title(pines.get(i).sNombre));
+                    title(pines.get(i).sNombre)
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_car_black_12dp)));
             tempmar.setTag(pines.get(i));
+
+            CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(main3ActivityDrawer.latitud, main3ActivityDrawer.longitud));
+            CameraUpdate zoom = CameraUpdateFactory.zoomTo(18);
+
+            main3ActivityDrawer.mMap.moveCamera(center);
+            main3ActivityDrawer.mMap.animateCamera(zoom);
         }
     }
 
@@ -161,8 +172,8 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
                     main3ActivityDrawer.longitud);
 
 
-            Marker tempmar = main3ActivityDrawer.mMap.addMarker(new MarkerOptions().position(current).
-                    title(main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString()));
+            Marker tempmar = main3ActivityDrawer.mMap.addMarker(new MarkerOptions().position(current)
+                    .title(main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString()));
 
             MiPin pinTemp = new MiPin(main3ActivityDrawer.latitud,
                     main3ActivityDrawer.longitud, main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString());

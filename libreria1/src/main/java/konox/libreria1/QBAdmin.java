@@ -43,7 +43,6 @@ public class QBAdmin {
     Activity activity;
     ProgressDialog progressDialog;
 
-
     public QBAdmin(Activity activity) {
         this.activity = activity;
         progressDialog = new ProgressDialog(activity);

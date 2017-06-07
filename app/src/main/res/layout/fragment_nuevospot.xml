@@ -5,16 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="konox.actividad3.NuevoSpotFragment"
-    android:background="@color/colorAccent"
-    >
-
+    android:background="@color/colorAccent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="8dp"
-            >
+            android:padding="8dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -37,7 +34,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="8dp">
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -224,7 +220,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
