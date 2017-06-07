@@ -59,10 +59,22 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString("WORKAROUND_FOR_BUG_19917_KEY", "WORKAROUND_FOR_BUG_19917_VALUE");
+        super.onSaveInstanceState(outState);
+    }
+
 
     public void cambiarFragment(int ifrg) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
+
+        transaction.hide(loginFragment);
+        transaction.hide(creditosFragment);
+        transaction.hide(registroFragment);
+
+
 
         if (ifrg == 1) {
             if(controlador.blAutoLoginCorrect){
@@ -74,16 +86,21 @@ public class MainActivity extends AppCompatActivity {
                 transaction.hide(registroFragment);
                 transaction.hide(creditosFragment);
             }
-        } else if (ifrg == 2) {
+        }
+        if (ifrg == 2) {
             transaction.show(registroFragment);
             transaction.hide(loginFragment);
             transaction.hide(creditosFragment);
-        } else if (ifrg == 3) {
+        }
+        if (ifrg == 3) {
             transaction.show(creditosFragment);
             transaction.hide(registroFragment);
             transaction.hide(loginFragment);
+
         }
-        transaction.commit();
+        transaction.commitAllowingStateLoss();
+
+
 
     }
 

@@ -82,13 +82,16 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             edit.putString("email", null);
             edit.putString("pwd", null);
 
+
             edit.commit();
 
             DataHolder.instance.cerraSesion = true;
 
+            main3ActivityDrawer.finish();
 
             Intent inten = new Intent(main3ActivityDrawer, MainActivity.class);
             main3ActivityDrawer.startActivity(inten);
+
 
         } else if (item.getItemId()==R.id.imagenes){
 

@@ -97,19 +97,12 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
 
             DataHolder.instance.urlImage = prefs.getString("urlPerfil", null);
 
-
-            //Log.v("FotoPerfil", DataHolder.instance.urlImage);
-
             blAutoLoginCorrect=true;
 
             //Cogemos el email y el nombre del qbuser y lo guardamos en el dataHolder
-
             DataHolder.instance.email = user.getEmail();
             DataHolder.instance.name = user.getLogin();
-
-
             DataHolder.instance.user = user;
-
 
             if(pwd==null){
                 DataHolder.instance.pwd=vista.loginFragment.et_pwd.getText().toString();
@@ -118,16 +111,11 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
                 DataHolder.instance.pwd=pwd;
             }
 
-
             if(blLoginClickPressed){
 
                 Intent inten = new Intent(vista, Main3ActivityDrawer.class);
                 vista.startActivity(inten);
-
             }
-
-
-
 
         } else if (!blLogeado){
             Toast.makeText(vista, "Auth fail", Toast.LENGTH_SHORT).show();
