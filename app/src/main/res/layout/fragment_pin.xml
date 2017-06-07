@@ -267,7 +267,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -303,30 +302,6 @@
                         android:text="@string/comenzar_viaje"/>
                 </LinearLayout>
 
-
-                <TextView
-                    android:id="@+id/txtDescript"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/descripci_n"
-                    android:text=""
-                    android:textAlignment="center"
-                    android:textColor="@color/BLANCO"
-                    android:textSize="16sp" />
-<LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/btnEmpezar"
-                        android:text="@string/comenzar_viaje"/>
                 </LinearLayout>
-            </LinearLayout>
         </LinearLayout>
-
 </LinearLayout>
