@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -11,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
@@ -23,18 +25,35 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.akexorcist.googledirection.DirectionCallback;
+import com.akexorcist.googledirection.GoogleDirection;
+import com.akexorcist.googledirection.constant.TransportMode;
+import com.akexorcist.googledirection.model.Direction;
+import com.akexorcist.googledirection.model.Leg;
+import com.akexorcist.googledirection.model.Route;
+import com.akexorcist.googledirection.model.Step;
+import com.akexorcist.googledirection.util.DirectionConverter;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReadyCallback,LocationListener {
+import konox.libreria1.MiPin;
+
+
+public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReadyCallback,LocationListener, DirectionCallback {
 
     //QBAdmin qbAdmin;
     main3ActivityDrawerController main3ActivityDrawerController;
@@ -53,7 +72,15 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
     LocationManager mLocationManager;
     Location miUltimaPosicion=null;
     Marker markerMiPosicion;
+    String serverKey = "AIzaSyC6ylYPdkjpTZyNtDSWGjwZIDE6jWKhNzk";
+
+    private Button btnRequestDirection;
+    private GoogleMap googleMap;
+    private LatLng origin;
+    private LatLng destination;
+
     double latitud=0, longitud=0;
+    private static final int[] COLORS = new int[]{R.color.AMARILLO, R.color.colorAccent, R.color.BLANCO, R.color.GRISLIGHT};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +111,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         pin.imgBtnClose.setOnClickListener(main3ActivityDrawerController);
         perfil.btnEdit.setOnClickListener(main3ActivityDrawerController);
         perfil.btnGuardarPerfil.setOnClickListener(main3ActivityDrawerController);
+        pin.btnEmpezar.setOnClickListener(main3ActivityDrawerController);
 
         SupportMapFragment supportMapFragment=(SupportMapFragment)
                 getSupportFragmentManager().findFragmentById(R.id.frMapa);
@@ -270,6 +298,8 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         alertDialog.show();
     }
 
+
+
     @Override
     public void onStatusChanged(String s, int i, Bundle bundle) {
 
@@ -308,7 +338,48 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         if(loc!=null) {
             this.latitud = loc.getLatitude();
             this.longitud = loc.getLongitude();
+            DataHolder.instance.longitud = loc.getLongitude();
+            DataHolder.instance.latitud = loc.getLatitude();
         }
     }
 
+    public void startDirection(MiPin pin, double longitud, double latitud){
+
+        Log.v("ENTRA_MAPA", "ENTRA METODO --------------------------");
+
+
+
+        origin = new LatLng(longitud, latitud);
+        destination = new LatLng(pin.dbLongitud, pin.dbLatitud);
+
+        GoogleDirection.withServerKey(serverKey)
+                .from(new LatLng(latitud, longitud))
+                .to(new LatLng(pin.dbLatitud, pin.dbLongitud))
+                .execute(this);
+
+    }
+
+    @Override
+    public void onDirectionSuccess(Direction direction, String rawBody) {
+        Log.v("ENTRA_MAPA", "ENTRE SUCCESS ------- " + direction.getStatus());
+
+        if(direction.isOK()) {
+            Log.v("ENTRA_MAPA", "ENTRE SUCCESS");
+            try{
+                List<Step> stepList = direction.getRouteList().get(0).getLegList().get(0).getStepList();
+                ArrayList<PolylineOptions> polylineOptionList = DirectionConverter.createTransitPolyline(this, stepList, 5, Color.RED, 3, Color.BLUE);
+                for (PolylineOptions polylineOption : polylineOptionList) {
+                    mMap.addPolyline(polylineOption);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    @Override
+    public void onDirectionFailure(Throwable t) {
+
+    }
 }

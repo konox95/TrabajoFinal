@@ -1,12 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/transparent"
-    android:orientation="vertical"
-    android:paddingLeft="60dp"
-    android:paddingRight="60dp"
-    android:paddingTop="60dp"
-    android:weightSum="2">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/transparent"
+              android:orientation="vertical"
+              android:paddingLeft="60dp"
+              android:paddingRight="60dp"
+              android:paddingTop="60dp"
+              android:weightSum="2">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:background="@android:color/transparent"
                 android:paddingRight="1dp"
                 android:paddingTop="2dp"
-                android:src="@mipmap/ic_clear_black_24dp" />
+                android:src="@mipmap/ic_clear_black_24dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -69,7 +69,7 @@
                     android:id="@+id/imgSpot"
                     android:layout_width="match_parent"
                     android:layout_height="100sp"
-                    android:src="@drawable/skatepark" />
+                    android:src="@drawable/skatepark"/>
             </LinearLayout>
 
             <LinearLayout
@@ -93,7 +93,7 @@
                         android:text="@string/tipo_de_spot_1"
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
 
@@ -112,7 +112,7 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -138,7 +138,7 @@
                         android:text="@string/dificultad_del_spot"
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
 
@@ -157,7 +157,7 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -182,7 +182,7 @@
                         android:text="@string/componentes"
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
 
@@ -200,7 +200,7 @@
                         android:text="@string/cbanco"
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/CBarandilla"
@@ -209,7 +209,7 @@
                         android:text="@string/cbarandilla"
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/CBowl"
@@ -218,7 +218,7 @@
                         android:text="@string/cbowl"
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
 
@@ -236,7 +236,7 @@
                         android:text="@string/ccajon"
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/CEscalera"
@@ -246,7 +246,7 @@
                         android:text="@string/cescalera"
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/CRampa"
@@ -256,7 +256,7 @@
                         android:text="@string/crampa"
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -282,7 +282,22 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/BLANCO"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnEmpezar"
+                        android:text="@string/comenzar_viaje"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

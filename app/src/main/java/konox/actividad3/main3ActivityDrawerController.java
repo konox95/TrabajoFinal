@@ -2,8 +2,6 @@ package konox.actividad3;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.support.design.widget.NavigationView;
 import android.util.Log;
 import android.view.MenuItem;
@@ -20,9 +18,7 @@ import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.users.model.QBUser;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import konox.libreria1.MiPin;
@@ -112,6 +108,10 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
         main3ActivityDrawer.pin.txt_descripcion.setText(pin.sDescripcion);
         main3ActivityDrawer.pin.txt_dificultad.setText(pin.sDificultad);
         main3ActivityDrawer.pin.txt_tipo.setText(pin.sTipo);
+
+        DataHolder.instance.miPin = pin;
+
+
 
         if (pin.imgSpot.size() != 0) {
             String UrlFoto = pin.imgSpot.get(0);
@@ -300,5 +300,15 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
                 e.printStackTrace();
             }
         }
+
+        if (view.getId() == main3ActivityDrawer.pin.btnEmpezar.getId()) {
+            Log.v("ENTRA_MAPA", "ENTRA MAPAAAAAAAAA");
+
+            main3ActivityDrawer.sendLatLong();
+            main3ActivityDrawer.startDirection(DataHolder.instance.miPin, DataHolder.instance.longitud, DataHolder.instance.latitud);
+        }
     }
+
+
+
 }

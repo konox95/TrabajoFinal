@@ -24,7 +24,10 @@ public class DataHolder {
     public boolean cerraSesion =false;
     public ArrayList<MiPin> pi= new ArrayList<MiPin>();
     public int id = 0;
+    public MiPin miPin = null;
     QBUser user;
+    public double longitud = 0;
+    public double latitud= 0;
 
     public DataHolder(){
     }
