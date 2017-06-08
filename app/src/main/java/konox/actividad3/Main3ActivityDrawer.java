@@ -243,14 +243,9 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
                 //get the location by gps
                 if (isGPSEnabled) {
                     if (miUltimaPosicion == null) {
-                        //mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,MIN_TIME_BW_UPDATES,MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
                         Log.d("GPS Enabled", "GPS Enabled");
                         if (mLocationManager != null) {
                             miUltimaPosicion = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                            /*if (location != null) {
-                                lat = location.getLatitude();
-                                lng = location.getLongitude();
-                            }*/
                         }
                     }
                 }
@@ -355,6 +350,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         GoogleDirection.withServerKey(serverKey)
                 .from(new LatLng(latitud, longitud))
                 .to(new LatLng(pin.dbLatitud, pin.dbLongitud))
+                .transportMode(TransportMode.WALKING)
                 .execute(this);
 
     }

@@ -10,7 +10,7 @@ import konox.libreria1.MiPin;
 import konox.libreria1.QBAdmin;
 
 /**
- * Created by asus on 16/02/2017.
+ * Created by konox on 16/02/2017.
  */
 
 public class DataHolder {
@@ -30,6 +30,7 @@ public class DataHolder {
     public double latitud= 0;
 
     public DataHolder(){
+
     }
 
     public void initQBAdmin(Activity a){

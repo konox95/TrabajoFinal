@@ -2,27 +2,10 @@ package konox.actividad3;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-
-import com.quickblox.auth.QBAuth;
-
-import java.util.Map;
-import java.util.Set;
-
-import konox.libreria1.QBAdmin;
-
-import static android.R.attr.value;
 
 public class MainActivity extends AppCompatActivity {
     RegistroFragment registroFragment;

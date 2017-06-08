@@ -76,6 +76,8 @@ public class QBAdmin {
     }
 
     public void login(String usr, String pwd) {
+
+        Log.v("ENTRE_LOG", "USER " + usr + " PWD " + pwd);
         final QBUser user = new QBUser();
         user.setEmail(usr);
         user.setPassword(pwd);
@@ -128,10 +130,13 @@ public class QBAdmin {
 
     public void descargDatosPines() {
         QBRequestGetBuilder requestBuilder = new QBRequestGetBuilder();
+        Log.v("ENTRA_PINES" ,"ENTRA EN descargDatosPines QBADMIN -------------------");
         QBCustomObjects.getObjects("Pines", requestBuilder, new QBEntityCallback<ArrayList<QBCustomObject>>() {
 
             @Override
             public void onSuccess(ArrayList<QBCustomObject> qbCustomObjects, Bundle bundle) {
+                Log.v("ENTRA_PINES" ,"AAAAAAAAAAAAA -------------------");
+
                 ArrayList<MiPin> pines = new ArrayList<MiPin>();
                 Log.v("QBADMIN", "----->>>>>  " + qbCustomObjects);
 
@@ -163,17 +168,9 @@ public class QBAdmin {
 
 
                     }
-
-
-
-                    //ArrayList<String> imgSpot= (ArrayList<String>)qbCustomObjects.get(i).getFields().get("Fotos");
-
-                    //imgSpot.add(qbCustomObjects.get(i).getFields().get("Fotos").toString());
                     pines.add(new MiPin(Latitud, Longitud, nombreSpot,descripSpot, tipoSpot, dificultadSpot, imgSpot));
                 }
-
                 adminlistener.descargaPinesFinalizado(pines);
-
             }
 
             @Override
