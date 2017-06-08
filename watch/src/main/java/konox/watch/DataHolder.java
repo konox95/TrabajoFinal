@@ -2,6 +2,8 @@ package konox.watch;
 
 import android.app.Activity;
 
+import com.quickblox.users.model.QBUser;
+
 import java.util.ArrayList;
 
 import konox.libreria1.MiPin;
@@ -16,6 +18,11 @@ public class DataHolder {
     public QBAdmin qbAdmin;
     public ArrayList<MiPin> pi= new ArrayList<MiPin>();
     public MiPin miPin = null;
+    public int id = 0;
+    QBUser user;
+    public double longitud = 0;
+    public double latitud= 0;
+
 
     public DataHolder() {
 

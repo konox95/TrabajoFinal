@@ -3,6 +3,7 @@ package konox.watch;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -19,7 +20,7 @@ import konox.libreria1.QBAdminListiner;
  * Created by konox on 07/06/2017.
  */
 
-public class MapsActivityController implements QBAdminListiner {
+public class MapsActivityController implements QBAdminListiner, GoogleMap.OnMarkerClickListener {
 
     MapsActivity vista;
 
@@ -68,6 +69,8 @@ public class MapsActivityController implements QBAdminListiner {
             Marker tempmar = vista.mMap.addMarker(new MarkerOptions().position(current).
                     title(pines.get(i).sNombre));
             tempmar.setTag(pines.get(i));
+
+            vista.mMap.setOnMarkerClickListener(this);
         }
 
     }
@@ -95,5 +98,20 @@ public class MapsActivityController implements QBAdminListiner {
     @Override
     public void insertarDatosPerfil(boolean blInsertado, QBCustomObject object) {
 
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+        MiPin pin = (MiPin) marker.getTag();
+        Log.v("MAP", "NOMBRE DEL MARKER PINCHADO " + pin.sNombre + pin.sDificultad);
+        DataHolder.instance.miPin = pin;
+
+
+        vista.sendLatLong();
+
+        vista.startDirection(DataHolder.instance.miPin, DataHolder.instance.longitud, DataHolder.instance.latitud);
+
+        return false;
     }
 }

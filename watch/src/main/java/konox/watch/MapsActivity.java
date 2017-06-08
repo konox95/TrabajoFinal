@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -19,13 +20,25 @@ import android.view.View;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
 
+import com.akexorcist.googledirection.DirectionCallback;
+import com.akexorcist.googledirection.GoogleDirection;
+import com.akexorcist.googledirection.constant.TransportMode;
+import com.akexorcist.googledirection.model.Direction;
+import com.akexorcist.googledirection.model.Step;
+import com.akexorcist.googledirection.util.DirectionConverter;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.PolylineOptions;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import konox.libreria1.MiPin;
 
 public class MapsActivity extends Activity implements OnMapReadyCallback,
-        GoogleMap.OnMapLongClickListener, LocationListener {
+        GoogleMap.OnMapLongClickListener, LocationListener, DirectionCallback {
 
     /**
      * Overlay that shows a short help text when first launched. It also provides an option to
@@ -93,14 +106,24 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
         mDismissOverlay.showIntroIfNecessary();
 
 
+
         // Obtain the MapFragment and set the async listener to be notified when the map is ready.
         MapFragment mapFragment =
                 (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
-
     }
+
+    public void sendLatLong(){
+        Location loc=getMiUltimaPosicion();
+        if(loc!=null) {
+            this.latitud = loc.getLatitude();
+            this.longitud = loc.getLongitude();
+            DataHolder.instance.longitud = loc.getLongitude();
+            DataHolder.instance.latitud = loc.getLatitude();
+        }
+    }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -125,13 +148,6 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
     }
 
     public Location getMiUltimaPosicion(){
-        if ( Build.VERSION.SDK_INT >= 23 && (
-                ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ||
-                        ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
-            showSettingsAlert();
-            return  null;
-        }
-
         try {
             int MIN_TIME_BW_UPDATES=1000;//MILISEGUNDOS DE REFRESCO
             int MIN_DISTANCE_CHANGE_FOR_UPDATES=10;//METROS DE PRECISION
@@ -206,23 +222,6 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
         alertDialog.show();
     }
 
-   /* public void startDirection(MiPin pin, double longitud, double latitud){
-
-        Log.v("ENTRA_MAPA", "ENTRA METODO --------------------------");
-
-
-
-        origin = new LatLng(longitud, latitud);
-        destination = new LatLng(pin.dbLongitud, pin.dbLatitud);
-
-        GoogleDirection.withServerKey(serverKey)
-                .from(new LatLng(latitud, longitud))
-                .to(new LatLng(pin.dbLatitud, pin.dbLongitud))
-                .transportMode(TransportMode.WALKING)
-                .execute(this);
-
-    }*/
-
     @Override
     public void onLocationChanged(Location location) {
         miUltimaPosicion=location;
@@ -242,6 +241,45 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
 
     @Override
     public void onProviderDisabled(String provider) {
+
+    }
+
+    public void startDirection(MiPin pin, double longitud, double latitud){
+
+        Log.v("ENTRA_MAPA", "ENTRA METODO -------------------------- " + pin.dbLatitud + " " + pin.dbLongitud + " " + longitud + " " + latitud);
+
+        origin = new LatLng(longitud, latitud);
+        destination = new LatLng(pin.dbLongitud, pin.dbLatitud);
+
+        GoogleDirection.withServerKey(serverKey)
+                .from(new LatLng(latitud, longitud))
+                .to(new LatLng(pin.dbLatitud, pin.dbLongitud))
+                .transportMode(TransportMode.DRIVING)
+                .execute(this);
+
+    }
+
+    @Override
+    public void onDirectionSuccess(Direction direction, String rawBody) {
+        Log.v("ENTRA_MAPA", "ENTRE SUCCESS ------- " + direction.getStatus());
+
+        if(direction.isOK()) {
+            Log.v("ENTRA_MAPA", "ENTRE SUCCESS");
+            try{
+                List<Step> stepList = direction.getRouteList().get(0).getLegList().get(0).getStepList();
+                ArrayList<PolylineOptions> polylineOptionList = DirectionConverter.createTransitPolyline(this, stepList, 5, Color.RED, 3, Color.BLUE);
+                for (PolylineOptions polylineOption : polylineOptionList) {
+                    mMap.addPolyline(polylineOption);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    @Override
+    public void onDirectionFailure(Throwable t) {
 
     }
 }
