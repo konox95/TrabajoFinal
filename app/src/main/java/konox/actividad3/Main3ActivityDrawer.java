@@ -109,6 +109,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         //OnClick
         nuevoSpotFragment.btnNewSpot.setOnClickListener(main3ActivityDrawerController);
         pin.imgBtnClose.setOnClickListener(main3ActivityDrawerController);
+        pin.imgBtnFavorites.setOnClickListener(main3ActivityDrawerController);
         perfil.btnEdit.setOnClickListener(main3ActivityDrawerController);
         perfil.btnGuardarPerfil.setOnClickListener(main3ActivityDrawerController);
         pin.btnEmpezar.setOnClickListener(main3ActivityDrawerController);

@@ -2,6 +2,7 @@ package konox.actividad3;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.provider.ContactsContract;
 import android.support.design.widget.NavigationView;
 import android.util.Log;
 import android.view.MenuItem;
@@ -36,6 +37,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
     //QBAdmin qbAdmin;
     Main3ActivityDrawer main3ActivityDrawer;
     ArrayList<String> arrFotos = new ArrayList<String>();
+    ArrayList<String> pines= new ArrayList<>();
 
     String urlImg;
 
@@ -115,8 +117,6 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
         DataHolder.instance.miPin = pin;
 
-
-
         if (pin.imgSpot.size() != 0) {
             String UrlFoto = pin.imgSpot.get(0);
             Picasso.with(main3ActivityDrawer)
@@ -161,7 +161,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             CameraUpdate zoom = CameraUpdateFactory.zoomTo(18);
 
             main3ActivityDrawer.mMap.moveCamera(center);
-            main3ActivityDrawer.mMap.animateCamera(zoom);
+            //main3ActivityDrawer.mMap.animateCamera(zoom);
         }
     }
 
@@ -178,6 +178,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             MiPin pinTemp = new MiPin(main3ActivityDrawer.latitud,
                     main3ActivityDrawer.longitud, main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString());
             tempmar.setTag(pinTemp);
+
 
 
         }
@@ -282,6 +283,13 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
         if (view.getId() == main3ActivityDrawer.pin.imgBtnClose.getId()) {
             Log.v("Entra", "CERRRRRARRR********** ");
             main3ActivityDrawer.cambiarFragmentDrawer(5);
+        }
+        //para mandar los datos del pin al fragment de galeria
+        if (view.getId() == main3ActivityDrawer.pin.imgBtnFavorites.getId()) {
+            Log.v("FAVORITOSSSS     :", main3ActivityDrawer.pin.txt_dificultad.getText().toString());
+            DataHolder.instance.contadorFav+=1;
+            main3ActivityDrawer.galeriaFrag.data();
+            Toast.makeText(view.getContext(), "Spot agregado a favoritos", Toast.LENGTH_SHORT).show();
         }
 
         if (view.getId() == main3ActivityDrawer.nuevoSpotFragment.btnNewSpot.getId()) {

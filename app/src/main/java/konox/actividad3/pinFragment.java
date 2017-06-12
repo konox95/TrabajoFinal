@@ -18,6 +18,7 @@ import android.widget.TextView;
 public class pinFragment extends Fragment {
     TextView txt_nombre,txt_descripcion,txt_tipo,txt_dificultad;
     ImageButton imgBtnClose;
+    ImageButton imgBtnFavorites;
     Button btnEmpezar;
     ImageView imgSpotPinFragment;
 
@@ -39,6 +40,7 @@ public class pinFragment extends Fragment {
         imgSpotPinFragment = (ImageView) v.findViewById(R.id.imgSpot);
         imgBtnClose = (ImageButton)v.findViewById(R.id.imgBtnClose);
         btnEmpezar = (Button) v.findViewById(R.id.btnEmpezar);
+        imgBtnFavorites = (ImageButton)v.findViewById(R.id.imgBtnFavorites);
 
         return v;
     }

@@ -31,6 +31,16 @@
                 android:paddingTop="2dp"
                 android:src="@mipmap/ic_clear_black_24dp"/>
 
+            <ImageButton
+                android:id="@+id/imgBtnFavorites"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="left"
+                android:background="@android:color/transparent"
+                android:paddingRight="1dp"
+                android:paddingTop="2dp"
+                android:src="@drawable/ic_menu_send"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

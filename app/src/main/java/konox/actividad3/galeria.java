@@ -12,6 +12,9 @@ public class galeria {
         this.nombre = nombre;
         this.foto = foto;
     }
+    public galeria(String nombre) {
+        this.nombre = nombre;
+    }
 
     public String getNombre() {
         return nombre;

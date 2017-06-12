@@ -27,6 +27,7 @@ public class AdapterA extends RecyclerView.Adapter<AdapterA.AdapterHolder> {
             text = (TextView) itemView.findViewById(R.id.textCard);
             image = (ImageView) itemView.findViewById(R.id.imageCard);
         }
+
     }
 
     public AdapterA(Context Context, List<galeria> albumList) {
@@ -47,7 +48,6 @@ public class AdapterA extends RecyclerView.Adapter<AdapterA.AdapterHolder> {
         galeria galeria = galerias.get(position);
         holder.text.setText(galeria.getNombre());
         holder.image.setImageResource(galeria.getFoto());
-
     }
 
     @Override
