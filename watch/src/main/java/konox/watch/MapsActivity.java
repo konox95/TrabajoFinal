@@ -108,8 +108,7 @@ public class MapsActivity extends Activity implements OnMapReadyCallback,
 
 
         // Obtain the MapFragment and set the async listener to be notified when the map is ready.
-        MapFragment mapFragment =
-                (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
     }

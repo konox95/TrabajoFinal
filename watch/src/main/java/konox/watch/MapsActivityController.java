@@ -110,7 +110,7 @@ public class MapsActivityController implements QBAdminListiner, GoogleMap.OnMark
 
         vista.sendLatLong();
 
-        vista.startDirection(DataHolder.instance.miPin, DataHolder.instance.longitud, DataHolder.instance.latitud);
+        vista.startDirection(DataHolder.instance.miPin, -3.8939395, 40.540424);
 
         return false;
     }
