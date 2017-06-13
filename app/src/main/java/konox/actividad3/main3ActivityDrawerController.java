@@ -175,17 +175,21 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
                     .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
             tempmar.setTag(pines.get(i));
 
-            CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(main3ActivityDrawer.latitud, main3ActivityDrawer.longitud));
-            CameraUpdate zoom = CameraUpdateFactory.zoomTo(18);
+            main3ActivityDrawer.getMiUltimaPosicion();
+
+            CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(DataHolder.instance.latitud, DataHolder.instance.longitud));
+            CameraUpdate zoom = CameraUpdateFactory.zoomTo(10);
 
             main3ActivityDrawer.mMap.moveCamera(center);
-            //main3ActivityDrawer.mMap.animateCamera(zoom);
+            main3ActivityDrawer.mMap.animateCamera(zoom);
         }
     }
 
     @Override
     public void insertarSpot(boolean blInsertado, QBCustomObject object) {
         if (blInsertado) {
+
+
             LatLng current = new LatLng(main3ActivityDrawer.latitud,
                     main3ActivityDrawer.longitud);
 
@@ -206,6 +210,20 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
             DataHolder.instance.pi.add(pinTemp);
             tempmar.setTag(pinTemp);
+
+            main3ActivityDrawer.nuevoSpotFragment.editTextDesc.setText("");
+            main3ActivityDrawer.nuevoSpotFragment.editTextSpot.setText("");
+
+            main3ActivityDrawer.nuevoSpotFragment.rdbtipo.clearCheck();
+            main3ActivityDrawer.nuevoSpotFragment.rdgDificultad.clearCheck();
+
+            main3ActivityDrawer.nuevoSpotFragment.cbBanco.setChecked(false);
+            main3ActivityDrawer.nuevoSpotFragment.cbBarandilla.setChecked(false);
+            main3ActivityDrawer.nuevoSpotFragment.cbBowl.setChecked(false);
+            main3ActivityDrawer.nuevoSpotFragment.cbCajon.setChecked(false);
+            main3ActivityDrawer.nuevoSpotFragment.cbEscalera.setChecked(false);
+            main3ActivityDrawer.nuevoSpotFragment.cbRampa.setChecked(false);
+            main3ActivityDrawer.nuevoSpotFragment.img.setImageResource(R.drawable.transparente);
 
             Toast.makeText(main3ActivityDrawer, "SPOT INSERTADO", Toast.LENGTH_SHORT).show();
 
@@ -289,6 +307,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
     public void cambiarContraseñas(boolean cambiada, QBUser user) {
         if (cambiada) {
             Toast.makeText(main3ActivityDrawer, "Contraseña cambiada", Toast.LENGTH_SHORT).show();
+            main3ActivityDrawer.perfil.etContraseñaPerfil.setText("");
         } else {
             Toast.makeText(main3ActivityDrawer, "Fallo al cambiar la contraseña", Toast.LENGTH_SHORT).show();
         }

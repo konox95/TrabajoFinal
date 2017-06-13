@@ -28,6 +28,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.akexorcist.googledirection.DirectionCallback;
@@ -187,10 +188,25 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         if (frgm == 1) {
             transaction.show(mapa);
         } else if (frgm == 2) {
+            nuevoSpotFragment.editTextDesc.setText("");
+            nuevoSpotFragment.editTextSpot.setText("");
+
+            nuevoSpotFragment.rdbtipo.clearCheck();
+            nuevoSpotFragment.rdgDificultad.clearCheck();
+
+            nuevoSpotFragment.cbBanco.setChecked(false);
+            nuevoSpotFragment.cbBarandilla.setChecked(false);
+            nuevoSpotFragment.cbBowl.setChecked(false);
+            nuevoSpotFragment.cbCajon.setChecked(false);
+            nuevoSpotFragment.cbEscalera.setChecked(false);
+            nuevoSpotFragment.cbRampa.setChecked(false);
+            nuevoSpotFragment.img.setImageResource(R.drawable.transparente);
+
             transaction.show(nuevoSpotFragment);
         } else if (frgm == 3) {
-            transaction.show(perfil);
+            perfil.etContraseñaPerfil.setText("");
 
+            transaction.show(perfil);
             this.main3ActivityDrawerController.descargarImg();
         } else if(frgm ==4 ){
             transaction.show(mapa);
@@ -258,6 +274,9 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        DataHolder.instance.latitud = miUltimaPosicion.getLatitude();
+        DataHolder.instance.longitud = miUltimaPosicion.getLongitude();
         return miUltimaPosicion;
     }
 

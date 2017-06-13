@@ -60,14 +60,16 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
 
                     <RadioGroup
                         android:id="@+id/rbgTipo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:weightSum="1">
+                        android:gravity="center_horizontal">
 
                         <RadioButton
                             android:id="@+id/rdSkatepark"
@@ -83,7 +85,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:text="@string/street"
-                            android:textColor="@color/BLANCO" />
+                            android:textColor="@color/BLANCO"
+                            android:layout_gravity="right"/>
                     </RadioGroup>
                 </LinearLayout>
             </LinearLayout>
@@ -257,7 +260,8 @@
                     android:layout_width="400dp"
                     android:layout_height="300dp"
                     android:layout_gravity="center"
-                    android:layout_weight="0.33" />
+                    android:layout_weight="0.33"
+                    android:src="@drawable/transparente"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"

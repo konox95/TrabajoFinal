@@ -84,6 +84,8 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
         if (blLogeado) {
             Log.v("Controlador", "ME HE LOGEADO");
 
+
+
             SharedPreferences prefs = vista.getSharedPreferences("MIPROPS",0);
             SharedPreferences.Editor edit = prefs.edit();
 
@@ -117,6 +119,8 @@ public class mainActivityContolador implements View.OnClickListener, QBAdminList
                 Intent inten = new Intent(vista, Main3ActivityDrawer.class);
                 vista.startActivity(inten);
             }
+
+            Toast.makeText(vista, "Auth Ok", Toast.LENGTH_SHORT).show();
 
         } else if (!blLogeado){
             Toast.makeText(vista, "Auth fail", Toast.LENGTH_SHORT).show();
