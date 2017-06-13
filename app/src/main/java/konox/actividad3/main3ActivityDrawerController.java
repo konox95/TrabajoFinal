@@ -108,10 +108,30 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
         MiPin pin = (MiPin) marker.getTag();
         Log.v("MAP", "NOMBRE DEL MARKER PINCHADO " + pin.sNombre + pin.sDificultad);
+        main3ActivityDrawer.pin.txt_nombre.setText(pin.sNombre);
         main3ActivityDrawer.pin.txt_tipo.setText(pin.sTipo);
         main3ActivityDrawer.pin.txt_descripcion.setText(pin.sDescripcion);
         main3ActivityDrawer.pin.txt_dificultad.setText(pin.sDificultad);
         main3ActivityDrawer.pin.txt_tipo.setText(pin.sTipo);
+
+        if (pin.chBanco) {
+            main3ActivityDrawer.pin.icBanco.setImageResource(R.mipmap.ic_done_black_24dp);
+        }
+        if (pin.chBarandilla) {
+            main3ActivityDrawer.pin.icBarandilla.setImageResource(R.mipmap.ic_done_black_24dp);
+        }
+        if (pin.chBowl) {
+            main3ActivityDrawer.pin.icBowl.setImageResource(R.mipmap.ic_done_black_24dp);
+        }
+        if (pin.chCajon) {
+            main3ActivityDrawer.pin.icCajon.setImageResource(R.mipmap.ic_done_black_24dp);
+        }
+        if (pin.chEscalera) {
+            main3ActivityDrawer.pin.icEscalera.setImageResource(R.mipmap.ic_done_black_24dp);
+        }
+        if (pin.chRampa) {
+            main3ActivityDrawer.pin.icRampa.setImageResource(R.mipmap.ic_done_black_24dp);
+        }
 
         DataHolder.instance.miPin = pin;
 
@@ -202,8 +222,6 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             RadioButton radioButton = (RadioButton) main3ActivityDrawer.nuevoSpotFragment.rdbtipo.findViewById(id);
             int id2 = main3ActivityDrawer.nuevoSpotFragment.rdgDificultad.getCheckedRadioButtonId();
             RadioButton radioButton2 = (RadioButton) main3ActivityDrawer.nuevoSpotFragment.rdgDificultad.findViewById(id2);
-
-
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbBanco.isChecked()) {
                 chBanco = true;
