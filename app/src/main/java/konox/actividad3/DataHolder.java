@@ -21,6 +21,7 @@ public class DataHolder {
     public String name="";
     public String pwd = "";
     public String urlImage = "";
+    public String perfilNombre = "";
     public int contadorFav=0;
     public boolean cerraSesion =false;
     public ArrayList<MiPin> pi= new ArrayList<MiPin>();

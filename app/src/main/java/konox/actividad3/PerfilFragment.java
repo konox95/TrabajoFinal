@@ -70,7 +70,8 @@ public class PerfilFragment extends Fragment {
         btnCamara = (ImageButton) v.findViewById(R.id.btnCamara);
         btnGuardarPerfil = (Button) v.findViewById(R.id.btnGuardarPerfil);
 
-        tvNombrePerfil.setText(DataHolder.instance.name);
+        tvNombrePerfil.setText(DataHolder.instance.perfilNombre);
+        Log.v("NOMBRE", tvNombrePerfil.toString());
         tvEmailPErfil.setText(DataHolder.instance.email);
 
 

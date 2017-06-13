@@ -150,14 +150,14 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         txtEmail=(TextView)this.findViewById(R.id.txtEmail);
-        txtName=(TextView)this.findViewById(R.id.txtName);
+        txtName=(TextView)this.findViewById(R.id.txtName1);
         imgMenu = (ImageView) this.findViewById(R.id.imgmenu);
         txtEmail.setText(DataHolder.instance.email);
-        txtName.setText(DataHolder.instance.name);
+        txtName.setText(DataHolder.instance.perfilNombre);
+        Log.v("NOMBRE", txtName.toString());
         String imageUrl = DataHolder.instance.urlImage;
         Picasso.with(this).load(imageUrl).transform(new RoundedCornersTransformation(10, 10)).rotate(90).into(imgMenu);
 
-        //getMenuInflater().inflate(R.menu.main3_activity_drawer, menu);
         return true;
     }
 
