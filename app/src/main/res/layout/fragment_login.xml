@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:gravity="center"
+        android:padding="@android:dimen/app_icon_size"
         android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout

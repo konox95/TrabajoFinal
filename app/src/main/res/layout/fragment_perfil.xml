@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@android:dimen/app_icon_size"
     tools:context="konox.actividad3.PerfilFragment"
     android:background="@color/colorAccent">
 
@@ -94,6 +95,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Detalles"
                     android:textColor="@color/BLANCO"
                     android:textSize="24sp"
@@ -103,6 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
                     android:textColor="@color/BLANCO"
                     android:entries="@array/nivel" />
 
@@ -110,6 +113,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:layout_gravity="center"
                     android:textColor="@color/BLANCO"
                     android:text="@string/skater_en_mis_tiempos_libres_mejor_que_t_seguro" />
 
@@ -120,6 +124,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorAccent"
                 android:orientation="horizontal"
+                android:gravity="center"
                 android:padding="16dp"
                 android:weightSum="1"
                 app:layout_scrollFlags="scroll|enterAlways">
@@ -132,6 +137,7 @@
                         android:id="@+id/etContraseñaPerfil"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:hint="Contraseña"
                         android:textColor="@color/BLANCO"
                         android:inputType="textPassword" />

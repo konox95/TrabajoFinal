@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_gravity="center"
-              android:background="@color/colorAccent"
-              android:orientation="vertical"
-              tools:context="konox.actividad3.NuevoSpotFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@android:dimen/app_icon_size"
+    tools:context="konox.actividad3.NuevoSpotFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,8 +27,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="@string/nombre_del_spot"
-                    android:textColor="@color/BLANCO"/>
+                    android:textColor="@color/BLANCO"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editTextSpot"
@@ -35,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:textColor="@color/BLANCO"/>
+                    android:textColor="@color/BLANCO" />
 
             </LinearLayout>
 
@@ -48,8 +52,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="@string/tipo_de_spot"
-                    android:textColor="@color/BLANCO"/>
+                    android:textColor="@color/BLANCO"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -68,7 +75,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:text="@string/skatepark"
-                            android:textColor="@color/BLANCO"/>
+                            android:textColor="@color/BLANCO" />
 
                         <RadioButton
                             android:id="@+id/rdStreet"
@@ -76,7 +83,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
                             android:text="@string/street"
-                            android:textColor="@color/BLANCO"/>
+                            android:textColor="@color/BLANCO" />
                     </RadioGroup>
                 </LinearLayout>
             </LinearLayout>
@@ -90,8 +97,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="@string/content"
-                    android:textColor="@color/BLANCO"/>
+                    android:textColor="@color/BLANCO"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -105,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.33"
                         android:text="@string/escalera"
-                        android:textColor="@color/BLANCO"/>
+                        android:textColor="@color/BLANCO" />
 
                     <CheckBox
                         android:id="@+id/cbBarandilla"
@@ -113,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.33"
                         android:text="@string/barandilla"
-                        android:textColor="@color/BLANCO"/>
+                        android:textColor="@color/BLANCO" />
 
                     <CheckBox
                         android:id="@+id/cbBanco"
@@ -121,7 +131,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.33"
                         android:text="@string/banco"
-                        android:textColor="@color/BLANCO"/>
+                        android:textColor="@color/BLANCO" />
 
                 </LinearLayout>
 
@@ -137,7 +147,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.33"
                         android:text="@string/rampa"
-                        android:textColor="@color/BLANCO"/>
+                        android:textColor="@color/BLANCO" />
 
                     <CheckBox
                         android:id="@+id/cbCajon"
@@ -145,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.33"
                         android:text="@string/cajon"
-                        android:textColor="@color/BLANCO"/>
+                        android:textColor="@color/BLANCO" />
 
                     <CheckBox
                         android:id="@+id/cbBowl"
@@ -153,7 +163,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.33"
                         android:text="@string/bowl"
-                        android:textColor="@color/BLANCO"/>
+                        android:textColor="@color/BLANCO" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -167,15 +177,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="@string/descripcion"
-                    android:textColor="@color/BLANCO"/>
+                    android:textColor="@color/BLANCO"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editTextDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:textColor="@color/BLANCO"/>
+                    android:textColor="@color/BLANCO" />
 
             </LinearLayout>
 
@@ -188,8 +201,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="@string/dificultad"
-                    android:textColor="@color/BLANCO"/>
+                    android:textColor="@color/BLANCO"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -208,7 +224,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.33"
                             android:text="@string/baja"
-                            android:textColor="@color/BLANCO"/>
+                            android:textColor="@color/BLANCO" />
 
                         <RadioButton
                             android:id="@+id/rdDificultalMedia"
@@ -216,7 +232,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.33"
                             android:text="@string/media"
-                            android:textColor="@color/BLANCO"/>
+                            android:textColor="@color/BLANCO" />
 
                         <RadioButton
                             android:id="@+id/rdDificultalAlta"
@@ -224,7 +240,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.33"
                             android:text="@string/alta"
-                            android:textColor="@color/BLANCO"/>
+                            android:textColor="@color/BLANCO" />
                     </RadioGroup>
 
                 </LinearLayout>
@@ -239,9 +255,9 @@
                 <ImageView
                     android:id="@+id/set_picture"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="0.33"/>
+                    android:layout_weight="0.33" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -258,7 +274,7 @@
                         android:layout_weight="0.5"
                         android:background="@color/colorAccent"
                         android:src="@drawable/ic_perm_media_white_24dp"
-                        android:text="@string/galeria"/>
+                        android:text="@string/galeria" />
 
 
                     <ImageButton
@@ -268,7 +284,7 @@
                         android:layout_weight="0.5"
                         android:background="@color/colorAccent"
                         android:src="@drawable/ic_camera_enhance_white_24dp"
-                        android:text="@string/camara"/>
+                        android:text="@string/camara" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -285,9 +301,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/redondo"
-                    android:text="@string/agregar_spot"/>
+                    android:text="@string/agregar_spot" />
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

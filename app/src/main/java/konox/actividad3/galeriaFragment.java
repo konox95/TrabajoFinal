@@ -10,12 +10,17 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 import konox.libreria1.MiPin;
 
 
@@ -28,7 +33,7 @@ public class galeriaFragment extends Fragment {
     private ArrayList<galeria> galerias;
     private AdapterA adapter;
     private  RecyclerView recyclerView;
-
+    public ImageView img;
 
     public galeriaFragment() {
         seriesOfNumbers = new ArrayList<Integer>();
@@ -44,11 +49,14 @@ public class galeriaFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_galeria, container, false);
         recyclerView = (RecyclerView) v.findViewById(R.id.rv);
+        img =(ImageView)v.findViewById(R.id.imageCard);
 
 
         //para recoger el array de textos de spots
+        /*
         Resources res = getResources();
         String[] textoSpot = res.getStringArray(R.array.textoSpot);
+        String[] dificultadSpot = res.getStringArray(R.array.dificultadSpot);
         //para recoger el array de imagenes spots
         TypedArray imgs = getResources().obtainTypedArray(R.array.fotos);
         int count = imgs.length();
@@ -62,9 +70,11 @@ public class galeriaFragment extends Fragment {
         }
         //parar recorrer el array de textos e ir insertando texto con foto en el array de galeria
         for (int i = 0; i < textoSpot.length; i++) {
-            galeria gal = new galeria(textoSpot[i], seriesOfNumbers.get(i));
+            galeria gal = new galeria(textoSpot[i],dificultadSpot[i],seriesOfNumbers.get(i));
             galerias.add(gal);
         }
+
+        */
         adapter = new AdapterA(getContext(), galerias);
 
 
@@ -84,14 +94,23 @@ public class galeriaFragment extends Fragment {
             galerias.clear();
             recyclerView.getAdapter().notifyDataSetChanged();
         }
-        String nombre = DataHolder.instance.miPin.sDificultad;
-        galeria gal = new galeria(nombre);
+        String nombre = DataHolder.instance.miPin.sNombre;
+        String dificultad = DataHolder.instance.miPin.sDificultad;
+        ArrayList<String> pi=DataHolder.instance.miPin.imgSpot;
+        String imageUrl = pi.get(0);
+        Log.v("MAP", "URLLLLLLLLLLLLLLLLLLLLLLL**** " + imageUrl);
+        galeria gal = new galeria(nombre,dificultad,imageUrl);
         galerias.add(gal);
         adapter = new AdapterA(getContext(), galerias);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 1);  //displays number of cards per row
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
+
+
+
+
         adapter.notifyDataSetChanged();
 
     }

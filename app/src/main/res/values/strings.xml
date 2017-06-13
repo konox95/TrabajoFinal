@@ -37,6 +37,15 @@
         <item>SpotLasZorreras</item>
     </string-array>
 
+    <string-array name="dificultadSpot">
+        <item>Baja</item>
+        <item>Media</item>
+        <item>Baja</item>
+        <item>Alta</item>
+        <item>Media</item>
+        <item>Alta</item>
+    </string-array>
+
     <integer-array name="fotos">
         <item>@drawable/villalba</item>
         <item>@drawable/galapagar</item>
@@ -45,6 +54,8 @@
         <item>@drawable/cercedilla</item>
         <item>@drawable/zorreras</item>
     </integer-array>
+
+
 
 
 

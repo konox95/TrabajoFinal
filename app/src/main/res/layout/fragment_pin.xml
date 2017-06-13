@@ -5,10 +5,9 @@
               android:orientation="vertical"
               android:paddingLeft="60dp"
               android:paddingRight="60dp"
+              android:padding="@android:dimen/app_icon_size"
               android:paddingTop="60dp"
               android:weightSum="2">
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,26 +19,34 @@
             android:paddingRight="20dp"
             android:paddingTop="1dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/imgBtnClose"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="right"
-                android:background="@android:color/transparent"
-                android:paddingRight="1dp"
-                android:paddingTop="2dp"
-                android:src="@mipmap/ic_clear_black_24dp"/>
+                <ImageButton
+                    android:id="@+id/imgBtnClose"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right"
+                    android:background="@android:color/transparent"
+                    android:paddingRight="1dp"
+                    android:paddingTop="2dp"
+                    android:src="@mipmap/ic_clear_black_24dp"/>
 
-            <ImageButton
-                android:id="@+id/imgBtnFavorites"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="left"
-                android:background="@android:color/transparent"
-                android:paddingRight="1dp"
-                android:paddingTop="2dp"
-                android:src="@drawable/ic_menu_send"/>
+                <ImageButton
+                    android:id="@+id/imgBtnFavorites"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="left"
+                    android:background="@android:color/transparent"
+                    android:paddingRight="1dp"
+                    android:paddingTop="2dp"
+                    android:src="@mipmap/ic_grade_black_24dp"/>
+
+            </LinearLayout>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"

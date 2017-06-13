@@ -50,12 +50,11 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
     }
 
     public void descargarImg() {
-
         Log.v("PASE", "PASSSSSSSSSSSSSSSS");
         String imageUrl = DataHolder.instance.urlImage;
-        Picasso.with(main3ActivityDrawer).load(imageUrl).transform(new RoundedCornersTransformation(10, 10)).into(main3ActivityDrawer.perfil.img);
-
+        Picasso.with(main3ActivityDrawer).load(imageUrl).transform(new RoundedCornersTransformation(10, 10)).rotate(90).into(main3ActivityDrawer.perfil.img);
     }
+
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -63,8 +62,6 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
         if (item.getItemId() == main3ActivityDrawer.perfilNav.getItemId()) {
             main3ActivityDrawer.cambiarFragmentDrawer(3);
-
-
             main3ActivityDrawer.onBackPressed();
         } else if (item.getItemId() == main3ActivityDrawer.spotNav.getItemId()) {
             main3ActivityDrawer.cambiarFragmentDrawer(2);
@@ -333,7 +330,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
         if (view.getId() == main3ActivityDrawer.pin.btnEmpezar.getId()) {
             Log.v("ENTRA_MAPA", "ENTRA MAPAAAAAAAAA");
-
+            Toast.makeText(view.getContext(), "Viaje iniciado", Toast.LENGTH_SHORT).show();
             main3ActivityDrawer.sendLatLong();
             main3ActivityDrawer.startDirection(DataHolder.instance.miPin, DataHolder.instance.longitud, DataHolder.instance.latitud);
         }

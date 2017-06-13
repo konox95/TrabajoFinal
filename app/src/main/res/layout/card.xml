@@ -2,28 +2,42 @@
     android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="@android:dimen/app_icon_size"
     android:layout_gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/layout_bg"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textCard"
+            android:id="@+id/txtNombreSpot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="texto"
+            android:paddingTop="10dp"
+            android:hint="NombreSpot"
+            android:text=""
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txtDificultad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:gravity="center"
+            android:hint="Dificultad"
+            android:text=""
             android:textSize="20dp" />
 
         <RatingBar
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="10dp"
             android:numStars="5"
             android:rating="1.0"
             android:stepSize="0.5" />

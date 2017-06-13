@@ -50,6 +50,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 import konox.libreria1.MiPin;
 
 
@@ -154,7 +155,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         txtEmail.setText(DataHolder.instance.email);
         txtName.setText(DataHolder.instance.name);
         String imageUrl = DataHolder.instance.urlImage;
-        Picasso.with(this).load(imageUrl).into(imgMenu);
+        Picasso.with(this).load(imageUrl).transform(new RoundedCornersTransformation(10, 10)).rotate(90).into(imgMenu);
 
         //getMenuInflater().inflate(R.menu.main3_activity_drawer, menu);
         return true;
