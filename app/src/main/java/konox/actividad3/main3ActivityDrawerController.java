@@ -195,7 +195,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
 
             Marker tempmar = main3ActivityDrawer.mMap.addMarker(new MarkerOptions().position(current)
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_car_black_12dp)));
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
 
             //Conseguir el radioButton seleccionado
             int id = main3ActivityDrawer.nuevoSpotFragment.rdbtipo.getCheckedRadioButtonId();

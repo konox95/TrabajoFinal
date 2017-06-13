@@ -3,15 +3,13 @@
               android:layout_height="match_parent"
               android:background="@android:color/transparent"
               android:orientation="vertical"
-              android:paddingLeft="60dp"
-              android:paddingRight="60dp"
-              android:padding="@android:dimen/app_icon_size"
+              android:gravity="center"
               android:paddingTop="60dp"
               android:weightSum="2">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="400dp"
+            android:layout_height="350dp"
             android:layout_weight="1"
             android:background="@drawable/layout_bg"
             android:orientation="vertical"
@@ -19,18 +17,19 @@
             android:paddingRight="20dp"
             android:paddingTop="1dp"
             android:layout_marginBottom="125dp"
-            android:layout_marginTop="120dp">
+            android:layout_marginTop="110dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingTop="20dp"
                 android:weightSum="1">
 
                 <ImageButton
                     android:id="@+id/imgBtnFavorites"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="left"
                     android:background="@android:color/transparent"
                     android:paddingRight="1dp"
@@ -41,8 +40,8 @@
 
                 <ImageButton
                     android:id="@+id/imgBtnClose"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="right"
                     android:background="@android:color/transparent"
                     android:paddingRight="1dp"
@@ -84,14 +83,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
+                android:layout_height="150dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/imgSpot"
                     android:layout_width="match_parent"
-                    android:layout_height="100sp"
+                    android:layout_height="150sp"
                     android:src="@drawable/skatepark"/>
             </LinearLayout>
             <LinearLayout
