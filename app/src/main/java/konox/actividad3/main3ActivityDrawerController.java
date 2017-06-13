@@ -152,8 +152,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
         for (int i = 0; i < pines.size(); i++) {
             LatLng current = new LatLng(pines.get(i).dbLatitud,
                     pines.get(i).dbLongitud);
-            Marker tempmar = main3ActivityDrawer.mMap.addMarker(new MarkerOptions().position(current).
-                    title(pines.get(i).sNombre)
+            Marker tempmar = main3ActivityDrawer.mMap.addMarker(new MarkerOptions().position(current)
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_car_black_12dp)));
             tempmar.setTag(pines.get(i));
 
@@ -173,14 +172,26 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
 
 
             Marker tempmar = main3ActivityDrawer.mMap.addMarker(new MarkerOptions().position(current)
-                    .title(main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString()));
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_car_black_12dp)));
+
+            //Conseguir el radioButton seleccionado
+            int id = main3ActivityDrawer.nuevoSpotFragment.rdbtipo.getCheckedRadioButtonId();
+            RadioButton radioButton = (RadioButton) main3ActivityDrawer.nuevoSpotFragment.rdbtipo.findViewById(id);
+            int id2 = main3ActivityDrawer.nuevoSpotFragment.rdgDificultad.getCheckedRadioButtonId();
+            RadioButton radioButton2 = (RadioButton) main3ActivityDrawer.nuevoSpotFragment.rdgDificultad.findViewById(id2);
 
             MiPin pinTemp = new MiPin(main3ActivityDrawer.latitud,
-                    main3ActivityDrawer.longitud, main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString());
+                    main3ActivityDrawer.longitud, main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString(),
+                    main3ActivityDrawer.nuevoSpotFragment.editTextDesc.getText().toString(), radioButton.getText().toString(),
+                    radioButton2.getText().toString(), arrFotos);
+
+            DataHolder.instance.pi.add(pinTemp);
             tempmar.setTag(pinTemp);
 
+            Toast.makeText(main3ActivityDrawer, "SPOT INSERTADO", Toast.LENGTH_SHORT).show();
 
-
+        } else {
+            Toast.makeText(main3ActivityDrawer, "ERROR AL INSERTAR SPOT", Toast.LENGTH_SHORT).show();
         }
     }
 
