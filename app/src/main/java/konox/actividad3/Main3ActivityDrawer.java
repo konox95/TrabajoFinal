@@ -156,7 +156,7 @@ public class Main3ActivityDrawer extends AppCompatActivity implements OnMapReady
         txtName.setText(DataHolder.instance.perfilNombre);
         Log.v("NOMBRE", txtName.toString());
         String imageUrl = DataHolder.instance.urlImage;
-        Picasso.with(this).load(imageUrl).transform(new RoundedCornersTransformation(10, 10)).rotate(90).into(imgMenu);
+        Picasso.with(this).load(imageUrl).transform(new RoundedCornersTransformation(290, 290)).rotate(90).into(imgMenu);
 
         return true;
     }

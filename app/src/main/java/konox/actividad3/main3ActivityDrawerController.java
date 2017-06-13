@@ -53,7 +53,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
     public void descargarImg() {
         Log.v("PASE", "PASSSSSSSSSSSSSSSS");
         String imageUrl = DataHolder.instance.urlImage;
-        Picasso.with(main3ActivityDrawer).load(imageUrl).transform(new RoundedCornersTransformation(10, 10)).rotate(90).into(main3ActivityDrawer.perfil.img);
+        Picasso.with(main3ActivityDrawer).load(imageUrl).transform(new RoundedCornersTransformation(290, 290)).rotate(90).into(main3ActivityDrawer.perfil.img);
     }
 
 
@@ -139,6 +139,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             String UrlFoto = pin.imgSpot.get(0);
             Picasso.with(main3ActivityDrawer)
                     .load(UrlFoto)
+                    .transform(new RoundedCornersTransformation(290, 290))
                     //.resize(200,100)
                     .rotate(90)
                     .into(main3ActivityDrawer.pin.imgSpotPinFragment);
@@ -171,7 +172,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             LatLng current = new LatLng(pines.get(i).dbLatitud,
                     pines.get(i).dbLongitud);
             Marker tempmar = main3ActivityDrawer.mMap.addMarker(new MarkerOptions().position(current)
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_car_black_12dp)));
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
             tempmar.setTag(pines.get(i));
 
             CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(main3ActivityDrawer.latitud, main3ActivityDrawer.longitud));

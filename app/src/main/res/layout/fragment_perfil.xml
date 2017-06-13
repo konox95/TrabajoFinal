@@ -25,7 +25,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@color/colorAccent" />
 
 
                 <LinearLayout
@@ -38,11 +38,12 @@
 
                     <ImageView
                         android:id="@+id/ivFotoPerfil"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="600dp"
+                        android:layout_height="230dp"
                         android:src="@drawable/cv" />
 
                     <TextView
+                        android:paddingTop="20dp"
                         android:id="@+id/tvNombreUsuarioPerfil"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

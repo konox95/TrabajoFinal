@@ -76,16 +76,9 @@
             android:background="@drawable/redondo"
             android:text="@string/Log" />
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/btnGoogle"
-            android:layout_width="261dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
-
-        </com.google.android.gms.common.SignInButton>
-
         <TextView
             android:id="@+id/botonRegistro"
+            android:paddingTop="40dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/registrate"

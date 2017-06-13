@@ -55,7 +55,7 @@ public class AdapterA extends RecyclerView.Adapter<AdapterA.AdapterHolder> {
         holder.txtNombre.setText(galeria.getNombre());
         holder.txtDificultad.setText(galeria.getDificultad());
         //holder.image.setImageResource(galeria.getFoto());
-        Picasso.with(context).load(galeria.getAndroid_image_url()).transform(new RoundedCornersTransformation(10, 10)).rotate(90).into(holder.image);
+        Picasso.with(context).load(galeria.getAndroid_image_url()).transform(new RoundedCornersTransformation(290, 290)).rotate(90).into(holder.image);
 
     }
 

@@ -8,9 +8,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="268dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@android:dimen/app_icon_size"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:orientation="vertical">
@@ -74,7 +75,7 @@
 
         <Button
             android:id="@+id/btnOkRegistro"
-            android:layout_width="match_parent"
+            android:layout_width="261dp"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:background="@drawable/redondo"
@@ -86,8 +87,8 @@
             android:layout_height="wrap_content"
             android:text="¿Ya estás registrado? Logeate aquí"
             android:textAlignment="center"
+            android:paddingTop="40dp"
             android:textColor="@color/NEGRO" />
-
     </LinearLayout>
 
 

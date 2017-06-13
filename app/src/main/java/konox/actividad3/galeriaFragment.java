@@ -109,8 +109,6 @@ public class galeriaFragment extends Fragment {
 
 
 
-
-
         adapter.notifyDataSetChanged();
 
     }
