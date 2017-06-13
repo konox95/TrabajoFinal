@@ -38,6 +38,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
     Main3ActivityDrawer main3ActivityDrawer;
     ArrayList<String> arrFotos = new ArrayList<String>();
     ArrayList<String> pines= new ArrayList<>();
+    Boolean chBanco = false, chBarandilla = false, chBowl = false, chCajon = false, chEscalera = false, chRampa = false;
 
     String urlImg;
 
@@ -180,7 +181,7 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             MiPin pinTemp = new MiPin(main3ActivityDrawer.latitud,
                     main3ActivityDrawer.longitud, main3ActivityDrawer.nuevoSpotFragment.editTextSpot.getText().toString(),
                     main3ActivityDrawer.nuevoSpotFragment.editTextDesc.getText().toString(), radioButton.getText().toString(),
-                    radioButton2.getText().toString(), arrFotos);
+                    radioButton2.getText().toString(), arrFotos, chBanco, chBarandilla, chBowl, chCajon, chEscalera, chRampa);
 
             DataHolder.instance.pi.add(pinTemp);
             tempmar.setTag(pinTemp);
@@ -203,30 +204,29 @@ public class main3ActivityDrawerController implements View.OnClickListener, Navi
             RadioButton radioButton2 = (RadioButton) main3ActivityDrawer.nuevoSpotFragment.rdgDificultad.findViewById(id2);
 
 
-            String chBanco = null, chBarandilla = null, chBowl = null, chCajon = null, chEscalera = null, chRampa = null;
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbBanco.isChecked()) {
-                chBanco = main3ActivityDrawer.nuevoSpotFragment.cbBanco.getText().toString();
+                chBanco = true;
             }
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbBarandilla.isChecked()) {
-                chBarandilla = main3ActivityDrawer.nuevoSpotFragment.cbBarandilla.getText().toString();
+                chBarandilla = true;
             }
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbBowl.isChecked()) {
-                chBowl = main3ActivityDrawer.nuevoSpotFragment.cbBowl.getText().toString();
+                chBowl = true;
             }
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbCajon.isChecked()) {
-                chCajon = main3ActivityDrawer.nuevoSpotFragment.cbCajon.getText().toString();
+                chCajon = true;
             }
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbEscalera.isChecked()) {
-                chEscalera = main3ActivityDrawer.nuevoSpotFragment.cbEscalera.getText().toString();
+                chEscalera = true;
             }
 
             if (main3ActivityDrawer.nuevoSpotFragment.cbRampa.isChecked()) {
-                chRampa = main3ActivityDrawer.nuevoSpotFragment.cbRampa.getText().toString();
+                chRampa = true;
             }
 
             urlImg = qbFile.getPublicUrl();

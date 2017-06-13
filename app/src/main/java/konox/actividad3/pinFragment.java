@@ -21,6 +21,7 @@ public class pinFragment extends Fragment {
     ImageButton imgBtnFavorites;
     Button btnEmpezar;
     ImageView imgSpotPinFragment;
+    ImageView icBanco, icBarandilla, icBowl, icCajon, icEscalera, icRampa;
 
 
     public pinFragment() {
@@ -41,6 +42,12 @@ public class pinFragment extends Fragment {
         imgBtnClose = (ImageButton)v.findViewById(R.id.imgBtnClose);
         btnEmpezar = (Button) v.findViewById(R.id.btnEmpezar);
         imgBtnFavorites = (ImageButton)v.findViewById(R.id.imgBtnFavorites);
+        icBanco = (ImageView) v.findViewById(R.id.icBanco);
+        icBarandilla = (ImageView) v.findViewById(R.id.icBarandilla);
+        icBowl = (ImageView) v.findViewById(R.id.icBowl);
+        icCajon = (ImageView) v.findViewById(R.id.icCajon);
+        icEscalera = (ImageView) v.findViewById(R.id.icEscalera);
+        icRampa = (ImageView) v.findViewById(R.id.icRampa);
 
         return v;
     }

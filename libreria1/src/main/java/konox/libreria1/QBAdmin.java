@@ -148,6 +148,12 @@ public class QBAdmin {
                     String descripSpot = qbCustomObjects.get(i).getFields().get("Descripcion").toString();
                     String tipoSpot =  qbCustomObjects.get(i).getFields().get("Tipo").toString();
                     String dificultadSpot =  qbCustomObjects.get(i).getFields().get("Dificultad").toString();
+                    Boolean chBanco = (Boolean) qbCustomObjects.get(i).getFields().get("CBanco");
+                    Boolean chBarandilla = (Boolean) qbCustomObjects.get(i).getFields().get("CBarandilla");
+                    Boolean chBowl = (Boolean) qbCustomObjects.get(i).getFields().get("CBowl");
+                    Boolean chCajon = (Boolean) qbCustomObjects.get(i).getFields().get("CCajon");
+                    Boolean chEscalera = (Boolean) qbCustomObjects.get(i).getFields().get("CEscalera");
+                    Boolean chRampa = (Boolean) qbCustomObjects.get(i).getFields().get("CRampa");
 
                     ArrayList<String> imgSpot= new ArrayList<String>();
                     if(qbCustomObjects.get(i).getFields().get("Fotos")!=null){
@@ -168,7 +174,7 @@ public class QBAdmin {
 
 
                     }
-                    pines.add(new MiPin(Latitud, Longitud, nombreSpot,descripSpot, tipoSpot, dificultadSpot, imgSpot));
+                    pines.add(new MiPin(Latitud, Longitud, nombreSpot,descripSpot, tipoSpot, dificultadSpot, imgSpot, chBanco, chBarandilla, chBowl, chCajon, chEscalera, chRampa));
                 }
                 adminlistener.descargaPinesFinalizado(pines);
             }
@@ -181,7 +187,7 @@ public class QBAdmin {
     }
 
     public void insertarPines(double longitud, double latitud, String nombreSpot, String descripcionSpot, String tipoSpot, String dificultad,
-                              String chBanco, String chBarandilla, String chBowl, String chCajon, String chEscalera, String chRampa, ArrayList<String> fotos) {
+                              Boolean chBanco, Boolean chBarandilla, Boolean chBowl, Boolean chCajon, Boolean chEscalera, Boolean chRampa, ArrayList<String> fotos) {
         QBCustomObject object = new QBCustomObject();
 
 
@@ -191,12 +197,12 @@ public class QBAdmin {
         object.putString("Descripcion", descripcionSpot);
         object.putString("Tipo", tipoSpot);
         object.putString("Dificultad", dificultad);
-        object.putString("CBanco", chBanco);
-        object.putString("CBarandilla", chBarandilla);
-        object.putString("CBowl", chBowl);
-        object.putString("CCajon", chCajon);
-        object.putString("CEscalera", chEscalera);
-        object.putString("CRampa", chRampa);
+        object.putBoolean("CBanco", chBanco);
+        object.putBoolean("CBarandilla", chBarandilla);
+        object.putBoolean("CBowl", chBowl);
+        object.putBoolean("CCajon", chCajon);
+        object.putBoolean("CEscalera", chEscalera);
+        object.putBoolean("CRampa", chRampa);
         object.putArray("Fotos", fotos);
 
         object.setClassName("Pines");

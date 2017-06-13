@@ -14,6 +14,7 @@ public class MiPin {
     public String sTipo;
     public String sDificultad;
     public ArrayList<String> imgSpot;
+    public Boolean chBanco, chBarandilla, chBowl, chCajon, chEscalera, chRampa;
 
     public MiPin(double dblat,double dblon,String snom){
         this.dbLatitud=dblat;
@@ -21,7 +22,8 @@ public class MiPin {
         this.sNombre=snom;
     }
 
-    public MiPin(double dblat,double dblon,String snom,String sdescripcion,String stipo,String sdificultad, ArrayList<String> imgSpot){
+    public MiPin(double dblat,double dblon,String snom,String sdescripcion,String stipo,String sdificultad, ArrayList<String> imgSpot,
+                 Boolean chBanco, Boolean chBarandilla, Boolean chBowl, Boolean chCajon, Boolean chEscalera, Boolean chRampa){
         this.dbLatitud=dblat;
         this.dbLongitud=dblon;
         this.sNombre=snom;
@@ -29,6 +31,14 @@ public class MiPin {
         this.sTipo=stipo;
         this.sDificultad=sdificultad;
         this.imgSpot = imgSpot;
+        this.chBanco = chBanco;
+        this.chBarandilla = chBarandilla;
+        this.chBowl = chBowl;
+        this.chCajon = chCajon;
+        this.chEscalera = chEscalera;
+        this.chRampa = chRampa;
+
+
     }
 
 }
